@@ -79,13 +79,15 @@ export default function Home() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
+            <a
+              href="https://calendly.com/versassist/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all"
             >
               Book a Discovery Call
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
             <Link
               href="/services"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/[0.06] backdrop-blur-sm transition-all"
@@ -350,13 +352,15 @@ export default function Home() {
           <p className="text-center text-gray-300 max-w-lg text-lg leading-relaxed mb-10">
             Book a free 15-minute discovery call and let us show you how AI-powered virtual assistance can transform your operations.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href="https://calendly.com/versassist/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all"
           >
             Book a Discovery Call
             <ArrowRight className="w-5 h-5" />
-          </Link>
+          </a>
         </div>
       </section>
     </>

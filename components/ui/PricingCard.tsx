@@ -61,7 +61,7 @@ export default function PricingCard({ plan }: PricingCardProps) {
         ))}
       </ul>
       <Link
-        href="/contact"
+        href="https://calendly.com/versassist/30min"
         className={`block text-center py-3.5 rounded-full font-semibold text-sm transition-all ${
           plan.highlighted
             ? "bg-primary text-white hover:bg-primary-dark"

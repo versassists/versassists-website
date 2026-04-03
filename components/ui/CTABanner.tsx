@@ -12,7 +12,7 @@ export default function CTABanner({
   title = "Ready to Scale Your Business?",
   description = "Book a free 15-minute discovery call and let us show you how AI-powered virtual assistance can transform your operations.",
   buttonText = "Book a Discovery Call",
-  buttonHref = "/contact",
+  buttonHref = "https://calendly.com/versassist/30min",
 }: CTABannerProps) {
   return (
     <section className="section-padding">

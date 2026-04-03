@@ -432,6 +432,7 @@ export const navLinks = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
+  { label: "VersAssist Calculator", href: "https://calculator.versassists.com/" },
 ];
 
 // ─── Social Links ────────────────────────────────────────────────────

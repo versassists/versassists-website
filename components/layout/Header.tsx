@@ -39,30 +39,37 @@ export default function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors ${
-                  pathname === link.href
-                    ? "text-primary"
-                    : scrolled
-                    ? "text-gray-600 hover:text-gray-900"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isExternal = link.href.startsWith("http");
+              const Tag = isExternal ? "a" : Link;
+              return (
+                <Tag
+                  key={link.href}
+                  href={link.href}
+                  {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className={`text-sm font-medium transition-colors ${
+                    pathname === link.href
+                      ? "text-primary"
+                      : scrolled
+                      ? "text-gray-600 hover:text-gray-900"
+                      : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </Tag>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link
-              href="/contact"
+            <a
+              href="https://calendly.com/versassist/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-primary text-white text-sm font-semibold shadow-sm shadow-primary/20 hover:bg-primary-dark transition-all"
             >
               Book a Call
-            </Link>
+            </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`lg:hidden p-2 rounded-lg transition-colors ${scrolled ? "text-gray-900" : "text-white"}`}
@@ -76,20 +83,25 @@ export default function Header() {
 
       <div className={`lg:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
         <div className="bg-white border-t shadow-lg px-6 py-6 space-y-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`block px-4 py-3 rounded-xl text-sm font-medium text-center transition-colors ${
-                pathname === link.href ? "bg-primary/[0.08] text-primary" : "text-gray-700 hover:bg-gray-50"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/contact" className="block px-4 py-3 mt-3 text-center rounded-full bg-primary text-white text-sm font-semibold">
+          {navLinks.map((link) => {
+            const isExternal = link.href.startsWith("http");
+            const Tag = isExternal ? "a" : Link;
+            return (
+              <Tag
+                key={link.href}
+                href={link.href}
+                {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className={`block px-4 py-3 rounded-xl text-sm font-medium text-center transition-colors ${
+                  pathname === link.href ? "bg-primary/[0.08] text-primary" : "text-gray-700 hover:bg-gray-50"
+                }`}
+              >
+                {link.label}
+              </Tag>
+            );
+          })}
+          <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 mt-3 text-center rounded-full bg-primary text-white text-sm font-semibold">
             Book a Call
-          </Link>
+          </a>
         </div>
       </div>
     </header>

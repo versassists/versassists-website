@@ -149,7 +149,7 @@ export default function ContactPage() {
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
                   Schedule a free 15-minute call and we&apos;ll recommend the fastest path to results.
                 </p>
-                <a href="#" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary-dark shadow-lg shadow-primary/25 transition-all">
+                <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary-dark shadow-lg shadow-primary/25 transition-all">
                   Schedule a Call <ArrowRight className="w-4 h-4" />
                 </a>
               </div>

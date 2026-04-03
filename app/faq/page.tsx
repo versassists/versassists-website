@@ -68,9 +68,9 @@ export default function FAQPage() {
             We&apos;re here to help. Book a free discovery call or send us an email.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all">
+            <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all">
               Book a Discovery Call <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
             <a href="mailto:info@versassists.com" className="inline-flex items-center justify-center px-10 py-5 rounded-full border border-white/20 text-white font-semibold text-lg hover:border-primary hover:text-primary transition-all">
               Email Us
             </a>

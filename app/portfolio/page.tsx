@@ -137,9 +137,9 @@ export default function PortfolioPage() {
           <p className="text-gray-300 max-w-lg mb-12 text-lg leading-relaxed text-center">
             Every business is unique. Let&apos;s discuss how VersAssist can drive results for yours.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all">
+          <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all">
             Book a Discovery Call <ArrowRight className="w-5 h-5" />
-          </Link>
+          </a>
         </div>
       </section>
     </>

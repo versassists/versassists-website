@@ -87,25 +87,27 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
-                  className={`block py-3.5 rounded-full font-semibold text-sm transition-all ${
+                <a
+                  href="https://calendly.com/versassist/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block py-3.5 rounded-full font-semibold text-sm transition-all text-center ${
                     plan.highlighted
                       ? "bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/25"
                       : "bg-gray-900 text-white hover:bg-gray-800"
                   }`}
                 >
                   {plan.cta}
-                </Link>
+                </a>
               </div>
             ))}
           </div>
 
           <p className="text-center text-gray-500 mt-12">
             Not sure which plan is right?{" "}
-            <Link href="/contact" className="text-primary font-semibold hover:underline">
+            <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">
               Book a free discovery call
-            </Link>
+            </a>
           </p>
         </div>
       </section>
@@ -170,9 +172,9 @@ export default function PricingPage() {
           <p className="text-gray-300 max-w-lg mb-12 text-lg sm:text-xl leading-relaxed text-center">
             Book a free 15-minute call and we&apos;ll recommend the best plan for your business.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all">
+          <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all">
             Book a Discovery Call <ArrowRight className="w-5 h-5" />
-          </Link>
+          </a>
         </div>
       </section>
     </>

@@ -93,9 +93,9 @@ export default async function BlogPostPage({
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Ready to Scale?</h2>
               <p className="text-gray-400 max-w-lg mx-auto mb-10 text-lg">Book a free discovery call to get started.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:bg-primary-dark transition-all">
+              <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:bg-primary-dark transition-all">
                 Book a Discovery Call <ArrowRight className="w-5 h-5" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
