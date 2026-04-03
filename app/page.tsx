@@ -46,6 +46,7 @@ const clientLogos: {
   { name: "Client", src: "/logos/a3c153_9626c8c325f844a9ab99f64662fe1395~mv2.avif" },
   { name: "Client", src: "/logos/154083_11254e099d8b4b90a28cb91e08eb19bb~mv2.avif" },
   { name: "Client", src: "/logos/11125b_a09daaff309e436f93a798549035fd0c~mv2.avif" },
+  { name: "MilMoves", src: "/logos/logs%20milmoves.png", bg: "white" },
 ];
 
 export default function Home() {
