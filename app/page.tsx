@@ -17,10 +17,15 @@ import { services, testimonials, stats, faqItems } from "@/lib/constants";
 import StatCounter from "@/components/ui/StatCounter";
 
 const clientLogos = [
-  { name: "The Nursing Spot", src: "/logos/nursing-spot.png" },
-  { name: "Carter & Olay Foundation", src: "/logos/carter-olay.png" },
-  { name: "PRISM", src: "/logos/prism.png" },
-  { name: "PharmDToBe Guides", src: "/logos/pharmdtobe.png" },
+  { name: "The Nursing Spot", src: "/logos/nursing-spot.svg" },
+  { name: "Carter & Olay Foundation", src: "/logos/carter-olay.svg" },
+  { name: "PRISM", src: "/logos/prism.svg" },
+  { name: "PharmDToBe Guides", src: "/logos/pharmdtobe.svg" },
+  { name: "About Life & Marriage", src: "/logos/about-life-marriage.svg" },
+  { name: "Edge Medical Writing", src: "/logos/edge-medical.svg" },
+  { name: "Lehigh Valley Dryer Vent Solutions", src: "/logos/lehigh-valley.svg" },
+  { name: "CavemanBrain", src: "/logos/cavemanbrain.svg" },
+  { name: "Partner", src: "/logos/partner-logo.svg" },
 ];
 
 export default function Home() {
@@ -91,30 +96,22 @@ export default function Home() {
       </section>
 
       {/* ════════════ TRUSTED BY (Logos) ════════════ */}
-      <section className="relative py-16 overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
-          alt="Office background"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gray-900/85" />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 flex flex-col items-center">
+      <section className="py-14 bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 mb-10">
             Trusted by businesses across industries
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="w-full flex flex-wrap items-center justify-center gap-10 md:gap-14">
             {clientLogos.map((logo) => (
               <div
                 key={logo.name}
-                className="flex items-center justify-center bg-primary-light/20 rounded-2xl p-6 aspect-square w-40 h-40"
+                className="flex items-center justify-center h-14 w-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
               >
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={logo.src}
                   alt={logo.name}
-                  width={120}
-                  height={120}
-                  className="object-contain"
+                  className="h-full w-auto object-contain max-w-[140px]"
                 />
               </div>
             ))}
