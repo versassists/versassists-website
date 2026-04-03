@@ -32,9 +32,9 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logos/versassist%20logo.png"
+              src="/logos/versassist%20png%20logo.avif"
               alt="VersAssist"
-              className={`h-10 w-auto object-contain transition-all duration-300 ${scrolled ? "" : "bg-white/90 rounded-lg px-2 py-1"}`}
+              className={`h-10 w-auto object-contain transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
             />
           </Link>
 

@@ -31,7 +31,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center mb-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logos/versassist%20logo.png"
+                src="/logos/versassist%20png%20logo.avif"
                 alt="VersAssist"
                 className="h-10 w-auto object-contain brightness-0 invert"
               />
