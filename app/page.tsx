@@ -17,20 +17,29 @@ import { services, testimonials, stats, faqItems } from "@/lib/constants";
 import StatCounter from "@/components/ui/StatCounter";
 
 const clientLogos = [
-  { name: "The Nursing Spot", src: "/logos/nursing-spot.svg" },
-  { name: "Carter & Olay Foundation", src: "/logos/carter-olay.svg" },
-  { name: "PRISM", src: "/logos/prism.svg" },
-  { name: "PharmDToBe Guides", src: "/logos/pharmdtobe.svg" },
-  { name: "About Life & Marriage", src: "/logos/about-life-marriage.svg" },
-  { name: "Edge Medical Writing", src: "/logos/edge-medical.svg" },
-  { name: "Lehigh Valley Dryer Vent Solutions", src: "/logos/lehigh-valley.svg" },
-  { name: "CavemanBrain", src: "/logos/cavemanbrain.svg" },
-  { name: "Cara Law", src: "/logos/cara-law.svg" },
-  { name: "Allentown Medical Massage", src: "/logos/allentown-medical.svg" },
-  { name: "Quill & Co.", src: "/logos/quill-co.svg" },
-  { name: "Weaver Enterprises", src: "/logos/weaver-enterprises.svg" },
-  { name: "Jacinth Media Productions", src: "/logos/jacinth-media.svg" },
-  { name: "Mil Moves LOGSA", src: "/logos/mil-moves.svg" },
+  { name: "The Nursing Spot", src: "/logos/NBS%20laurel%20logo.avif" },
+  { name: "Carter & Olay Foundation", src: "/logos/The%20Carter%20and%20Olay_Logo%20Horizontal%20TM.avif" },
+  { name: "PRISM", src: "/logos/prism-logo.webp" },
+  { name: "PharmDToBe Guides", src: "/logos/444-300x265.png" },
+  { name: "About Life & Marriage", src: "/logos/Logo-2-1-1.webp" },
+  { name: "Edge Medical Writing", src: "/logos/edge-logo.png" },
+  { name: "Lehigh Valley Dryer Vent Solutions", src: "/logos/467552084_1054207823169899_397104950835997841_n.jpg" },
+  { name: "CavemanBrain", src: "/logos/Caveman-Logo.png" },
+  { name: "Cara Law", src: "/logos/logo-Cara-Law-new-york-city.webp" },
+  { name: "Allentown Medical Massage", src: "/logos/685c7474695f780b1a71285e_AMM%20Logo%20(horizontal,%20black)@4x.avif" },
+  { name: "Quill & Co.", src: "/logos/logo-2.svg" },
+  { name: "Jacinth Media Productions", src: "/logos/jmp-logo-new-625MsPAz.png" },
+  { name: "WH Cornerstone Investments", src: "/logos/whc-logo-for-website.png" },
+  { name: "CDC Pressure Washing", src: "/logos/645442477_959156163119573_6695242792409537356_n.jpg" },
+  { name: "Coach Nic", src: "/logos/Untitled.jpg" },
+  { name: "MJ Cleaning Solutions", src: "/logos/Untitled-design-54-1920w.webp" },
+  { name: "ALE Media", src: "/logos/ALEMedia%20Logo%20(Large%20Color).avif" },
+  { name: "Watsvine Consulting", src: "/logos/qt=q_95.webp" },
+  { name: "Client", src: "/logos/829fd5_1abbea937f6d4a5d8a5d6d3a1fa26977~mv2.avif" },
+  { name: "Client", src: "/logos/829fd5_27749a7d1b9548ca8e6b3236c3295a99~mv2.avif" },
+  { name: "Client", src: "/logos/a3c153_9626c8c325f844a9ab99f64662fe1395~mv2.avif" },
+  { name: "Client", src: "/logos/154083_11254e099d8b4b90a28cb91e08eb19bb~mv2.avif" },
+  { name: "Client", src: "/logos/11125b_a09daaff309e436f93a798549035fd0c~mv2.avif" },
 ];
 
 export default function Home() {
@@ -109,7 +118,7 @@ export default function Home() {
           <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-12">
             {clientLogos.map((logo) => (
               <div
-                key={logo.name}
+                key={logo.src}
                 className="flex items-center justify-center h-12 w-auto"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
