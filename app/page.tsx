@@ -43,8 +43,8 @@ const clientLogos: {
   { name: "Watsvine Consulting", src: "/logos/qt=q_95.webp", bg: "dark" },
   { name: "Mind Over Plates", src: "/logos/829fd5_1abbea937f6d4a5d8a5d6d3a1fa26977~mv2.avif", bg: "white" },
   { name: "Weaver Enterprises & Investments", src: "/logos/829fd5_27749a7d1b9548ca8e6b3236c3295a99~mv2.avif", bg: "dark", size: "lg" },
-  { name: "Client", src: "/logos/154083_11254e099d8b4b90a28cb91e08eb19bb~mv2.avif", bg: "white" },
-  { name: "Client", src: "/logos/11125b_a09daaff309e436f93a798549035fd0c~mv2.avif", bg: "white" },
+  { name: "Client", src: "/logos/154083_11254e099d8b4b90a28cb91e08eb19bb~mv2.avif", bg: "dark", size: "lg" },
+  { name: "Client", src: "/logos/11125b_a09daaff309e436f93a798549035fd0c~mv2.avif", bg: "dark", size: "lg" },
   { name: "MilMoves", src: "/logos/logs%20milmoves.png", bg: "white" },
 ];
 
