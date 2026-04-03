@@ -33,7 +33,7 @@ export default function Footer() {
               <img
                 src="/logos/versassist%20png%20logo.avif"
                 alt="VersAssist"
-                className="h-10 w-auto object-contain brightness-0 invert"
+                className="h-14 w-auto object-contain brightness-0 invert"
               />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed mb-5">{companyInfo.tagline}</p>
