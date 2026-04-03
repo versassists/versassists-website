@@ -29,13 +29,13 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-sm">
-              <span className="text-white font-bold text-base">V</span>
-            </div>
-            <span className={`text-lg font-bold transition-colors ${scrolled ? "text-gray-900" : "text-white"}`}>
-              Vers<span className="text-primary">Assist</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logos/versassist%20logo.png"
+              alt="VersAssist"
+              className={`h-10 w-auto object-contain transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">

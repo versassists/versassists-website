@@ -28,13 +28,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
-                <span className="text-white font-bold text-base">V</span>
-              </div>
-              <span className="text-lg font-bold text-white">
-                Vers<span className="text-primary-light">Assist</span>
-              </span>
+            <Link href="/" className="flex items-center mb-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logos/versassist%20logo.png"
+                alt="VersAssist"
+                className="h-10 w-auto object-contain brightness-0 invert"
+              />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed mb-5">{companyInfo.tagline}</p>
             <div className="flex gap-3">
