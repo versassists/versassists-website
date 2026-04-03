@@ -25,7 +25,12 @@ const clientLogos = [
   { name: "Edge Medical Writing", src: "/logos/edge-medical.svg" },
   { name: "Lehigh Valley Dryer Vent Solutions", src: "/logos/lehigh-valley.svg" },
   { name: "CavemanBrain", src: "/logos/cavemanbrain.svg" },
-  { name: "Partner", src: "/logos/partner-logo.svg" },
+  { name: "Cara Law", src: "/logos/cara-law.svg" },
+  { name: "Allentown Medical Massage", src: "/logos/allentown-medical.svg" },
+  { name: "Quill & Co.", src: "/logos/quill-co.svg" },
+  { name: "Weaver Enterprises", src: "/logos/weaver-enterprises.svg" },
+  { name: "Jacinth Media Productions", src: "/logos/jacinth-media.svg" },
+  { name: "Mil Moves LOGSA", src: "/logos/mil-moves.svg" },
 ];
 
 export default function Home() {
@@ -101,17 +106,17 @@ export default function Home() {
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 mb-10">
             Trusted by businesses across industries
           </p>
-          <div className="w-full flex flex-wrap items-center justify-center gap-10 md:gap-14">
+          <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-12">
             {clientLogos.map((logo) => (
               <div
                 key={logo.name}
-                className="flex items-center justify-center h-14 w-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+                className="flex items-center justify-center h-12 w-auto"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={logo.src}
                   alt={logo.name}
-                  className="h-full w-auto object-contain max-w-[140px]"
+                  className="h-full w-auto object-contain max-w-[130px]"
                 />
               </div>
             ))}
