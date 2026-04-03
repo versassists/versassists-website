@@ -34,7 +34,7 @@ export default function Header() {
             <img
               src="/logos/versassist%20png%20logo.avif"
               alt="VersAssist"
-              className={`h-14 w-auto object-contain transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
+              className="h-14 w-auto object-contain"
             />
           </Link>
 
