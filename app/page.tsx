@@ -33,7 +33,7 @@ const clientLogos: {
   { name: "CavemanBrain", src: "/logos/Caveman-Logo.png" },
   { name: "Cara Law", src: "/logos/logo-Cara-Law-new-york-city.webp" },
   { name: "Allentown Medical Massage", src: "/logos/685c7474695f780b1a71285e_AMM%20Logo%20(horizontal,%20black)@4x.avif" },
-  { name: "Quill & Co.", src: "/logos/logo-2.svg", bg: "dark" },
+  { name: "Quill & Co.", src: "/logos/Quill%20and%20Co.avif", bg: "white" },
   { name: "Jacinth Media Productions", src: "/logos/jmp-logo-new-625MsPAz.png", size: "lg" },
   { name: "WH Cornerstone Investments", src: "/logos/whc-logo-for-website.png" },
   { name: "CDC Pressure Washing", src: "/logos/cdc%20pressure%20wash.jpg", bg: "white", size: "xl" },
@@ -41,10 +41,9 @@ const clientLogos: {
   { name: "MJ Cleaning Solutions", src: "/logos/Untitled-design-54-1920w.webp", blend: true },
   { name: "ALE Media", src: "/logos/ALEMedia%20Logo%20(Large%20Color).avif", size: "lg" },
   { name: "Watsvine Consulting", src: "/logos/qt=q_95.webp", bg: "dark" },
-  { name: "Mind Over Plates", src: "/logos/829fd5_1abbea937f6d4a5d8a5d6d3a1fa26977~mv2.avif", bg: "white" },
-  { name: "Weaver Enterprises & Investments", src: "/logos/829fd5_27749a7d1b9548ca8e6b3236c3295a99~mv2.avif", bg: "dark", size: "lg" },
-  { name: "Client", src: "/logos/154083_11254e099d8b4b90a28cb91e08eb19bb~mv2.avif", bg: "dark", size: "lg" },
-  { name: "Client", src: "/logos/11125b_a09daaff309e436f93a798549035fd0c~mv2.avif", bg: "dark", size: "lg" },
+  { name: "Mind Over Plates", src: "/logos/mind%20over%20plates.avif", bg: "white" },
+  { name: "Weaver Enterprises & Investments", src: "/logos/WEI.avif", bg: "dark", size: "lg" },
+  { name: "Unlocking Luxury", src: "/logos/unlocking%20luxury.png", bg: "white" },
   { name: "MilMoves", src: "/logos/logs%20milmoves.png", bg: "white" },
 ];
 
