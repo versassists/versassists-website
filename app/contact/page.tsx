@@ -26,26 +26,27 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-36 pb-24">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
+        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center relative z-10">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary-light mb-4 text-center">Contact Us</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 leading-tight text-center max-w-4xl">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-8 leading-tight text-center max-w-4xl">
             Let&apos;s Start a{" "}
             <span className="bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent">Conversation</span>
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl leading-relaxed text-center">
+          <p className="text-gray-300 text-lg sm:text-xl max-w-2xl leading-relaxed text-center">
             Book a free 15-minute discovery call or send us a message. We&apos;ll get back to you within 24 hours.
           </p>
         </div>
       </section>
 
       {/* Contact Content */}
-      <section className="py-28 lg:py-36 bg-gray-50">
+      <section className="py-32 lg:py-40 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-14">
             {/* Form */}
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-2xl p-8 lg:p-10 border border-gray-100 shadow-sm">
+              <div className="bg-white rounded-2xl p-10 lg:p-12 border border-gray-100 shadow-sm">
                 <h2 className="text-2xl font-bold text-gray-900 mb-1 text-center lg:text-left">Send Us a Message</h2>
                 <p className="text-gray-500 text-sm mb-8 text-center lg:text-left">We&apos;ll respond within 24 hours.</p>
 
@@ -58,7 +59,7 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                        className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                         placeholder="John Doe"
                       />
                     </div>
@@ -69,7 +70,7 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                        className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -82,7 +83,7 @@ export default function ContactPage() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                        className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                         placeholder="+1 (555) 123-4567"
                       />
                     </div>
@@ -92,7 +93,7 @@ export default function ContactPage() {
                         type="text"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                        className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                         placeholder="Your Company"
                       />
                     </div>
@@ -103,7 +104,7 @@ export default function ContactPage() {
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm text-gray-700"
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm text-gray-700"
                     >
                       <option value="">Select a service...</option>
                       <option value="email">Email Management</option>
@@ -125,7 +126,7 @@ export default function ContactPage() {
                       rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"
                       placeholder="Tell us about your business and how we can help..."
                     />
                   </div>
@@ -141,9 +142,9 @@ export default function ContactPage() {
             </div>
 
             {/* Sidebar */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-8">
               {/* Discovery Call */}
-              <div className="bg-gray-900 rounded-2xl p-8 text-center">
+              <div className="bg-gray-900 rounded-2xl p-10 text-center">
                 <h3 className="text-xl font-bold text-white mb-3">Book a Discovery Call</h3>
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
                   Schedule a free 15-minute call and we&apos;ll recommend the fastest path to results.
@@ -154,7 +155,7 @@ export default function ContactPage() {
               </div>
 
               {/* Contact Info */}
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 text-center lg:text-left">
+              <div className="bg-white rounded-2xl p-10 border border-gray-100 text-center lg:text-left">
                 <h3 className="font-bold text-gray-900 mb-5">Contact Information</h3>
                 <div className="space-y-5">
                   <div className="flex items-start gap-4 justify-center lg:justify-start">
@@ -179,7 +180,7 @@ export default function ContactPage() {
               </div>
 
               {/* Social */}
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 text-center lg:text-left">
+              <div className="bg-white rounded-2xl p-10 border border-gray-100 text-center lg:text-left">
                 <h3 className="font-bold text-gray-900 mb-4">Follow Us</h3>
                 <div className="flex gap-3 justify-center lg:justify-start">
                   <a href="https://www.instagram.com/versassists/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all" aria-label="Instagram">
