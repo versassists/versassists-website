@@ -20,29 +20,29 @@ const clientLogos: {
   name: string;
   src: string;
   bg?: string;       // card background: "dark", "white", or hex color (default: light blue)
-  larger?: boolean;   // reduce padding so logo fills more of the card
+  size?: "lg" | "xl"; // lg = p-3, xl = p-1 (default: p-6)
   blend?: boolean;    // mix-blend-mode: multiply to remove white/light backgrounds
 }[] = [
   { name: "The Nursing Spot", src: "/logos/NBS%20laurel%20logo.avif" },
   { name: "Carter & Olay Foundation", src: "/logos/The%20Carter%20and%20Olay_Logo%20Horizontal%20TM.avif" },
-  { name: "PRISM", src: "/logos/prism-logo.webp", bg: "dark", larger: true },
-  { name: "PharmDToBe Guides", src: "/logos/444-300x265.png", larger: true },
+  { name: "PRISM", src: "/logos/prism-logo.webp", bg: "dark", size: "lg" },
+  { name: "PharmDToBe Guides", src: "/logos/444-300x265.png", size: "xl" },
   { name: "About Life & Marriage", src: "/logos/Logo-2-1-1.webp" },
   { name: "Edge Medical Writing", src: "/logos/edge-logo.png", bg: "white" },
-  { name: "Lehigh Valley Dryer Vent Solutions", src: "/logos/467552084_1054207823169899_397104950835997841_n.jpg", bg: "#d92626", larger: true },
+  { name: "Lehigh Valley Dryer Vent Solutions", src: "/logos/467552084_1054207823169899_397104950835997841_n.jpg", bg: "#d92626", size: "lg" },
   { name: "CavemanBrain", src: "/logos/Caveman-Logo.png" },
   { name: "Cara Law", src: "/logos/logo-Cara-Law-new-york-city.webp" },
   { name: "Allentown Medical Massage", src: "/logos/685c7474695f780b1a71285e_AMM%20Logo%20(horizontal,%20black)@4x.avif" },
   { name: "Quill & Co.", src: "/logos/logo-2.svg", bg: "dark" },
-  { name: "Jacinth Media Productions", src: "/logos/jmp-logo-new-625MsPAz.png", larger: true },
+  { name: "Jacinth Media Productions", src: "/logos/jmp-logo-new-625MsPAz.png", size: "lg" },
   { name: "WH Cornerstone Investments", src: "/logos/whc-logo-for-website.png" },
-  { name: "CDC Pressure Washing", src: "/logos/645442477_959156163119573_6695242792409537356_n.jpg", blend: true, larger: true },
-  { name: "Coach Nic", src: "/logos/Untitled.jpg", bg: "white", larger: true },
+  { name: "CDC Pressure Washing", src: "/logos/645442477_959156163119573_6695242792409537356_n.jpg", bg: "white", blend: true, size: "xl" },
+  { name: "Coach Nic", src: "/logos/Untitled.jpg", bg: "white", size: "lg" },
   { name: "MJ Cleaning Solutions", src: "/logos/Untitled-design-54-1920w.webp", blend: true },
-  { name: "ALE Media", src: "/logos/ALEMedia%20Logo%20(Large%20Color).avif", larger: true },
+  { name: "ALE Media", src: "/logos/ALEMedia%20Logo%20(Large%20Color).avif", size: "lg" },
   { name: "Watsvine Consulting", src: "/logos/qt=q_95.webp", bg: "dark" },
-  { name: "Client", src: "/logos/829fd5_1abbea937f6d4a5d8a5d6d3a1fa26977~mv2.avif" },
-  { name: "Client", src: "/logos/829fd5_27749a7d1b9548ca8e6b3236c3295a99~mv2.avif" },
+  { name: "Mind Over Plates", src: "/logos/829fd5_1abbea937f6d4a5d8a5d6d3a1fa26977~mv2.avif", blend: true },
+  { name: "Weaver Enterprises & Investments", src: "/logos/829fd5_27749a7d1b9548ca8e6b3236c3295a99~mv2.avif", bg: "dark", size: "lg" },
   { name: "Client", src: "/logos/a3c153_9626c8c325f844a9ab99f64662fe1395~mv2.avif" },
   { name: "Client", src: "/logos/154083_11254e099d8b4b90a28cb91e08eb19bb~mv2.avif" },
   { name: "Client", src: "/logos/11125b_a09daaff309e436f93a798549035fd0c~mv2.avif" },
@@ -140,7 +140,7 @@ export default function Home() {
                 <div
                   key={logo.src}
                   className={`flex items-center justify-center rounded-2xl h-32 overflow-hidden ${
-                    logo.larger ? "p-3" : "p-6"
+                    logo.size === "xl" ? "p-1" : logo.size === "lg" ? "p-3" : "p-6"
                   } ${bgClass}`}
                   style={bgStyle}
                 >
