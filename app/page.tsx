@@ -29,7 +29,7 @@ const clientLogos: {
   { name: "PharmDToBe Guides", src: "/logos/444-300x265.png", size: "xl" },
   { name: "About Life & Marriage", src: "/logos/Logo-2-1-1.webp" },
   { name: "Edge Medical Writing", src: "/logos/edge-logo.png", bg: "white" },
-  { name: "Lehigh Valley Dryer Vent Solutions", src: "/logos/467552084_1054207823169899_397104950835997841_n.jpg", bg: "#d92626", size: "lg" },
+  { name: "Lehigh Valley Dryer Vent Solutions", src: "/logos/dryer%20vent%20logo.png", bg: "white", size: "lg" },
   { name: "CavemanBrain", src: "/logos/Caveman-Logo.png" },
   { name: "Cara Law", src: "/logos/logo-Cara-Law-new-york-city.webp" },
   { name: "Allentown Medical Massage", src: "/logos/685c7474695f780b1a71285e_AMM%20Logo%20(horizontal,%20black)@4x.avif" },
