@@ -34,7 +34,7 @@ export default function Header() {
             <img
               src="/logos/versassist%20png%20logo.avif"
               alt="VersAssist"
-              className="h-14 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </Link>
 
