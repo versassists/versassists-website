@@ -23,7 +23,7 @@ const clientLogos: {
   size?: "lg" | "xl"; // lg = p-3, xl = p-1 (default: p-6)
   blend?: boolean;    // mix-blend-mode: multiply to remove white/light backgrounds
 }[] = [
-  { name: "The Nursing Spot", src: "/logos/NBS%20laurel%20logo.avif" },
+  { name: "The Nursing Spot", src: "/logos/nursing%20spot.png", bg: "white" },
   { name: "Carter & Olay Foundation", src: "/logos/The%20Carter%20and%20Olay_Logo%20Horizontal%20TM.avif" },
   { name: "PRISM", src: "/logos/prism-logo.webp", bg: "dark", size: "lg" },
   { name: "PharmDToBe Guides", src: "/logos/444-300x265.png", size: "xl" },
