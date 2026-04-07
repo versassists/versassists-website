@@ -305,58 +305,107 @@ export interface PricingPlan {
 export const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
-    tagline: "Perfect for solopreneurs",
-    price: "Contact Us",
-    period: "1 focus area",
+    tagline: "One Strategic Priority. Fully Executed.",
+    price: "$750",
+    period: "50 hrs / $15 per hour",
     features: [
-      "Choose 1 focus area (Admin, SEO, Social Media, or Book Publishing)",
-      "AI-enhanced virtual assistant",
-      "Hours never expire",
-      "Detailed billing reports",
-      "Email support",
-      "Monthly progress review",
+      "Ideal for solopreneurs or small business owners ready to move one important project forward",
+      "Choose ONE Focus Area: Admin, SEO, Social Media, or Book Publishing",
+      "Dedicated VA team focused on your chosen goal",
+      "AI-powered tools to speed up execution",
+      "Weekly progress check-ins",
+      "Add Boost Packs anytime to expand support",
     ],
     highlighted: false,
-    cta: "Get Started",
+    cta: "Book Now",
+  },
+  {
+    name: "Pro",
+    tagline: "Two Strategic Priorities. Fully Executed.",
+    price: "$1,000",
+    period: "75 hrs / $13.33 per hour",
+    features: [
+      "Ideal for business owners ready to accelerate progress in more than one area",
+      "Choose TWO Focus Areas: Admin, SEO, Social Media, Book Publishing, or Lead Generation",
+      "Dedicated VA team focused on your chosen priorities",
+      "AI-powered tools to speed up delivery and improve results",
+      "Weekly progress updates and milestone tracking",
+      "Flexible — add Boost Packs anytime to expand support mid-month",
+    ],
+    highlighted: false,
+    cta: "Book Now",
   },
   {
     name: "Growth",
-    tagline: "Most popular for growing businesses",
-    price: "Contact Us",
-    period: "2 focus areas",
+    tagline: "Support Across Two Key Areas.",
+    price: "$1,500",
+    period: "115 hrs / $13.04 per hour",
     features: [
-      "Choose 2 focus areas",
-      "AI-enhanced virtual assistant team",
-      "Hours never expire",
-      "Detailed billing reports",
-      "Priority email & chat support",
-      "Bi-weekly strategy calls",
-      "Performance analytics dashboard",
-      "Dedicated account manager",
+      "Built for growing businesses ready to level up marketing and operations",
+      "Choose TWO Focus Areas: Admin, SEO, Social Media, or Lead Generation",
+      "Consistent execution with a small, efficient team",
+      "Marketing and ops alignment using AI tools",
+      "Weekly deliverables with monthly review",
+      "Boost Packs available if your needs grow mid-month",
     ],
     highlighted: true,
-    cta: "Get Started",
+    cta: "Book Now",
   },
   {
-    name: "Scale",
-    tagline: "Full-service for established businesses",
-    price: "Contact Us",
-    period: "Unlimited focus areas",
+    name: "Enterprise",
+    tagline: "Execution + Oversight. Everything Gets Done.",
+    price: "$2,000",
+    period: "165 hrs / $12.12 per hour",
     features: [
-      "All focus areas included",
-      "Dedicated AI-enhanced VA team",
-      "Hours never expire",
-      "Detailed billing reports",
-      "24/7 priority support",
-      "Weekly strategy calls",
-      "Custom AI workflow automation",
-      "Dedicated account manager",
-      "Quarterly business reviews",
-      "Custom integrations",
+      "Everything from the Growth Plan, PLUS:",
+      "Dedicated Success Manager to oversee your execution",
+      "Brand strategy and campaign management",
+      "Business performance reporting and optimization",
+      "Advanced support for marketing, sales, and ops",
     ],
     highlighted: false,
-    cta: "Get Started",
+    cta: "Book Now",
   },
+  {
+    name: "Scaling",
+    tagline: "All-In Support. For Founders Who Want to Go Fast.",
+    price: "$2,500",
+    period: "210 hrs / $12 per hour",
+    features: [
+      "Complete business operations support: admin, lead gen, content, marketing",
+      "Custom automation builds + AI workflows",
+      "Funnel and CRM setup",
+      "Chatbot development & client systems",
+      "CEO-level reporting & strategy sessions",
+    ],
+    highlighted: false,
+    cta: "Book Now",
+  },
+];
+
+export interface BoostPack {
+  name: string;
+  price: string;
+  description: string;
+}
+
+export const boostPacks: BoostPack[] = [
+  { name: "Boost Plus", price: "$375", description: "Launch a new initiative or extend support" },
+  { name: "Boost Mini", price: "$200", description: "Add an extra deliverable within your plan" },
+  { name: "Custom Boost", price: "Varies", description: "Special projects, campaigns, or overflow" },
+];
+
+export interface CustomProject {
+  name: string;
+  description: string;
+  price: string;
+}
+
+export const customProjects: CustomProject[] = [
+  { name: "Website — 5 pages", description: "Flat or hour-bank", price: "$300" },
+  { name: "AI Prototype Demo", description: "Dashboard or chatbot", price: "$500–$1,500" },
+  { name: "Your Life as a Movie", description: "Book, video, website", price: "$2,997" },
+  { name: "Book Ghostwriting 7–15K words", description: "Delivery + management with hours", price: "$999" },
 ];
 
 // ─── FAQ ─────────────────────────────────────────────────────────────
