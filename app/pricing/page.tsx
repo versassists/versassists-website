@@ -17,6 +17,11 @@ import {
   BookOpen,
   Globe,
   MessageSquare,
+  Rocket,
+  Layers,
+  Monitor,
+  PenTool,
+  Film,
 } from "lucide-react";
 import { pricingPlans, boostPacks, customProjects, faqItems } from "@/lib/constants";
 
@@ -84,6 +89,8 @@ export default function PricingPage() {
     },
   ];
 
+  const projectIcons = [Monitor, Layers, Film, PenTool];
+
   const steps = [
     { num: "1", text: "Choose your prepaid plan" },
     { num: "2", text: "Tell us your top priority" },
@@ -94,9 +101,14 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
-          <p className="text-sm font-semibold tracking-wider uppercase text-primary-light mb-5 text-center">Pricing</p>
+      <section className="relative bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32 overflow-hidden">
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[100px]" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] border border-white/[0.12] text-sm text-white/80 backdrop-blur-sm mb-8">
+            <Sparkles className="w-4 h-4 text-accent" />
+            Flexible, Prepaid Virtual Assistance
+          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight text-center max-w-4xl">
             Your Outsourced{" "}
             <span className="bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent">Implementation Team</span>
@@ -108,10 +120,10 @@ export default function PricingPage() {
             We do the work — from social content to course builds to AI prototypes — handled by a trained virtual team you prepay and draw from as needed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-center">
-            <a href="#plans" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:bg-primary-dark transition-all">
+            <a href="#plans" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all">
               See Plans <ArrowRight className="w-5 h-5" />
             </a>
-            <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/[0.06] transition-all">
+            <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/[0.06] backdrop-blur-sm transition-all">
               Talk to Us
             </a>
           </div>
@@ -145,18 +157,23 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <section id="plans" className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
+          <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-3">Plans</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-14 text-center">
+            Choose Your Plan
+          </h2>
+
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-start">
             {pricingPlans.map((plan) => (
               <div
                 key={plan.name}
-                className={`relative rounded-2xl p-8 text-center ${
+                className={`group relative rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-1 ${
                   plan.highlighted
-                    ? "bg-gray-900 text-white border-2 border-primary shadow-2xl shadow-primary/20 lg:scale-105"
-                    : "bg-white text-gray-900 border border-gray-200 shadow-sm"
+                    ? "bg-gradient-to-b from-gray-900 to-gray-950 text-white border-2 border-primary shadow-2xl shadow-primary/20 lg:scale-105"
+                    : "bg-white text-gray-900 border border-gray-200 shadow-sm hover:shadow-xl hover:border-primary/30"
                 }`}
               >
                 {plan.highlighted && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-xs font-bold rounded-full uppercase tracking-wider">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary to-primary-dark text-white text-xs font-bold rounded-full uppercase tracking-wider shadow-lg">
                     Most Popular
                   </div>
                 )}
@@ -164,10 +181,13 @@ export default function PricingPage() {
                 <p className={`text-xs mb-5 min-h-[2.5rem] ${plan.highlighted ? "text-gray-400" : "text-gray-500"}`}>
                   {plan.tagline}
                 </p>
-                <div className="text-3xl font-extrabold mb-1">{plan.price}</div>
+                <div className={`text-4xl font-extrabold mb-1 ${plan.highlighted ? "bg-gradient-to-r from-primary-light to-white bg-clip-text text-transparent" : ""}`}>
+                  {plan.price}
+                </div>
                 <p className={`text-xs mb-6 ${plan.highlighted ? "text-gray-400" : "text-gray-500"}`}>
                   {plan.period}
                 </p>
+                <div className={`w-full h-px mb-6 ${plan.highlighted ? "bg-white/10" : "bg-gray-100"}`} />
                 <ul className="space-y-2.5 mb-8 text-left">
                   {plan.features.map((feature, j) => (
                     <li key={j} className="flex items-start gap-2.5 text-xs">
@@ -183,7 +203,7 @@ export default function PricingPage() {
                   className={`block py-3 rounded-full font-semibold text-sm transition-all text-center ${
                     plan.highlighted
                       ? "bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/25"
-                      : "bg-gray-900 text-white hover:bg-gray-800"
+                      : "bg-gray-900 text-white hover:bg-gray-800 group-hover:bg-primary group-hover:shadow-lg group-hover:shadow-primary/20"
                   }`}
                 >
                   {plan.cta}
@@ -199,20 +219,31 @@ export default function PricingPage() {
       </section>
 
       {/* Boost Packs */}
-      <section className="py-16 bg-white">
+      <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-3">Add-Ons</p>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-10 text-center">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4 text-center">
             Boost Packs
           </h2>
+          <p className="text-gray-500 text-center mb-12 max-w-lg">
+            Need more capacity? Add a Boost Pack to your existing plan anytime.
+          </p>
           <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {boostPacks.map((pack) => (
-              <div key={pack.name} className="bg-gray-50 rounded-2xl p-8 border border-gray-100 text-center">
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{pack.name}</h3>
-                <div className="text-2xl font-extrabold text-primary mb-3">{pack.price}</div>
-                <p className="text-gray-500 text-sm">{pack.description}</p>
-              </div>
-            ))}
+            {boostPacks.map((pack, i) => {
+              const icons = [Rocket, Zap, Layers];
+              const PackIcon = icons[i];
+              return (
+                <div key={pack.name} className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 text-center hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/[0.12] transition-colors">
+                    <PackIcon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{pack.name}</h3>
+                  <div className="text-3xl font-extrabold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent mb-3">{pack.price}</div>
+                  <p className="text-gray-500 text-sm">{pack.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -228,16 +259,16 @@ export default function PricingPage() {
             You start by prepaying for hours. No setup fees. No expiration. No minimums. You tell us what you need — and we deploy the right VA with the right skillset.
           </p>
 
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {includedServices.map((service) => (
-              <div key={service.title} className="bg-white rounded-2xl p-8 border border-gray-100">
-                <div className="w-10 h-10 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-4">
-                  <service.icon className="w-5 h-5 text-primary" />
+              <div key={service.title} className="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/[0.08] to-accent/[0.06] flex items-center justify-center mb-5 group-hover:from-primary/[0.15] group-hover:to-accent/[0.1] transition-colors">
+                  <service.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-3">{service.title}</h3>
-                <ul className="space-y-2">
+                <h3 className="font-bold text-gray-900 mb-4 text-lg">{service.title}</h3>
+                <ul className="space-y-3">
                   {service.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-gray-600">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -247,40 +278,51 @@ export default function PricingPage() {
             ))}
           </div>
 
-          <p className="text-center text-gray-500 mt-10 text-sm max-w-xl">
-            Everything listed above is drawn directly from your hour bank. You only pay for the hours used. Most clients start seeing results within their first 20 hours.
-          </p>
+          <div className="mt-12 inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-white border border-gray-200 shadow-sm">
+            <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+            <p className="text-gray-600 text-sm">
+              Everything above is drawn from your hour bank. Most clients see results within their first 20 hours.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Custom Projects */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
-          <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-3">Custom Builds</p>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4 text-center">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e]" />
+        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center">
+          <p className="text-sm font-semibold tracking-wider uppercase text-primary-light mb-3">Custom Builds</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 text-center">
             Custom Project Builds
           </h2>
-          <p className="text-gray-500 max-w-xl text-center mb-14">
-            Some deliverables need specialized planning. We can price these as flat projects, then maintain and iterate using your hours.
+          <p className="text-gray-400 max-w-xl text-center mb-14">
+            Some deliverables need specialized planning. We price these as flat projects, then maintain and iterate using your hours.
           </p>
 
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {customProjects.map((project) => (
-              <div key={project.name} className="flex items-center justify-between bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <div>
-                  <h3 className="font-bold text-gray-900">{project.name}</h3>
-                  <p className="text-gray-500 text-sm">{project.description}</p>
+            {customProjects.map((project, i) => {
+              const ProjectIcon = projectIcons[i];
+              return (
+                <div key={project.name} className="group flex items-center gap-5 bg-white/[0.06] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.1] hover:bg-white/[0.1] hover:border-primary/40 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
+                    <ProjectIcon className="w-6 h-6 text-primary-light" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-white text-sm">{project.name}</h3>
+                    <p className="text-gray-400 text-xs">{project.description}</p>
+                  </div>
+                  <div className="text-xl font-extrabold text-primary-light whitespace-nowrap">{project.price}</div>
                 </div>
-                <div className="text-lg font-extrabold text-primary whitespace-nowrap ml-4">{project.price}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <a
             href="https://calendly.com/versassist/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gray-900 text-white font-semibold hover:bg-gray-800 transition-all"
+            className="mt-12 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all"
           >
             Scope a Project <ArrowRight className="w-5 h-5" />
           </a>
@@ -288,35 +330,40 @@ export default function PricingPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 lg:py-28 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-3">Process</p>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4 text-center">
             How It Works
           </h2>
-          <p className="text-gray-500 text-center mb-14">Four simple steps to start shipping.</p>
+          <p className="text-gray-500 text-center mb-16">Four simple steps to start shipping.</p>
 
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            {/* Connector line (desktop only) */}
+            <div className="hidden lg:block absolute top-7 left-[12%] right-[12%] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
+
             {steps.map((step) => (
-              <div key={step.num} className="flex flex-col items-center text-center">
-                <div className="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mb-4">
+              <div key={step.num} className="relative flex flex-col items-center text-center group">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary-dark text-white flex items-center justify-center text-xl font-bold mb-5 shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow relative z-10">
                   {step.num}
                 </div>
-                <p className="text-gray-700 font-medium text-sm">{step.text}</p>
+                <p className="text-gray-700 font-semibold text-sm leading-relaxed max-w-[180px]">{step.text}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-center text-gray-500 mt-12 text-sm font-medium">
-            Hours don&apos;t expire. There&apos;s no lock-in. Just outcomes.
-          </p>
+          <div className="mt-14 px-8 py-5 rounded-2xl bg-gradient-to-r from-primary/[0.06] to-accent/[0.04] border border-primary/10">
+            <p className="text-gray-600 text-sm font-medium text-center">
+              Hours don&apos;t expire. There&apos;s no lock-in. Just outcomes.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* What's Included Bottom */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-12 text-center">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-14 text-center">
             What&apos;s Included
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
@@ -325,23 +372,26 @@ export default function PricingPage() {
                 icon: Users,
                 title: "Personalized Setup",
                 desc: "We tailor our setup process to fit your unique requirements, ensuring that our services integrate seamlessly into your operations.",
+                gradient: "from-blue-500/10 to-primary/10",
               },
               {
                 icon: Target,
                 title: "Flexible Support",
                 desc: "From administrative tasks to specialized projects, our team is equipped to handle a variety of needs with professionalism and efficiency.",
+                gradient: "from-primary/10 to-accent/10",
               },
               {
                 icon: Shield,
                 title: "Transparent Billing",
                 desc: "No hidden fees or surprises. You pay for the hours of service you use, with detailed billing to keep you informed every step of the way.",
+                gradient: "from-accent/10 to-blue-500/10",
               },
             ].map((item) => (
-              <div key={item.title} className="text-center">
-                <div className="w-12 h-12 rounded-xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-6 h-6 text-primary" />
+              <div key={item.title} className="bg-white rounded-2xl p-8 border border-gray-100 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mx-auto mb-5`}>
+                  <item.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                <h3 className="font-bold text-gray-900 mb-3 text-lg">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -351,7 +401,7 @@ export default function PricingPage() {
 
       {/* Pricing FAQ */}
       {pricingFAQ.length > 0 && (
-        <section className="py-20 lg:py-28 bg-gray-50">
+        <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-2xl mx-auto px-6 flex flex-col items-center">
             <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-5 text-center">FAQ</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-14 text-center">Pricing Questions</h2>
@@ -360,7 +410,7 @@ export default function PricingPage() {
               {pricingFAQ.map((item, i) => (
                 <details
                   key={i}
-                  className="group bg-white rounded-xl border border-gray-200 overflow-hidden"
+                  className="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden hover:border-primary/30 transition-colors"
                   {...(i === 0 ? { open: true } : {})}
                 >
                   <summary className="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 text-[0.95rem] select-none">
@@ -379,6 +429,7 @@ export default function PricingPage() {
       <section className="relative py-28 lg:py-36 overflow-hidden">
         <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" alt="Modern workspace" fill className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 text-center">
             Ready to Plug In Your Execution Team?
@@ -390,7 +441,7 @@ export default function PricingPage() {
             <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all">
               Book a Quick Call <ArrowRight className="w-5 h-5" />
             </a>
-            <a href="#plans" className="inline-flex items-center gap-2 px-10 py-5 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/[0.06] transition-all">
+            <a href="#plans" className="inline-flex items-center gap-2 px-10 py-5 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/[0.06] backdrop-blur-sm transition-all">
               Buy Hours Now
             </a>
           </div>
