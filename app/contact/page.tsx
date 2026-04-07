@@ -29,7 +29,10 @@ export default function ContactPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
         <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center relative z-10">
-          <p className="text-sm font-semibold tracking-wider uppercase text-primary-light mb-4 text-center">Contact Us</p>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] border border-white/[0.12] text-sm text-white/80 backdrop-blur-sm mb-6">
+            <Mail className="w-4 h-4 text-accent" />
+            Get in Touch
+          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-8 leading-tight text-center max-w-4xl">
             Let&apos;s Start a{" "}
             <span className="bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent">Conversation</span>
@@ -41,12 +44,13 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-32 lg:py-40 bg-gray-50">
+      <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-14">
             {/* Form */}
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-2xl p-10 lg:p-12 border border-gray-100 shadow-sm">
+              <div className="bg-white rounded-2xl p-10 lg:p-12 border border-gray-100 relative overflow-hidden hover:shadow-xl transition-shadow duration-300 shadow-sm">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-1 text-center lg:text-left">Send Us a Message</h2>
                 <p className="text-gray-500 text-sm mb-8 text-center lg:text-left">We&apos;ll respond within 24 hours.</p>
 
@@ -133,7 +137,7 @@ export default function ContactPage() {
 
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-primary text-white font-semibold hover:bg-primary-dark shadow-lg shadow-primary/25 transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-primary text-white font-semibold hover:bg-primary-dark shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
                   >
                     Send Message <Send className="w-4 h-4" />
                   </button>
@@ -144,18 +148,21 @@ export default function ContactPage() {
             {/* Sidebar */}
             <div className="lg:col-span-2 space-y-8">
               {/* Discovery Call */}
-              <div className="bg-gray-900 rounded-2xl p-10 text-center">
-                <h3 className="text-xl font-bold text-white mb-3">Book a Discovery Call</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                  Schedule a free 15-minute call and we&apos;ll recommend the fastest path to results.
-                </p>
-                <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary-dark shadow-lg shadow-primary/25 transition-all">
-                  Schedule a Call <ArrowRight className="w-4 h-4" />
-                </a>
+              <div className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 rounded-2xl p-10 text-center hover:shadow-lg transition-all duration-300">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[60px]" />
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-white mb-3">Book a Discovery Call</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                    Schedule a free 15-minute call and we&apos;ll recommend the fastest path to results.
+                  </p>
+                  <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary-dark shadow-lg shadow-primary/25 transition-all">
+                    Schedule a Call <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
 
               {/* Contact Info */}
-              <div className="bg-white rounded-2xl p-10 border border-gray-100 text-center lg:text-left">
+              <div className="bg-white rounded-2xl p-10 border border-gray-100 text-center lg:text-left hover:shadow-lg transition-all duration-300">
                 <h3 className="font-bold text-gray-900 mb-5">Contact Information</h3>
                 <div className="space-y-5">
                   <div className="flex items-start gap-4 justify-center lg:justify-start">
@@ -180,7 +187,7 @@ export default function ContactPage() {
               </div>
 
               {/* Social */}
-              <div className="bg-white rounded-2xl p-10 border border-gray-100 text-center lg:text-left">
+              <div className="bg-white rounded-2xl p-10 border border-gray-100 text-center lg:text-left hover:shadow-lg transition-all duration-300">
                 <h3 className="font-bold text-gray-900 mb-4">Follow Us</h3>
                 <div className="flex gap-3 justify-center lg:justify-start">
                   <a href="https://www.instagram.com/versassists/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all" aria-label="Instagram">

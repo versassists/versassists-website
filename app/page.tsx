@@ -138,7 +138,7 @@ export default function Home() {
               return (
                 <div
                   key={logo.src}
-                  className={`flex items-center justify-center rounded-2xl h-32 overflow-hidden ${
+                  className={`flex items-center justify-center rounded-2xl h-32 overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ${
                     logo.size === "xl" ? "p-1" : logo.size === "lg" ? "p-3" : "p-6"
                   } ${bgClass}`}
                   style={bgStyle}
@@ -178,7 +178,7 @@ export default function Home() {
                   href="/services"
                   className="group flex flex-col items-center bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.06] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/[0.08] to-accent/[0.06] flex items-center justify-center mb-5 group-hover:from-primary/[0.15] group-hover:to-accent/[0.1] group-hover:bg-primary transition-colors duration-300">
                     <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h3 className="text-center font-bold text-gray-900 mb-2">{service.title}</h3>
@@ -205,7 +205,8 @@ export default function Home() {
             From overwhelmed to optimized in less than a week.
           </p>
 
-          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="relative w-full grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="hidden md:block absolute top-[120px] left-[15%] right-[15%] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
             {[
               { num: "01", icon: Target, title: "Book a Discovery Call", desc: "A free 15-minute call where we learn about your business, challenges, and goals. We recommend the fastest path to results.", img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" },
               { num: "02", icon: Users, title: "Get Matched", desc: "We assign AI-trained virtual assistants who specialize in your focus areas. Onboarded to your workflows within 48 hours.", img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" },
@@ -217,7 +218,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
                   <span className="absolute top-4 left-4 text-5xl font-black text-white/30 leading-none select-none">{step.num}</span>
                 </div>
-                <div className="w-12 h-12 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/[0.08] to-accent/[0.06] flex items-center justify-center mb-4">
                   <step.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-center text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
@@ -258,7 +259,7 @@ export default function Home() {
                   { icon: Shield, title: "No Lock-In", desc: "We earn your business every month. No long-term commitments, no cancellation fees." },
                   { icon: Zap, title: "Expert-Led", desc: "Founded by Dr. Jeff Bullock with 20+ years of business strategy. Quality-checked at every step." },
                 ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-4">
+                  <div key={item.title} className="flex items-start gap-4 hover:bg-gray-50 rounded-xl p-4 -m-4 transition-colors duration-200">
                     <div className="w-12 h-12 rounded-xl bg-primary/[0.08] flex items-center justify-center shrink-0">
                       <item.icon className="w-6 h-6 text-primary" />
                     </div>
@@ -283,6 +284,7 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gray-900/85" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px]" />
         <div className="relative z-10 max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             {stats.map((stat, i) => (
@@ -305,7 +307,8 @@ export default function Home() {
 
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100">
+              <div key={i} className="relative overflow-hidden bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100 hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
@@ -339,7 +342,7 @@ export default function Home() {
             {faqItems.slice(0, 4).map((item, i) => (
               <details
                 key={i}
-                className="group bg-white rounded-xl border border-gray-200 overflow-hidden"
+                className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-primary/30 transition-colors"
                 {...(i === 0 ? { open: true } : {})}
               >
                 <summary className="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 select-none">
@@ -366,6 +369,7 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">
           <h2 className="text-center text-3xl sm:text-4xl font-extrabold text-white mb-6 max-w-2xl">
             Ready to Scale Your Business?

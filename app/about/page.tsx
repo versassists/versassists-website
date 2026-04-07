@@ -10,6 +10,7 @@ import {
   Rocket,
   Target,
   Users,
+  Sparkles,
 } from "lucide-react";
 import { team, values } from "@/lib/constants";
 
@@ -27,7 +28,12 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
         <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 left-1/3 w-[300px] h-[300px] bg-accent/8 rounded-full blur-[100px]" />
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] border border-white/[0.12] text-sm text-white/80 backdrop-blur-sm mb-8">
+            <Sparkles className="w-4 h-4 text-accent" />
+            Our Story
+          </div>
           <p className="text-sm font-semibold tracking-wider uppercase text-primary-light mb-5 text-center">About VersAssist</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-8 leading-tight text-center max-w-4xl">
             Built to Empower{" "}
@@ -44,7 +50,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-32 lg:py-40 bg-white">
+      <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="text-center lg:text-left">
@@ -73,8 +79,8 @@ export default function AboutPage() {
                   { icon: Users, label: "Partnership Model" },
                   { icon: Lightbulb, label: "AI Innovation" },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-primary/[0.08] flex items-center justify-center shrink-0">
+                  <div key={item.label} className="flex items-center gap-3 hover:bg-primary/[0.06] rounded-xl transition-colors duration-200">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary/[0.08] to-accent/[0.06] flex items-center justify-center shrink-0">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <span className="text-sm font-semibold text-gray-700">{item.label}</span>
@@ -97,7 +103,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="py-32 lg:py-40 bg-gray-50">
+      <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-3xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-5 text-center">Our Story</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-10 text-center max-w-3xl">How VersAssist Began</h2>
@@ -140,7 +146,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-32 lg:py-40 bg-white">
+      <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-5xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-5 text-center">Leadership</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6 text-center max-w-3xl">
@@ -154,8 +160,9 @@ export default function AboutPage() {
             {team.map((member) => (
               <div
                 key={member.name}
-                className="bg-gray-50 rounded-2xl p-10 text-center border border-gray-100 hover:shadow-xl hover:shadow-primary/[0.05] hover:-translate-y-1 transition-all duration-300"
+                className="group overflow-hidden relative bg-gray-50 rounded-2xl p-10 text-center border border-gray-100 hover:shadow-xl hover:shadow-primary/[0.05] hover:-translate-y-1 transition-all duration-300"
               >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-8 shadow-lg shadow-primary/20">
                   <span className="text-white font-bold text-3xl">
                     {member.name.split(" ").map((n) => n[0]).join("")}
@@ -171,7 +178,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-32 lg:py-40 bg-gray-50">
+      <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-5 text-center">Our Values</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6 text-center max-w-3xl">What We Stand For</h2>
@@ -183,8 +190,8 @@ export default function AboutPage() {
             {values.map((value, i) => {
               const Icon = valueIcons[i];
               return (
-                <div key={value.title} className="bg-white rounded-2xl p-9 text-center border border-gray-100 shadow-sm">
-                  <div className="mx-auto w-14 h-14 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-6">
+                <div key={value.title} className="bg-white rounded-2xl p-9 text-center border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
+                  <div className="mx-auto w-14 h-14 rounded-xl bg-gradient-to-br from-primary/[0.08] to-accent/[0.06] group-hover:from-primary/[0.15] group-hover:to-accent/[0.1] transition-colors flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-primary" />
                   </div>
                   <h3 className="font-bold text-gray-900 text-lg mb-3">{value.title}</h3>
@@ -197,7 +204,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-32 lg:py-40 overflow-hidden">
+      <section className="relative py-28 lg:py-36 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
           alt="Modern workspace"
@@ -205,6 +212,7 @@ export default function AboutPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-8 text-center max-w-2xl">Join the VersAssist Family</h2>
           <p className="text-gray-300 max-w-lg mb-12 text-lg leading-relaxed text-center">

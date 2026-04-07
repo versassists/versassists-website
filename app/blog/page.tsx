@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -21,9 +21,13 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
-          <p className="text-sm font-semibold tracking-wider uppercase text-primary-light mb-5 text-center">Blog</p>
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] border border-white/[0.12] text-sm text-white/80 backdrop-blur-sm mb-6">
+            <Sparkles className="w-4 h-4 text-accent" />
+            Blog
+          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight text-center max-w-4xl">
             Insights &{" "}
             <span className="bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent">Resources</span>
@@ -35,11 +39,12 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-32 lg:py-40 bg-gray-50">
+      <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <article key={post.slug} className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.05] hover:-translate-y-1 transition-all duration-300">
+              <article key={post.slug} className="relative overflow-hidden group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.05] hover:-translate-y-1 transition-all duration-300">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <div className="relative aspect-video">
                   <Image
                     src={post.image}
@@ -66,9 +71,10 @@ export default function BlogPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-32 lg:py-40 overflow-hidden">
+      <section className="relative py-28 lg:py-36 overflow-hidden">
         <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" alt="Modern workspace" fill className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-8 text-center max-w-3xl">Want Personalized Advice?</h2>
           <p className="text-gray-300 max-w-lg mb-12 text-lg sm:text-xl leading-relaxed text-center">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Check, X, CheckCircle } from "lucide-react";
+import { ArrowRight, Check, X, CheckCircle, Sparkles } from "lucide-react";
 import { services } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -22,7 +22,13 @@ export default function ServicesPage() {
           className="object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-[#1a1a2e]/70 to-[#16213e]/80" />
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[100px]" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] border border-white/[0.12] text-sm text-white/80 backdrop-blur-sm mb-8">
+            <Sparkles className="w-4 h-4 text-accent" />
+            What We Offer
+          </div>
           <p className="text-sm font-semibold tracking-wider uppercase text-primary-light mb-5 text-center">Our Services</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight text-center max-w-4xl">
             AI-Enhanced Services That{" "}
@@ -37,7 +43,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-32 lg:py-40 bg-gray-50">
+      <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => {
@@ -45,9 +51,10 @@ export default function ServicesPage() {
               return (
                 <div
                   key={service.title}
-                  className="group bg-white rounded-2xl p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.06] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
+                  className="group relative overflow-hidden bg-white rounded-2xl p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.06] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/[0.08] to-accent/[0.06] flex items-center justify-center mb-6 group-hover:from-primary group-hover:to-primary-dark group-hover:bg-gradient-to-br transition-colors duration-300">
                     <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
@@ -68,7 +75,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-32 lg:py-40 bg-white">
+      <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-5 text-center">Compare</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6 text-center max-w-3xl">
@@ -78,13 +85,13 @@ export default function ServicesPage() {
             See how AI-powered VAs compare to doing it yourself or hiring full-time.
           </p>
 
-          <div className="w-full overflow-x-auto rounded-2xl border border-gray-200">
+          <div className="w-full overflow-x-auto rounded-2xl border border-gray-200 shadow-lg">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-gray-50">
                   <th className="text-left p-5 text-gray-500 font-medium">Feature</th>
                   <th className="p-5 text-center">
-                    <span className="text-primary font-bold">VersAssist</span>
+                    <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-bold">VersAssist</span>
                     <br />
                     <span className="text-gray-400 text-xs">AI-Powered VAs</span>
                   </th>
@@ -111,7 +118,7 @@ export default function ServicesPage() {
                   { feature: "Dedicated Account Manager", va: true, diy: false, ft: false },
                   { feature: "Quality-Checked Deliverables", va: true, diy: "Varies", ft: "Varies" },
                 ].map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                  <tr key={i} className={`${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"} hover:bg-primary/[0.02] transition-colors`}>
                     <td className="p-5 text-gray-700 font-medium text-left">{row.feature}</td>
                     {[row.va, row.diy, row.ft].map((val, j) => (
                       <td key={j} className="p-5 text-center">
@@ -133,7 +140,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-32 lg:py-40 overflow-hidden">
+      <section className="relative py-28 lg:py-36 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
           alt="Modern workspace"
@@ -141,6 +148,7 @@ export default function ServicesPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-8 text-center max-w-3xl">Ready to Delegate and Grow?</h2>
           <p className="text-gray-300 max-w-lg mb-12 text-lg leading-relaxed text-center">
