@@ -192,6 +192,38 @@ export const testimonials: Testimonial[] = [
     company: "Carter & Olay Foundation",
     image: "/images/testimonial-4.jpg",
   },
+  {
+    quote:
+      "We've had a great experience working with VersAssists. Operationally, they've helped our company perform at a much higher level. They're responsive, complete tasks in a timely manner, and consistently deliver work that aligns with what we're looking for. If you're on the fence about using virtual assistants, I highly recommend VersAssists. The value is definitely there. They've been a reliable and worthwhile investment for our team.",
+    name: "Ellena Weaver",
+    title: "Client",
+    company: "Weaver Enterprises & Investments",
+    image: "",
+  },
+  {
+    quote:
+      "VersAssists is the real deal. I highly recommend using them. They have twice helped me on two major projects, a layout of a white paper and now, a book layout. In addition, they were instrumental in getting some VIBE computing projects finalized. Highly recommend VersAssists.",
+    name: "William Harris",
+    title: "Client",
+    company: "",
+    image: "",
+  },
+  {
+    quote:
+      "Our firm has had a great experience with VersAssists. They've supported us with creating applications, presentation decks, book layout, and general admin—always delivering high-quality work. They're responsive, reliable, and feel like an extension of our team. Their support has saved us time and helped us stay focused on what matters most. Highly recommend.",
+    name: "Paula Harris",
+    title: "Client",
+    company: "",
+    image: "",
+  },
+  {
+    quote:
+      "Versassist delivered exceptional support for my Etsy page and website. Their team provided clear, insightful guidance and worked with impressive efficiency. They were consistently accommodating—readily making adjustments even when I was still refining my ideas. The overall experience was excellent. I genuinely appreciate their professionalism, patience, and dedication to quality. I would confidently recommend Versassist to anyone seeking reliable and thoughtful assistance with their online presence.",
+    name: "Monica McGowan",
+    title: "Client",
+    company: "",
+    image: "",
+  },
 ];
 
 // ─── Case Studies ────────────────────────────────────────────────────

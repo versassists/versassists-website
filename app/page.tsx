@@ -318,7 +318,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900">{t.name}</p>
-                    <p className="text-gray-500 text-sm">{t.title}, {t.company}</p>
+                    <p className="text-gray-500 text-sm">{t.company ? `${t.title}, ${t.company}` : t.title}</p>
                   </div>
                 </div>
               </div>
