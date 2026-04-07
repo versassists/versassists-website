@@ -134,19 +134,19 @@ export const team: TeamMember[] = [
     name: "Dr. Jeff Bullock",
     role: "Co-Founder & CEO",
     bio: "With over two decades of experience in business strategy and management, Dr. Jeff's expertise in operational restructuring and strategic growth guides VersAssist in transforming the virtual assistance landscape.",
-    image: "/images/team-jeff.jpg",
+    image: "/Profile Pictures/Dr. Jeff Bullock.jpg",
   },
   {
     name: "Michael Olaiya",
     role: "Co-Founder & CFO",
     bio: "Dedicated to revolutionizing business growth through AI-powered training and strategic support, Michael ensures VersAssist delivers measurable financial impact for every client.",
-    image: "/images/team-michael.jpg",
+    image: "/Profile Pictures/Dr Mike Olaiya.jpg",
   },
   {
     name: "Saleem Raja",
     role: "Operations Director",
     bio: "Saleem ensures operational efficiency across VersAssist's diverse service portfolio, using data-driven strategies to exceed client expectations and drive satisfaction.",
-    image: "/images/team-saleem.jpg",
+    image: "/Profile Pictures/Saleem Raja.jpg",
   },
 ];
 
@@ -332,7 +332,7 @@ export const pricingPlans: PricingPlan[] = [
       "Weekly progress updates and milestone tracking",
       "Flexible — add Boost Packs anytime to expand support mid-month",
     ],
-    highlighted: false,
+    highlighted: true,
     cta: "Book Now",
   },
   {
@@ -348,7 +348,7 @@ export const pricingPlans: PricingPlan[] = [
       "Weekly deliverables with monthly review",
       "Boost Packs available if your needs grow mid-month",
     ],
-    highlighted: true,
+    highlighted: false,
     cta: "Book Now",
   },
   {

@@ -163,10 +163,14 @@ export default function AboutPage() {
                 className="group overflow-hidden relative bg-gray-50 rounded-2xl p-10 text-center border border-gray-100 hover:shadow-xl hover:shadow-primary/[0.05] hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-8 shadow-lg shadow-primary/20">
-                  <span className="text-white font-bold text-3xl">
-                    {member.name.split(" ").map((n) => n[0]).join("")}
-                  </span>
+                <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-8 shadow-lg shadow-primary/20 ring-2 ring-primary/20">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={112}
+                    height={112}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
                 <p className="text-primary font-medium mb-5">{member.role}</p>
