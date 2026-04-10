@@ -58,12 +58,6 @@ const clientProjects = [
 
 const partnerTestimonials = [
   {
-    name: "Yolanda & Tim Pender",
-    company: "About Life and Marriage",
-    quote:
-      "VersAssist has become an extension of our vision. From content creation to course development, they bring our ideas to life with professionalism and heart. We couldn't have scaled our brand without them.",
-  },
-  {
     name: "Michael Lievers",
     company: "Client Partner",
     quote:
@@ -84,8 +78,16 @@ const partnerTestimonials = [
 ];
 
 const videoTestimonials = [
-  { src: "/video-testimonials/dr-belton.mp4", name: "Dr. Belton" },
-  { src: "/video-testimonials/versassist-review.mp4", name: "VersAssist Client Review" },
+  {
+    src: "/video-testimonials/dr-belton.mp4",
+    name: "Dr. Belton",
+    company: "Your Therapy Doctor",
+  },
+  {
+    src: "/video-testimonials/versassist-review.mp4",
+    name: "Yolanda & Tim Pender",
+    company: "About Life and Marriage",
+  },
 ];
 
 export default function PortfolioPage() {
@@ -327,22 +329,24 @@ export default function PortfolioPage() {
           <p className="text-gray-500 max-w-2xl mb-16 text-lg text-center leading-relaxed">
             Real clients sharing real stories about working with VersAssist.
           </p>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl">
             {videoTestimonials.map((video) => (
               <div
                 key={video.src}
                 className="group relative overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="relative aspect-video bg-gray-900">
+                <div className="relative aspect-[9/16] bg-gray-900">
                   <video
                     src={video.src}
                     controls
+                    playsInline
                     preload="metadata"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6 text-center">
-                  <p className="font-bold text-gray-900">{video.name}</p>
+                  <p className="font-bold text-gray-900 text-lg">{video.name}</p>
+                  <p className="text-sm text-gray-500 mt-1">{video.company}</p>
                 </div>
               </div>
             ))}
