@@ -134,19 +134,19 @@ export const team: TeamMember[] = [
     name: "Dr. Jeff Bullock",
     role: "Co-Founder & CEO",
     bio: "With over two decades of experience in business strategy and management, Dr. Jeff's expertise in operational restructuring and strategic growth guides VersAssist in transforming the virtual assistance landscape.",
-    image: "/Profile Pictures/Dr. Jeff Bullock.jpg",
+    image: "/profile-pictures/dr-jeff-bullock.jpg",
   },
   {
     name: "Michael Olaiya",
     role: "Co-Founder & CFO",
     bio: "Dedicated to revolutionizing business growth through AI-powered training and strategic support, Michael ensures VersAssist delivers measurable financial impact for every client.",
-    image: "/Profile Pictures/Dr Mike Olaiya.jpg",
+    image: "/profile-pictures/dr-mike-olaiya.jpg",
   },
   {
     name: "Saleem Raja",
     role: "Operations Director",
     bio: "Saleem ensures operational efficiency across VersAssist's diverse service portfolio, using data-driven strategies to exceed client expectations and drive satisfaction.",
-    image: "/Profile Pictures/Saleem Raja.jpg",
+    image: "/profile-pictures/saleem-raja.jpg",
   },
 ];
 
