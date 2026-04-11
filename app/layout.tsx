@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
@@ -9,6 +10,8 @@ import {
   professionalServiceSchema,
 } from "@/lib/schemas";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-9EJFXCF9B1";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -93,6 +96,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }
