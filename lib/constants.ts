@@ -513,6 +513,7 @@ export const navLinks = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
   { label: "VersAssist Calculator", href: "https://calculator.versassists.com/" },
 ];
 
