@@ -1,25 +1,21 @@
 import Link from "next/link";
 import { navLinks, companyInfo, services } from "@/lib/constants";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail } from "lucide-react";
+import GhlForm from "@/components/ui/GhlForm";
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-400">
       {/* Newsletter */}
       <div className="border-b border-gray-800">
-        <div className="max-w-5xl mx-auto px-6 py-14 text-center">
+        <div className="max-w-md mx-auto px-6 py-14 text-center">
           <h3 className="text-xl font-bold text-white mb-2">Stay Updated</h3>
-          <p className="text-gray-500 text-sm mb-6">Get expert virtual assistance tips delivered to your inbox.</p>
-          <div className="flex gap-2 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-primary text-sm"
-            />
-            <button className="px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary-dark transition-colors flex items-center gap-2 shrink-0">
-              Subscribe <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
+          <p className="text-gray-500 text-sm mb-4">Get expert virtual assistance tips delivered to your inbox.</p>
+          <GhlForm
+            formId="UAsq0V9twlD1DHJpUhQK"
+            title="Newsletter Signup"
+            initialHeight={220}
+          />
         </div>
       </div>
 
