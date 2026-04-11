@@ -17,15 +17,28 @@ import {
 // ─── Services ────────────────────────────────────────────────────────
 export interface Service {
   icon: LucideIcon;
+  slug: string;
   title: string;
+  shortTitle: string;
   description: string;
   features: string[];
+  // Landing-page SEO content
+  seoTitle: string;
+  seoDescription: string;
+  heroHeadline: string;
+  heroSubheadline: string;
+  longDescription: string[];
+  benefits: { title: string; desc: string }[];
+  idealFor: string[];
+  keywords: string[];
 }
 
 export const services: Service[] = [
   {
     icon: Mail,
+    slug: "email-management-virtual-assistant",
     title: "Email Management",
+    shortTitle: "Email Management VA",
     description:
       "Our AI-enhanced email management keeps your inbox organized, prioritizes critical messages, and ensures timely responses — so you never miss what matters.",
     features: [
@@ -34,10 +47,54 @@ export const services: Service[] = [
       "Follow-up tracking & reminders",
       "Spam filtering & organization",
     ],
+    seoTitle:
+      "Email Management Virtual Assistant for Small Business | VersAssist",
+    seoDescription:
+      "Hire an AI-powered email management virtual assistant. Inbox zero, smart triage, template replies, follow-up tracking. Save 10+ hours per week. Book a free call.",
+    heroHeadline: "Email Management Virtual Assistant Services",
+    heroSubheadline:
+      "Reclaim 10+ hours every week with an AI-powered email management virtual assistant. Our trained VAs triage, reply, and organize your inbox so you can focus on what matters.",
+    longDescription: [
+      "Drowning in email is one of the top complaints we hear from small business owners and startup founders. A full inbox kills productivity, buries opportunities, and adds stress to your day. Our email management virtual assistants combine human judgment with AI tools to process, categorize, and respond to hundreds of messages a week — without the noise reaching your desk.",
+      "Unlike traditional VAs, our email management virtual assistant services are AI-enhanced. Every assistant is trained on the latest AI tools (ChatGPT, Gmail AI, Superhuman, SaneBox) so they can work 3x faster and deliver cleaner results. You keep control of tone and strategy; they handle the execution.",
+      "Whether you need someone to hit inbox zero daily, manage client communication, or handle sales follow-ups, our email management VAs scale with you. No contracts, no lock-in — hours never expire.",
+    ],
+    benefits: [
+      {
+        title: "Inbox Zero, Every Day",
+        desc: "Your VA triages, labels, and files every incoming message within your SLA window.",
+      },
+      {
+        title: "AI-Accelerated Replies",
+        desc: "Smart drafts generated in seconds so you (or your VA) can review and send faster.",
+      },
+      {
+        title: "Follow-Up Tracking",
+        desc: "Never let a sales lead or client question slip through the cracks again.",
+      },
+      {
+        title: "Privacy-First",
+        desc: "Every VA signs an NDA. We use least-privilege access and audit logs.",
+      },
+    ],
+    idealFor: [
+      "Founders receiving 100+ emails/day",
+      "Coaches and consultants managing client communication",
+      "E-commerce teams handling support inboxes",
+      "Executives needing a chief-of-staff-style inbox gatekeeper",
+    ],
+    keywords: [
+      "email management virtual assistant",
+      "inbox management VA",
+      "email virtual assistant for small business",
+      "hire email VA",
+    ],
   },
   {
     icon: Calendar,
+    slug: "calendar-scheduling-virtual-assistant",
     title: "Calendar & Scheduling",
+    shortTitle: "Calendar VA",
     description:
       "Advanced AI-driven scheduling that eliminates double-bookings, manages time zones, and keeps your calendar conflict-free.",
     features: [
@@ -46,10 +103,53 @@ export const services: Service[] = [
       "Conflict detection & resolution",
       "Meeting prep & agenda creation",
     ],
+    seoTitle:
+      "Calendar & Scheduling Virtual Assistant | AI-Powered VA | VersAssist",
+    seoDescription:
+      "Hire a calendar and scheduling virtual assistant. AI-powered appointment booking, time zone management, meeting prep, conflict resolution. Free discovery call.",
+    heroHeadline: "Calendar & Scheduling Virtual Assistant Services",
+    heroSubheadline:
+      "Stop playing calendar Tetris. Our AI-powered scheduling virtual assistants book meetings, manage time zones, and prep you for every call.",
+    longDescription: [
+      "Your calendar is one of your most valuable assets — and one of the biggest sources of chaos. Between client meetings, internal stand-ups, podcasts, and sales calls, scheduling eats hours every week. Our calendar and scheduling virtual assistants use tools like Calendly, Motion, Reclaim, and Google Calendar AI to automate the busywork and make sure every meeting is worth your time.",
+      "A VersAssist scheduling VA doesn't just book meetings — they protect your time. They batch similar calls, enforce buffer time, reschedule conflicts, send pre-meeting briefs, and follow up afterward. You walk into every meeting prepared and walk out with the action items already documented.",
+      "Perfect for founders, coaches, sales leaders, and anyone whose calendar has become unmanageable.",
+    ],
+    benefits: [
+      {
+        title: "AI-Optimized Scheduling",
+        desc: "Your VA uses scheduling AI to find the perfect slot across every time zone.",
+      },
+      {
+        title: "Meeting Prep Briefs",
+        desc: "Every meeting comes with a one-page brief so you're never caught off guard.",
+      },
+      {
+        title: "Conflict Protection",
+        desc: "Buffer time, travel time, focus blocks — all protected automatically.",
+      },
+      {
+        title: "Follow-Up Automation",
+        desc: "Notes, action items, and recap emails sent within an hour of each meeting.",
+      },
+    ],
+    idealFor: [
+      "Sales leaders with 20+ meetings/week",
+      "Coaches and therapists managing client sessions",
+      "Executives who need gatekeeping",
+      "Podcast hosts and content creators booking guests",
+    ],
+    keywords: [
+      "scheduling virtual assistant",
+      "calendar management VA",
+      "appointment setter virtual assistant",
+    ],
   },
   {
     icon: Share2,
+    slug: "social-media-virtual-assistant",
     title: "Social Media Management",
+    shortTitle: "Social Media VA",
     description:
       "Elevate your brand with AI-powered content strategy, creation, and scheduling across all major platforms.",
     features: [
@@ -58,10 +158,54 @@ export const services: Service[] = [
       "Engagement monitoring & response",
       "Analytics & performance reporting",
     ],
+    seoTitle:
+      "Social Media Virtual Assistant: Instagram, LinkedIn, TikTok | VersAssist",
+    seoDescription:
+      "Hire an AI-powered social media virtual assistant. Content creation, scheduling, engagement, analytics across Instagram, LinkedIn, TikTok, and more. Book a free call.",
+    heroHeadline: "Social Media Virtual Assistant Services",
+    heroSubheadline:
+      "Grow your Instagram, LinkedIn, TikTok, and Facebook with an AI-powered social media virtual assistant who handles everything from strategy to engagement.",
+    longDescription: [
+      "Consistent, high-quality social media is one of the fastest ways to build a brand — and one of the hardest to sustain on your own. Our social media virtual assistants handle every step of the process: strategy, content calendars, graphics, captions, hashtag research, posting, community engagement, and monthly reporting.",
+      "We combine AI tools (ChatGPT, Canva AI, Midjourney, Metricool) with human creativity, so your content feels authentic while being produced at 3x the speed. Every social media VA is trained on best practices for Instagram, LinkedIn, TikTok, Facebook, and X (Twitter), and specializes in the platform mix that matters most to your audience.",
+      "Whether you want to build a personal brand, launch a product, or grow a local business, our social media VAs are your execution arm — without the cost of a full-time hire.",
+    ],
+    benefits: [
+      {
+        title: "Full-Funnel Content",
+        desc: "From awareness reels to conversion carousels — we cover every stage of your funnel.",
+      },
+      {
+        title: "AI-Powered Production",
+        desc: "Captions, hashtags, and graphics generated with AI then polished by humans.",
+      },
+      {
+        title: "Engagement Management",
+        desc: "DMs, comments, and replies handled in your voice so your community never feels ignored.",
+      },
+      {
+        title: "Monthly Analytics",
+        desc: "Clear reports on reach, engagement, and growth — plus recommendations for next month.",
+      },
+    ],
+    idealFor: [
+      "Personal brands and thought leaders",
+      "Coaches, consultants, and course creators",
+      "Small local businesses",
+      "E-commerce and DTC brands",
+    ],
+    keywords: [
+      "social media virtual assistant",
+      "Instagram virtual assistant",
+      "LinkedIn content VA",
+      "TikTok virtual assistant",
+    ],
   },
   {
     icon: Palette,
+    slug: "graphic-design-virtual-assistant",
     title: "Graphic Design",
+    shortTitle: "Design VA",
     description:
       "From logos to marketing materials, our AI-enhanced designers create stunning visuals that communicate your brand's story.",
     features: [
@@ -70,10 +214,54 @@ export const services: Service[] = [
       "Marketing collateral & flyers",
       "Presentation design",
     ],
+    seoTitle:
+      "Graphic Design Virtual Assistant: Logos, Branding, Social | VersAssist",
+    seoDescription:
+      "Hire an AI-enhanced graphic design virtual assistant. Logos, brand identity, social graphics, marketing materials, pitch decks. Fast turnaround. Book a free call.",
+    heroHeadline: "Graphic Design Virtual Assistant Services",
+    heroSubheadline:
+      "Professional logos, brand identity, social graphics, and marketing collateral — delivered by AI-enhanced design virtual assistants at a fraction of agency prices.",
+    longDescription: [
+      "Great design is no longer optional — it's how customers decide whether to trust you in the first three seconds. Our graphic design virtual assistants help small businesses and startups look like they have a full creative team behind them, without the overhead.",
+      "From Canva Pro and Adobe Creative Cloud to Midjourney, Figma, and Framer, our designers use the entire modern toolchain. Every project starts with a creative brief, includes unlimited revisions within scope, and ships in days — not weeks.",
+      "Whether you need a one-off logo, ongoing social graphics, or a full brand rebuild, our design VAs deliver agency-quality work at VA pricing.",
+    ],
+    benefits: [
+      {
+        title: "Agency-Quality Output",
+        desc: "Every deliverable is reviewed by a senior designer before it reaches you.",
+      },
+      {
+        title: "AI-Accelerated Turnaround",
+        desc: "Concepts in 24 hours, final files in 48–72 hours for most projects.",
+      },
+      {
+        title: "Unlimited Revisions",
+        desc: "We iterate until you love it — all within your hourly package.",
+      },
+      {
+        title: "Full Toolchain",
+        desc: "Canva, Adobe, Figma, Midjourney, Framer — whatever your brand needs.",
+      },
+    ],
+    idealFor: [
+      "Startups building a brand from scratch",
+      "Small businesses needing ongoing social graphics",
+      "Course creators producing lead magnets and workbooks",
+      "SaaS companies needing pitch decks and marketing collateral",
+    ],
+    keywords: [
+      "graphic design virtual assistant",
+      "logo design VA",
+      "branding virtual assistant",
+      "Canva virtual assistant",
+    ],
   },
   {
     icon: Globe,
+    slug: "website-development-virtual-assistant",
     title: "Website Development",
+    shortTitle: "Web Dev VA",
     description:
       "Comprehensive website development and maintenance with AI monitoring to keep your site fast, secure, and always up-to-date.",
     features: [
@@ -82,10 +270,54 @@ export const services: Service[] = [
       "Regular updates & security patches",
       "Performance monitoring",
     ],
+    seoTitle:
+      "Website Development Virtual Assistant: WordPress, Webflow, Next.js | VersAssist",
+    seoDescription:
+      "Hire a website development virtual assistant. WordPress, Webflow, Shopify, Next.js builds plus ongoing maintenance, SEO, and AI monitoring. Free discovery call.",
+    heroHeadline: "Website Development Virtual Assistant Services",
+    heroSubheadline:
+      "Launch, maintain, and optimize your website with an AI-powered web development virtual assistant. WordPress, Webflow, Shopify, and Next.js — covered.",
+    longDescription: [
+      "Your website is your 24/7 salesperson. When it's slow, outdated, or broken, you're losing customers every hour. Our website development virtual assistants handle everything from landing page builds to full site rebuilds, ongoing maintenance, speed optimization, and SEO — using AI monitoring to catch issues before your visitors do.",
+      "We specialize in WordPress, Webflow, Shopify, Framer, and Next.js (like this very site). Whether you need a one-time build, a monthly retainer for updates, or someone to run your site full-time, our web dev VAs scale to your needs.",
+      "Every project includes Core Web Vitals optimization, mobile-first design, accessibility checks, and ongoing security monitoring — all for a fraction of a full-time developer's cost.",
+    ],
+    benefits: [
+      {
+        title: "Modern Stack",
+        desc: "WordPress, Webflow, Shopify, Framer, Next.js, React — pick your platform, we build it.",
+      },
+      {
+        title: "SEO Built-In",
+        desc: "Every page ships with meta tags, schema, sitemap, and Core Web Vitals optimization.",
+      },
+      {
+        title: "AI Monitoring",
+        desc: "We use AI-powered uptime and performance monitoring to catch issues early.",
+      },
+      {
+        title: "Ongoing Maintenance",
+        desc: "Security patches, plugin updates, backups, and content changes — all handled.",
+      },
+    ],
+    idealFor: [
+      "Small businesses launching or rebuilding a website",
+      "E-commerce stores needing Shopify or WooCommerce support",
+      "SaaS companies building marketing sites",
+      "Agencies white-labeling our dev team",
+    ],
+    keywords: [
+      "website development virtual assistant",
+      "WordPress VA",
+      "Webflow virtual assistant",
+      "Shopify VA",
+    ],
   },
   {
     icon: Headphones,
+    slug: "customer-support-virtual-assistant",
     title: "Customer Support",
+    shortTitle: "Support VA",
     description:
       "AI-powered customer support that provides fast, accurate, and personalized responses to keep your customers happy.",
     features: [
@@ -94,10 +326,54 @@ export const services: Service[] = [
       "Ticket management & routing",
       "Customer satisfaction tracking",
     ],
+    seoTitle:
+      "Customer Support Virtual Assistant: Email, Chat, Tickets | VersAssist",
+    seoDescription:
+      "Hire a customer support virtual assistant. Multi-channel support, AI chatbot setup, ticket management, CSAT tracking. 24/7 coverage available. Free call.",
+    heroHeadline: "Customer Support Virtual Assistant Services",
+    heroSubheadline:
+      "Deliver 5-star customer support around the clock with AI-enhanced virtual assistants who know your product inside and out.",
+    longDescription: [
+      "Fast, friendly support is the difference between a one-time buyer and a lifetime customer. Our customer support virtual assistants handle email, live chat, ticket queues, phone, and social DMs — trained on your product, tone, and FAQs so every reply feels on-brand.",
+      "We pair our VAs with modern support tools (Zendesk, Intercom, Freshdesk, Help Scout, Gorgias) and AI systems (ChatGPT, custom GPTs, AI knowledge bases) to resolve tickets 3x faster while maintaining human warmth.",
+      "Whether you need part-time coverage during business hours or 24/7 global support, our customer support VAs plug directly into your workflow.",
+    ],
+    benefits: [
+      {
+        title: "Multi-Channel Coverage",
+        desc: "Email, chat, social DMs, tickets — all handled by one trained team.",
+      },
+      {
+        title: "AI-Augmented Replies",
+        desc: "Knowledge-base-powered draft replies that your VA edits and sends.",
+      },
+      {
+        title: "Fast Onboarding",
+        desc: "Your VA is trained on your product, FAQ, and tone within 48 hours of kickoff.",
+      },
+      {
+        title: "CSAT Tracking",
+        desc: "Monthly reports on customer satisfaction, ticket volume, and response times.",
+      },
+    ],
+    idealFor: [
+      "E-commerce and DTC brands",
+      "SaaS companies with growing support queues",
+      "Coaching and membership communities",
+      "Local service businesses",
+    ],
+    keywords: [
+      "customer support virtual assistant",
+      "customer service VA",
+      "Zendesk virtual assistant",
+      "live chat VA",
+    ],
   },
   {
     icon: PenTool,
+    slug: "content-writing-virtual-assistant",
     title: "Content Creation",
+    shortTitle: "Content VA",
     description:
       "Engage your audience with high-quality blogs, course materials, email campaigns, and copywriting crafted with AI precision.",
     features: [
@@ -106,10 +382,54 @@ export const services: Service[] = [
       "Email marketing campaigns",
       "Copywriting & editing",
     ],
+    seoTitle:
+      "Content Writing Virtual Assistant: Blogs, Courses, Email | VersAssist",
+    seoDescription:
+      "Hire an AI-powered content writing virtual assistant. SEO blogs, course content, email campaigns, copywriting. Publish consistently without burnout. Book a call.",
+    heroHeadline: "Content Writing Virtual Assistant Services",
+    heroSubheadline:
+      "Publish SEO-optimized blogs, email newsletters, and course content every week with an AI-powered content writing virtual assistant.",
+    longDescription: [
+      "Content marketing is the highest-ROI channel for small businesses — but only if you publish consistently. Our content writing virtual assistants help you do exactly that. From SEO blog posts and email newsletters to course modules and sales copy, we ship publish-ready drafts every week.",
+      "Our writers use AI tools (ChatGPT, Claude, Jasper, SurferSEO) as accelerators — not replacements — so every piece reads naturally, ranks in search, and drives conversions. Each project starts with a content brief, keyword research, and a style guide tailored to your voice.",
+      "Whether you need a single blog post or a full content calendar, our content VAs plug into your team and help you own your niche.",
+    ],
+    benefits: [
+      {
+        title: "SEO-First Writing",
+        desc: "Every blog is optimized for search intent, keywords, and readability before it ships.",
+      },
+      {
+        title: "Voice Matching",
+        desc: "We study your existing content and match your tone exactly.",
+      },
+      {
+        title: "Fast Turnaround",
+        desc: "1,500-word blog posts delivered in 48 hours or less.",
+      },
+      {
+        title: "Full-Funnel Copy",
+        desc: "Blogs, emails, landing pages, sales pages, courses — we do it all.",
+      },
+    ],
+    idealFor: [
+      "Founders who want to publish weekly but don't have time",
+      "Coaches and course creators",
+      "SaaS companies running content-led growth",
+      "Agencies needing white-label writing",
+    ],
+    keywords: [
+      "content writing virtual assistant",
+      "blog writing VA",
+      "copywriting virtual assistant",
+      "SEO writer VA",
+    ],
   },
   {
     icon: Bot,
+    slug: "ai-consulting-virtual-assistant",
     title: "AI Consulting",
+    shortTitle: "AI Consulting VA",
     description:
       "Custom AI solutions and prototypes tailored to your business needs — from workflow automation to intelligent assistants.",
     features: [
@@ -117,6 +437,48 @@ export const services: Service[] = [
       "Custom chatbot development",
       "Process optimization",
       "AI tool integration & training",
+    ],
+    seoTitle:
+      "AI Consulting for Small Business: Workflows, Chatbots, Automation | VersAssist",
+    seoDescription:
+      "AI consulting for small businesses. Workflow automation, custom GPTs, chatbot development, AI tool training. Save 20+ hours/week. Free discovery call.",
+    heroHeadline: "AI Consulting & Automation Services",
+    heroSubheadline:
+      "Save 20+ hours per week by automating your repetitive work with custom AI workflows, chatbots, and integrations built for your business.",
+    longDescription: [
+      "AI is the single biggest productivity lever available to small businesses right now — but most founders don't have time to figure out which tools to use, how to connect them, or how to train their teams. That's where our AI consulting service comes in.",
+      "Our AI consultants work with you to identify the highest-impact workflows in your business, then build custom automations, GPTs, and chatbots to handle them. We use tools like ChatGPT, Claude, Zapier, Make, n8n, Airtable, and custom LLM integrations to deliver measurable results in weeks — not months.",
+      "Past projects include AI email assistants, custom customer support bots, automated content pipelines, AI-powered lead scoring, and workflow automations that save clients 20+ hours per week.",
+    ],
+    benefits: [
+      {
+        title: "Workflow Automation",
+        desc: "Eliminate repetitive work with Zapier, Make, n8n, and custom scripts.",
+      },
+      {
+        title: "Custom GPTs & Chatbots",
+        desc: "Branded AI assistants trained on your knowledge base, documents, and tone.",
+      },
+      {
+        title: "AI Strategy",
+        desc: "We map your business and identify the highest-ROI AI opportunities first.",
+      },
+      {
+        title: "Team Training",
+        desc: "We train your team on the tools so they can run them independently.",
+      },
+    ],
+    idealFor: [
+      "Founders overwhelmed by repetitive tasks",
+      "Small businesses exploring AI for the first time",
+      "Agencies wanting to offer AI services to clients",
+      "Operators who want to 10x output without hiring",
+    ],
+    keywords: [
+      "AI consulting for small business",
+      "AI automation services",
+      "custom GPT development",
+      "AI virtual assistant consultant",
     ],
   },
 ];

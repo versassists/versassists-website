@@ -3,7 +3,7 @@
  * Used to feed the <JsonLd /> component on each page.
  */
 
-import { services, faqItems, companyInfo } from "./constants";
+import { services, faqItems, companyInfo, type Service } from "./constants";
 import { blogPosts, type BlogPost } from "./blog-posts";
 
 const BASE_URL = "https://www.versassists.com";
@@ -107,12 +107,45 @@ export const servicesSchema = services.map((s) => ({
   provider: { "@id": `${BASE_URL}/#organization` },
   areaServed: { "@type": "Country", name: "United States" },
   serviceType: "Virtual Assistant Service",
+  url: `${BASE_URL}/services/${s.slug}`,
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/InStock",
-    url: `${BASE_URL}/services`,
+    url: `${BASE_URL}/services/${s.slug}`,
   },
 }));
+
+// ─── Single service schema (for individual landing pages) ────────────
+export function serviceLandingSchema(service: Service) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${BASE_URL}/services/${service.slug}#service`,
+    name: service.title,
+    alternateName: service.shortTitle,
+    description: service.seoDescription,
+    provider: { "@id": `${BASE_URL}/#organization` },
+    areaServed: { "@type": "Country", name: "United States" },
+    serviceType: "Virtual Assistant Service",
+    url: `${BASE_URL}/services/${service.slug}`,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${service.title} Features`,
+      itemListElement: service.features.map((f) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: f,
+        },
+      })),
+    },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      url: `${BASE_URL}/services/${service.slug}`,
+    },
+  };
+}
 
 // ─── FAQ page ────────────────────────────────────────────────────────
 export const faqSchema = {

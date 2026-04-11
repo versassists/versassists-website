@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title:
     "AI-Powered Virtual Assistants for Small Business | VersAssist",
   description:
-    "Hire AI-enhanced virtual assistants that work 3x faster. Email, social media, design, web dev, customer support & more. Hours never expire. No lock-in. Book a free discovery call.",
+    "Hire AI-powered virtual assistants for small business and startups. Email management, social media, graphic design, web development, customer support & AI consulting. Hours never expire, no lock-in. Book a free discovery call.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "AI-Powered Virtual Assistants for Small Business | VersAssist",
@@ -74,7 +74,7 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80"
-          alt="Professional team collaborating"
+          alt="AI-powered virtual assistant team collaborating with small business client"
           fill
           priority
           className="object-cover"
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-28 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] border border-white/[0.12] text-sm text-white/80 backdrop-blur-sm">
             <Sparkles className="w-4 h-4 text-accent" />
-            AI-Powered Virtual Assistance
+            AI-Powered Virtual Assistant Services
           </div>
 
           <h1 className="mt-8 text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight max-w-4xl">
@@ -98,9 +98,9 @@ export default function Home() {
           </h1>
 
           <p className="mt-6 text-center text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed">
-            AI-enhanced virtual assistants who handle your email, social media,
-            design, website, and more — so you can focus on what actually grows
-            your business.
+            Hire an AI-powered <strong className="text-white font-semibold">virtual assistant</strong> for your
+            small business. Our AI-enhanced VAs handle email management, social media, graphic design,
+            website development, and customer support — so you can focus on what actually grows your business.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -183,10 +183,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-3">What We Do</p>
           <h2 className="text-center text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 max-w-3xl">
-            Services That Scale With You
+            Virtual Assistant Services That Scale With You
           </h2>
           <p className="text-center text-gray-500 max-w-xl text-lg leading-relaxed mb-14">
-            From inbox management to AI prototyping — our virtual assistants handle the work that slows you down.
+            From inbox management to AI consulting — our AI-powered virtual assistants handle the work that slows small businesses down.
           </p>
 
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -195,7 +195,7 @@ export default function Home() {
               return (
                 <Link
                   key={service.title}
-                  href="/services"
+                  href={`/services/${service.slug}`}
                   className="group flex flex-col items-center bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.06] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/[0.08] to-accent/[0.06] flex items-center justify-center mb-5 group-hover:from-primary/[0.15] group-hover:to-accent/[0.1] group-hover:bg-primary transition-colors duration-300">
@@ -209,7 +209,7 @@ export default function Home() {
           </div>
 
           <Link href="/services" className="mt-12 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
-            View all services <ArrowRight className="w-4 h-4" />
+            View all virtual assistant services <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
@@ -219,7 +219,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-3">How It Works</p>
           <h2 className="text-center text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 max-w-3xl">
-            Three Simple Steps
+            How to Hire a Virtual Assistant in 3 Simple Steps
           </h2>
           <p className="text-center text-gray-500 max-w-xl text-lg leading-relaxed mb-16">
             From overwhelmed to optimized in less than a week.
@@ -256,7 +256,7 @@ export default function Home() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
               <Image
                 src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?auto=format&fit=crop&w=1200&q=80"
-                alt="Team working with AI technology"
+                alt="VersAssist AI-powered virtual assistants working with small business clients"
                 fill
                 className="object-cover"
               />
@@ -266,10 +266,10 @@ export default function Home() {
             <div className="flex flex-col items-center lg:items-start">
               <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-3">Why VersAssist</p>
               <h2 className="text-center lg:text-left text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 max-w-lg">
-                What Makes Us Different
+                Why Choose VersAssist Virtual Assistants
               </h2>
               <p className="text-center lg:text-left text-gray-500 text-lg leading-relaxed mb-8 max-w-lg">
-                We&apos;re not just another VA company. We&apos;re your AI-powered growth partner.
+                We&apos;re not just another VA company. We&apos;re your AI-powered virtual assistant growth partner for small business.
               </p>
 
               <div className="w-full space-y-5">
@@ -299,7 +299,7 @@ export default function Home() {
       <section className="relative py-20 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=2000&q=80"
-          alt="Modern office"
+          alt="Modern office where virtual assistant services are delivered"
           fill
           className="object-cover"
         />
@@ -319,10 +319,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-3">Testimonials</p>
           <h2 className="text-center text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 max-w-3xl">
-            What Our Clients Say
+            What Our Virtual Assistant Clients Say
           </h2>
           <p className="text-center text-gray-500 max-w-xl text-lg leading-relaxed mb-14">
-            Real results from real businesses we&apos;ve helped grow.
+            Real results from real small businesses our virtual assistants have helped grow.
           </p>
 
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -355,7 +355,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-3">FAQ</p>
           <h2 className="text-center text-3xl sm:text-4xl font-extrabold text-gray-900 mb-12 max-w-xl">
-            Common Questions
+            Virtual Assistant FAQs
           </h2>
 
           <div className="w-full space-y-4">
@@ -392,10 +392,10 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">
           <h2 className="text-center text-3xl sm:text-4xl font-extrabold text-white mb-6 max-w-2xl">
-            Ready to Scale Your Business?
+            Ready to Hire Your AI Virtual Assistant?
           </h2>
           <p className="text-center text-gray-300 max-w-lg text-lg leading-relaxed mb-10">
-            Book a free 15-minute discovery call and let us show you how AI-powered virtual assistance can transform your operations.
+            Book a free 15-minute discovery call and let us show you how an AI-powered virtual assistant can transform your small business operations.
           </p>
           <a
             href="https://calendly.com/versassist/30min"

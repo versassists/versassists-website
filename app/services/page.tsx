@@ -35,7 +35,7 @@ export default function ServicesPage() {
       <section className="relative bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2000&q=80"
-          alt="Team collaborating on digital services"
+          alt="VersAssist virtual assistant team collaborating on client services"
           fill
           className="object-cover opacity-20"
         />
@@ -45,17 +45,19 @@ export default function ServicesPage() {
         <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] border border-white/[0.12] text-sm text-white/80 backdrop-blur-sm mb-8">
             <Sparkles className="w-4 h-4 text-accent" />
-            What We Offer
+            Virtual Assistant Services
           </div>
           <p className="text-sm font-semibold tracking-wider uppercase text-primary-light mb-5 text-center">Our Services</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight text-center max-w-4xl">
-            AI-Enhanced Services That{" "}
+            AI-Powered Virtual Assistant Services That{" "}
             <span className="bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent">
               Drive Results
             </span>
           </h1>
           <p className="text-gray-300 text-lg sm:text-xl max-w-2xl leading-relaxed text-center">
-            From social content to course builds to AI prototypes&mdash;our trained virtual team handles it all.
+            Eight AI-enhanced virtual assistant services for small businesses and startups. From email management
+            and social media to graphic design, web development, customer support, and AI consulting — our trained
+            virtual team handles it all.
           </p>
         </div>
       </section>
@@ -67,17 +69,18 @@ export default function ServicesPage() {
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <div
+                <Link
                   key={service.title}
+                  href={`/services/${service.slug}`}
                   className="group relative overflow-hidden bg-white rounded-2xl p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.06] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/[0.08] to-accent/[0.06] flex items-center justify-center mb-6 group-hover:from-primary group-hover:to-primary-dark group-hover:bg-gradient-to-br transition-colors duration-300">
                     <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">{service.description}</p>
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-2.5 mb-6">
                     {service.features.map((feature, j) => (
                       <li key={j} className="flex items-start gap-2.5 text-sm text-gray-600">
                         <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -85,7 +88,10 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-2.5 transition-all">
+                    Learn more <ArrowRight className="w-4 h-4" />
+                  </span>
+                </Link>
               );
             })}
           </div>
@@ -97,10 +103,10 @@ export default function ServicesPage() {
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
           <p className="text-sm font-semibold tracking-wider uppercase text-primary mb-5 text-center">Compare</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6 text-center max-w-3xl">
-            Why VersAssist Over Alternatives?
+            VersAssist vs. DIY vs. Full-Time Hire
           </h2>
           <p className="text-gray-500 max-w-xl mb-20 text-lg text-center">
-            See how AI-powered VAs compare to doing it yourself or hiring full-time.
+            See how our AI-powered virtual assistants compare to doing it yourself or hiring a full-time employee.
           </p>
 
           <div className="w-full overflow-x-auto rounded-2xl border border-gray-200 shadow-lg">
@@ -168,9 +174,9 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-8 text-center max-w-3xl">Ready to Delegate and Grow?</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-8 text-center max-w-3xl">Ready to Hire Your Virtual Assistant?</h2>
           <p className="text-gray-300 max-w-lg mb-12 text-lg leading-relaxed text-center">
-            Book a free discovery call and we&apos;ll match you with the perfect AI-enhanced virtual assistant team.
+            Book a free discovery call and we&apos;ll match you with the perfect AI-enhanced virtual assistant team for your small business.
           </p>
           <a href="https://calendly.com/versassist/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all">
             Book a Discovery Call <ArrowRight className="w-5 h-5" />
