@@ -37,18 +37,19 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-14">
             {/* Form */}
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-2xl p-8 lg:p-10 border border-gray-100 relative overflow-hidden hover:shadow-xl transition-shadow duration-300 shadow-sm">
+              <div className="bg-white rounded-2xl px-8 pt-8 pb-4 lg:px-10 lg:pt-10 lg:pb-4 border border-gray-100 relative overflow-hidden hover:shadow-xl transition-shadow duration-300 shadow-sm">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-1 text-center lg:text-left">
                   Send Us a Message
                 </h2>
-                <p className="text-gray-500 text-sm mb-6 text-center lg:text-left">
-                  We&apos;ll respond within 24 hours.
+                <p className="text-gray-500 text-sm mb-2 text-center lg:text-left">
+                  Fill out the client intake form and we&apos;ll respond within 24 hours.
                 </p>
                 <GhlForm
                   formId="dcNpxGMqf7d2KsRXMhuO"
                   title="Client Intake Form"
                   initialHeight={780}
+                  className="-mt-2"
                 />
               </div>
             </div>
