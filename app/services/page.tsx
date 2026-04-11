@@ -3,16 +3,34 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Check, X, CheckCircle, Sparkles } from "lucide-react";
 import { services } from "@/lib/constants";
+import JsonLd from "@/components/seo/JsonLd";
+import { servicesSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Virtual Assistant Services: Email, Social, Design & AI",
   description:
-    "Explore VersAssist's AI-powered virtual assistance services: email management, social media, graphic design, website development, customer support, content creation, and AI consulting.",
+    "AI-powered virtual assistant services for small businesses: email management, social media, graphic design, web development, customer support, content & AI consulting. Hire a VA today.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Virtual Assistant Services | VersAssist",
+    description:
+      "AI-powered virtual assistant services: email, social media, design, web dev, support, content & AI consulting.",
+    url: "https://www.versassists.com/services",
+  },
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          ...servicesSchema,
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Services", href: "/services" },
+          ]),
+        ]}
+      />
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32 overflow-hidden">
         <Image

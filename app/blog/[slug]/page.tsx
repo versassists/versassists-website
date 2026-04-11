@@ -4,6 +4,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, User, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/lib/blog-posts";
+import JsonLd from "@/components/seo/JsonLd";
+import { blogPostingSchema, breadcrumbSchema } from "@/lib/schemas";
 
 type Params = { slug: string };
 
@@ -21,9 +23,26 @@ export async function generateMetadata({
   if (!post) {
     return { title: "Post Not Found" };
   }
+  const description = post.excerpt.replace(/<[^>]*>/g, "").slice(0, 160);
   return {
     title: post.title,
-    description: post.excerpt.slice(0, 160),
+    description,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      title: post.title,
+      description,
+      url: `https://www.versassists.com/blog/${post.slug}`,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      images: post.image ? [{ url: post.image }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description,
+      images: post.image ? [post.image] : undefined,
+    },
   };
 }
 
@@ -59,6 +78,16 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <JsonLd
+        data={[
+          blogPostingSchema(post),
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Blog", href: "/blog" },
+            { name: post.title, href: `/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-36 pb-20">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />

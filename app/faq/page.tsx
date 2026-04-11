@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ChevronDown, HelpCircle } from "lucide-react";
 import { faqItems } from "@/lib/constants";
+import JsonLd from "@/components/seo/JsonLd";
+import { faqSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
-  title: "FAQ",
-  description: "Frequently asked questions about VersAssist's AI-powered virtual assistance services, pricing, and more.",
+  title: "Virtual Assistant FAQ: Pricing, Services & Getting Started",
+  description:
+    "Get answers about hiring a virtual assistant from VersAssist. Learn about pricing, services, AI tools, onboarding, contracts, and how our flexible VA plans work.",
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    title: "Virtual Assistant FAQ | VersAssist",
+    description:
+      "Answers to common questions about VersAssist's AI-powered virtual assistant services, pricing, and onboarding.",
+    url: "https://www.versassists.com/faq",
+  },
 };
 
 export default function FAQPage() {
@@ -14,6 +23,15 @@ export default function FAQPage() {
 
   return (
     <>
+      <JsonLd
+        data={[
+          faqSchema,
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "FAQ", href: "/faq" },
+          ]),
+        ]}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />

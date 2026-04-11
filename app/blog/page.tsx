@@ -3,15 +3,34 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
 import { blogPosts } from "@/lib/blog-posts";
+import JsonLd from "@/components/seo/JsonLd";
+import { blogListSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Expert tips on virtual assistance, AI productivity, and growth strategies for small businesses.",
+  title: "Virtual Assistant Blog: AI Productivity & Growth Tips",
+  description:
+    "Expert insights on virtual assistants, AI productivity tools, small business automation, and growth strategies. Learn how to scale smarter with VersAssist.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "VersAssist Blog | Virtual Assistant & AI Productivity Tips",
+    description:
+      "Expert insights on virtual assistance, AI tools, and business growth strategies for small businesses.",
+    url: "https://www.versassists.com/blog",
+  },
 };
 
 export default function BlogPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          blogListSchema,
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Blog", href: "/blog" },
+          ]),
+        ]}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />

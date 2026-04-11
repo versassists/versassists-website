@@ -13,11 +13,20 @@ import {
   Sparkles,
 } from "lucide-react";
 import { team, values } from "@/lib/constants";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About VersAssist: AI-Powered Virtual Assistant Company",
   description:
-    "Learn about VersAssist — founded by Dr. Jeff Bullock and Michael Olaiya to provide AI-powered virtual assistance for small businesses and startups.",
+    "Meet VersAssist — founded by Dr. Jeff Bullock and Michael Olaiya to deliver AI-powered virtual assistants to small businesses and startups. Expert-led. Results-driven. No lock-in.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About VersAssist | AI-Powered Virtual Assistant Company",
+    description:
+      "Founded by Dr. Jeff Bullock and Michael Olaiya. AI-enhanced virtual assistants for small businesses.",
+    url: "https://www.versassists.com/about",
+  },
 };
 
 const valueIcons = [Lightbulb, Award, Handshake, Eye];
@@ -25,6 +34,12 @@ const valueIcons = [Lightbulb, Award, Handshake, Eye];
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", href: "/" },
+          { name: "About", href: "/about" },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
         <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />

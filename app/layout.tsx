@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  organizationSchema,
+  websiteSchema,
+  professionalServiceSchema,
+} from "@/lib/schemas";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,51 +18,64 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.versassists.com"),
   title: {
-    default: "VersAssist | AI-Powered Virtual Assistance for Small Businesses",
+    default:
+      "AI-Powered Virtual Assistants for Small Business | VersAssist",
     template: "%s | VersAssist",
   },
   description:
-    "VersAssist provides AI-powered virtual assistance services for small businesses and startups. Email management, social media, graphic design, website development, and more. Hours never expire, no lock-in contracts.",
+    "Hire AI-powered virtual assistants from VersAssist. We help small businesses and startups with email, social media, graphic design, web development, and more. Hours never expire. No lock-in contracts. Book a free discovery call.",
   keywords: [
     "virtual assistant",
     "AI virtual assistant",
-    "small business support",
+    "AI-powered virtual assistant",
+    "virtual assistant for small business",
+    "hire virtual assistant",
+    "virtual assistant services",
+    "AI VA",
+    "small business virtual assistant",
     "startup virtual assistant",
-    "email management",
+    "email management services",
     "social media management",
-    "graphic design",
+    "graphic design services",
     "website development",
-    "AI-powered",
+    "customer support outsourcing",
     "VersAssist",
+    "VersAssists",
   ],
-  authors: [{ name: "VersAssist" }],
+  authors: [{ name: "VersAssist", url: "https://www.versassists.com" }],
+  creator: "VersAssist",
+  publisher: "VersAssist",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.versassists.com",
     siteName: "VersAssist",
-    title: "VersAssist | AI-Powered Virtual Assistance",
+    title: "AI-Powered Virtual Assistants for Small Business | VersAssist",
     description:
-      "Scale your business with AI-enhanced virtual assistants. Flexible plans, hours never expire, no lock-in contracts.",
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "VersAssist - AI-Powered Virtual Assistance",
-      },
-    ],
+      "Scale your business with AI-enhanced virtual assistants. Email, social media, design, web dev, and more. Hours never expire. No lock-in.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VersAssist | AI-Powered Virtual Assistance",
+    title: "AI-Powered Virtual Assistants | VersAssist",
     description:
-      "Scale your business with AI-enhanced virtual assistants. Flexible plans, hours never expire.",
+      "Scale your business with AI-enhanced virtual assistants. Hours never expire. No lock-in.",
+    creator: "@versassist",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+  category: "Business Services",
 };
 
 export default function RootLayout({
@@ -65,8 +84,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className} h-full`}>
+    <html lang="en-US" className={`${inter.className} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
+        <JsonLd
+          data={[organizationSchema, websiteSchema, professionalServiceSchema]}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

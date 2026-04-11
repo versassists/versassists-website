@@ -1,16 +1,31 @@
 import type { Metadata } from "next";
 import { Mail, Clock, ArrowRight } from "lucide-react";
 import GhlForm from "@/components/ui/GhlForm";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Hire a Virtual Assistant: Book a Free Discovery Call",
   description:
-    "Get in touch with VersAssist. Book a free discovery call or send us a message — we respond within 24 hours.",
+    "Ready to hire an AI-powered virtual assistant? Book a free 15-minute discovery call or fill out our client intake form. VersAssist responds within 24 hours.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact VersAssist | Hire a Virtual Assistant",
+    description:
+      "Book a free discovery call. AI-powered virtual assistants for small businesses. Responses within 24 hours.",
+    url: "https://www.versassists.com/contact",
+  },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", href: "/" },
+          { name: "Contact", href: "/contact" },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
         <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />

@@ -24,11 +24,20 @@ import {
   Film,
 } from "lucide-react";
 import { pricingPlans, boostPacks, customProjects, faqItems } from "@/lib/constants";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Virtual Assistant Pricing: Flexible Plans, No Lock-In",
   description:
-    "Affordable virtual assistance pricing for small businesses and startups. Flexible plans, hours never expire, no lock-in contracts.",
+    "Transparent virtual assistant pricing for small businesses. Flexible hourly plans starting from $XX/hr. Hours never expire, no contracts, no lock-in. See plans and book a free discovery call.",
+  alternates: { canonical: "/pricing" },
+  openGraph: {
+    title: "Virtual Assistant Pricing | VersAssist",
+    description:
+      "Flexible virtual assistant pricing. Hours never expire. No lock-in contracts.",
+    url: "https://www.versassists.com/pricing",
+  },
 };
 
 export default function PricingPage() {
@@ -100,6 +109,12 @@ export default function PricingPage() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", href: "/" },
+          { name: "Pricing", href: "/pricing" },
+        ])}
+      />
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32 overflow-hidden">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />

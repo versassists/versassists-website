@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -15,6 +16,22 @@ import {
 } from "lucide-react";
 import { services, testimonials, stats, faqItems } from "@/lib/constants";
 import StatCounter from "@/components/ui/StatCounter";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schemas";
+
+export const metadata: Metadata = {
+  title:
+    "AI-Powered Virtual Assistants for Small Business | VersAssist",
+  description:
+    "Hire AI-enhanced virtual assistants that work 3x faster. Email, social media, design, web dev, customer support & more. Hours never expire. No lock-in. Book a free discovery call.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "AI-Powered Virtual Assistants for Small Business | VersAssist",
+    description:
+      "Hire AI-enhanced virtual assistants that work 3x faster. Hours never expire. No lock-in contracts.",
+    url: "https://www.versassists.com",
+  },
+};
 
 const clientLogos: {
   name: string;
@@ -50,6 +67,9 @@ const clientLogos: {
 export default function Home() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Home", href: "/" }])}
+      />
       {/* ════════════ HERO ════════════ */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <Image

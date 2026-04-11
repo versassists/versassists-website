@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight, Sparkles, Search, Layout, Palette, Film, Briefcase, Quote } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Real results from real businesses. See how VersAssist has helped clients with SEO, website revamps, social media design, video editing, and more.",
+  title: "Virtual Assistant Case Studies & Client Results",
+  description:
+    "See real VersAssist client results: SEO wins, website revamps, social media designs, video editing, and more. Proof that AI-powered virtual assistants deliver measurable outcomes.",
+  alternates: { canonical: "/portfolio" },
+  openGraph: {
+    title: "Virtual Assistant Case Studies & Client Results | VersAssist",
+    description:
+      "Real results from real businesses. SEO, web revamps, social media, video, and more.",
+    url: "https://www.versassists.com/portfolio",
+  },
 };
 
 const seoResults = [
@@ -93,6 +103,12 @@ const videoTestimonials = [
 export default function PortfolioPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", href: "/" },
+          { name: "Portfolio", href: "/portfolio" },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
