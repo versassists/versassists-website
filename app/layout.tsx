@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | VersAssist",
   },
   description:
-    "Hire AI-powered virtual assistants from VersAssist. We help small businesses and startups with email, social media, graphic design, web development, and more. Hours never expire. No lock-in contracts. Book a free discovery call.",
+    "Hire AI-powered virtual assistants for email, social media, design, web dev and support. Hours never expire. No lock-in. Book a free discovery call.",
   keywords: [
     "virtual assistant",
     "AI virtual assistant",
@@ -89,11 +89,17 @@ export default function RootLayout({
   return (
     <html lang="en-US" className={`${inter.className} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-white focus:font-semibold focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <JsonLd
           data={[organizationSchema, websiteSchema, professionalServiceSchema]}
         />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">{children}</main>
         <Footer />
       </body>
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />

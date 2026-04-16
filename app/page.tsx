@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title:
     "AI-Powered Virtual Assistants for Small Business | VersAssist",
   description:
-    "Hire AI-powered virtual assistants for small business and startups. Email management, social media, graphic design, web development, customer support & AI consulting. Hours never expire, no lock-in. Book a free discovery call.",
+    "Hire AI-powered virtual assistants for small business. Email, social, design, web dev, support and AI consulting. Hours never expire. No lock-in.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "AI-Powered Virtual Assistants for Small Business | VersAssist",
@@ -77,6 +77,7 @@ export default function Home() {
           alt="AI-powered virtual assistant team collaborating with small business client"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-[#1a1a2e]/85 to-[#16213e]/90" />
@@ -139,7 +140,7 @@ export default function Home() {
       {/* ════════════ TRUSTED BY (Logos) ════════════ */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 mb-12">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 mb-12">
             Trusted by businesses across industries
           </p>
           <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
@@ -234,7 +235,7 @@ export default function Home() {
             ].map((step) => (
               <div key={step.num} className="flex flex-col items-center">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-6 shadow-lg">
-                  <Image src={step.img} alt={step.title} fill className="object-cover" />
+                  <Image src={step.img} alt={step.title} fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
                   <span className="absolute top-4 left-4 text-5xl font-black text-white/30 leading-none select-none">{step.num}</span>
                 </div>
@@ -258,6 +259,7 @@ export default function Home() {
                 src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?auto=format&fit=crop&w=1200&q=80"
                 alt="VersAssist AI-powered virtual assistants working with small business clients"
                 fill
+                sizes="(min-width:1024px) 50vw, 100vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
@@ -301,6 +303,7 @@ export default function Home() {
           src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=2000&q=80"
           alt="Modern office where virtual assistant services are delivered"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gray-900/85" />
@@ -386,6 +389,7 @@ export default function Home() {
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
           alt="Modern workspace"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />

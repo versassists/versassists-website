@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Mail, Clock, ArrowRight } from "lucide-react";
 import GhlForm from "@/components/ui/GhlForm";
 import JsonLd from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schemas";
+import { breadcrumbSchema, contactPageSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Hire a Virtual Assistant: Book a Free Discovery Call",
@@ -21,10 +21,13 @@ export default function ContactPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", href: "/" },
-          { name: "Contact", href: "/contact" },
-        ])}
+        data={[
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Contact", href: "/contact" },
+          ]),
+          contactPageSchema,
+        ]}
       />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">

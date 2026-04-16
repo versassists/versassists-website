@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/constants";
@@ -29,11 +30,13 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logos/versassist%20png%20logo.avif"
+          <Link href="/" className="flex items-center" aria-label="VersAssist home">
+            <Image
+              src="/logos/versassist png logo.avif"
               alt="VersAssist"
+              width={156}
+              height={162}
+              priority
               className="h-20 w-auto object-contain"
             />
           </Link>

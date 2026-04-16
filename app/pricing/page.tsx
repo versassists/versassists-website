@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -25,12 +26,12 @@ import {
 } from "lucide-react";
 import { pricingPlans, boostPacks, customProjects, faqItems } from "@/lib/constants";
 import JsonLd from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schemas";
+import { breadcrumbSchema, pricingSchemas } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Virtual Assistant Pricing: Flexible Plans, No Lock-In",
   description:
-    "Transparent virtual assistant pricing for small businesses. Flexible hourly plans starting from $XX/hr. Hours never expire, no contracts, no lock-in. See plans and book a free discovery call.",
+    "Transparent virtual assistant pricing for small businesses. Flexible hourly plans, hours never expire, no contracts, no lock-in. See plans and book a call.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Virtual Assistant Pricing | VersAssist",
@@ -52,6 +53,7 @@ export default function PricingPage() {
         "Repurposing content into emails, newsletters, blogs",
         "Canva graphics, sales assets, infographics, comic strips",
       ],
+      link: "/services/social-media-virtual-assistant",
     },
     {
       icon: Settings,
@@ -61,6 +63,7 @@ export default function PricingPage() {
         "CRM setup and lead follow-up flows",
         "Booking and appointment flow",
       ],
+      link: "/services/email-management-virtual-assistant",
     },
     {
       icon: Video,
@@ -70,6 +73,7 @@ export default function PricingPage() {
         "Audiograms and podcast uploads",
         "Video shorts with captions and branding",
       ],
+      link: "/services/content-writing-virtual-assistant",
     },
     {
       icon: BookOpen,
@@ -79,6 +83,7 @@ export default function PricingPage() {
         "Uploads to KDP or audiobook platforms",
         "Author bio creation, back cover copy",
       ],
+      link: "/services/content-writing-virtual-assistant",
     },
     {
       icon: Globe,
@@ -88,6 +93,7 @@ export default function PricingPage() {
         "Funnel builds and lead forms",
         "Mobile optimization and integrations",
       ],
+      link: "/services/website-development-virtual-assistant",
     },
     {
       icon: MessageSquare,
@@ -95,6 +101,7 @@ export default function PricingPage() {
       items: [
         "Full bilingual support across all services",
       ],
+      link: "/services",
     },
   ];
 
@@ -110,10 +117,13 @@ export default function PricingPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", href: "/" },
-          { name: "Pricing", href: "/pricing" },
-        ])}
+        data={[
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Pricing", href: "/pricing" },
+          ]),
+          ...pricingSchemas,
+        ]}
       />
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32 overflow-hidden">
@@ -289,6 +299,12 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href={service.link}
+                  className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-primary hover:underline"
+                >
+                  Learn more <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             ))}
           </div>
@@ -442,7 +458,7 @@ export default function PricingPage() {
 
       {/* CTA */}
       <section className="relative py-28 lg:py-36 overflow-hidden">
-        <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" alt="Modern workspace" fill className="object-cover" />
+        <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" alt="Modern workspace" fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">

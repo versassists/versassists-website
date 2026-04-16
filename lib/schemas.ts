@@ -3,7 +3,13 @@
  * Used to feed the <JsonLd /> component on each page.
  */
 
-import { services, faqItems, companyInfo, type Service } from "./constants";
+import {
+  services,
+  faqItems,
+  companyInfo,
+  pricingPlans,
+  type Service,
+} from "./constants";
 import { blogPosts, type BlogPost } from "./blog-posts";
 
 const BASE_URL = "https://www.versassists.com";
@@ -177,6 +183,43 @@ export function breadcrumbSchema(
   };
 }
 
+// ─── Author profiles ─────────────────────────────────────────────────
+// Canonical Person entities referenced from BlogPosting schemas. Using
+// a stable @id lets Google tie posts to a single author entity.
+const authorProfiles: Record<
+  string,
+  {
+    "@type": "Person";
+    "@id": string;
+    name: string;
+    url: string;
+    jobTitle: string;
+    description: string;
+    worksFor: { "@id": string };
+  }
+> = {
+  "Saleem Raja": {
+    "@type": "Person",
+    "@id": `${BASE_URL}/#author-saleem-raja`,
+    name: "Saleem Raja",
+    url: `${BASE_URL}/about`,
+    jobTitle: "Head of Content and AI Strategy",
+    description:
+      "Saleem Raja writes about AI-powered virtual assistance, productivity, and growth strategies for small businesses at VersAssist.",
+    worksFor: { "@id": `${BASE_URL}/#organization` },
+  },
+};
+
+function authorEntity(name: string) {
+  return (
+    authorProfiles[name] ?? {
+      "@type": "Person",
+      name,
+      worksFor: { "@id": `${BASE_URL}/#organization` },
+    }
+  );
+}
+
 // ─── BlogPosting ─────────────────────────────────────────────────────
 export function blogPostingSchema(post: BlogPost) {
   const datePublished = new Date(post.date).toISOString();
@@ -192,10 +235,7 @@ export function blogPostingSchema(post: BlogPost) {
     image: post.image,
     datePublished,
     dateModified: datePublished,
-    author: {
-      "@type": "Person",
-      name: post.author,
-    },
+    author: authorEntity(post.author),
     publisher: { "@id": `${BASE_URL}/#organization` },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -227,6 +267,95 @@ export const blogListSchema = {
     headline: post.title,
     url: `${BASE_URL}/blog/${post.slug}`,
     datePublished: new Date(post.date).toISOString(),
-    author: { "@type": "Person", name: post.author },
+    author: authorEntity(post.author),
   })),
 };
+
+// ─── ContactPage schema ─────────────────────────────────────────────
+export const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${BASE_URL}/contact#page`,
+  name: "Contact VersAssist",
+  description:
+    "Book a free discovery call or fill out our client intake form to hire an AI-powered virtual assistant.",
+  url: `${BASE_URL}/contact`,
+  mainEntity: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: companyInfo.email,
+    url: `${BASE_URL}/contact`,
+    availableLanguage: ["English", "Spanish"],
+    areaServed: { "@type": "Country", name: "United States" },
+  },
+  publisher: { "@id": `${BASE_URL}/#organization` },
+};
+
+// ─── Founder Person schemas for /about ──────────────────────────────
+export const founderSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${BASE_URL}/#founder-jeff-bullock`,
+    name: "Dr. Jeff Bullock",
+    jobTitle: "Co-Founder",
+    url: `${BASE_URL}/about`,
+    worksFor: { "@id": `${BASE_URL}/#organization` },
+    description:
+      "Co-Founder of VersAssist with 20+ years of business strategy experience. Drives the company vision of making AI-powered virtual assistance accessible to small businesses.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${BASE_URL}/#founder-michael-olaiya`,
+    name: "Michael Olaiya",
+    jobTitle: "Co-Founder",
+    url: `${BASE_URL}/about`,
+    worksFor: { "@id": `${BASE_URL}/#organization` },
+    description:
+      "Co-Founder of VersAssist. Oversees operations and client success, ensuring every virtual assistant engagement delivers measurable results.",
+  },
+];
+
+// ─── Pricing / Offer schemas for /pricing ───────────────────────────
+export const pricingSchemas = pricingPlans.map((plan) => {
+  // Extract numeric price — e.g. "$1,000" → 1000
+  const numericPrice = plan.price.replace(/[^0-9.]/g, "");
+  // Extract hours from period string like "75 hrs / $13.33 per hour"
+  const hoursMatch = plan.period.match(/(\d+)\s*hrs/);
+  const hours = hoursMatch ? hoursMatch[1] : null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "@id": `${BASE_URL}/pricing#${plan.name.toLowerCase()}`,
+    name: `${plan.name} Plan`,
+    description: `${plan.tagline}${hours ? ` — ${hours} hours of AI-enhanced virtual assistant work.` : ""}`,
+    price: numericPrice,
+    priceCurrency: "USD",
+    url: `${BASE_URL}/pricing`,
+    availability: "https://schema.org/InStock",
+    seller: { "@id": `${BASE_URL}/#organization` },
+    itemOffered: {
+      "@type": "Service",
+      name: `VersAssist ${plan.name} Plan`,
+      description: plan.features.join(". "),
+    },
+  };
+});
+
+// ─── VideoObject schemas for portfolio reels ────────────────────────
+export function videoObjectSchemas(
+  reels: Array<{ src: string; index: number }>
+) {
+  return reels.map((reel) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: `VersAssist Reel ${reel.index}`,
+    description: `Short-form social media reel edited by VersAssist — example ${reel.index} of professional video editing for small business clients.`,
+    contentUrl: `${BASE_URL}${reel.src}`,
+    thumbnailUrl: LOGO_URL,
+    uploadDate: "2025-01-01T00:00:00Z",
+    publisher: { "@id": `${BASE_URL}/#organization` },
+  }));
+}

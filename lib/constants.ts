@@ -775,6 +775,7 @@ export interface FAQItem {
   question: string;
   answer: string;
   category: string;
+  relatedService?: { label: string; href: string };
 }
 
 export const faqItems: FAQItem[] = [
@@ -783,6 +784,7 @@ export const faqItems: FAQItem[] = [
     answer:
       "VersAssist provides AI-powered virtual assistance services for small businesses and startups. Our trained virtual assistants use advanced AI tools to handle tasks like email management, social media, graphic design, website development, customer support, content creation, and more — so you can focus on growing your business.",
     category: "General",
+    relatedService: { label: "Explore our services", href: "/services" },
   },
   {
     question: "How is VersAssist different from other VA companies?",
@@ -795,17 +797,19 @@ export const faqItems: FAQItem[] = [
     answer:
       "Our VAs are trained on a wide range of AI tools including ChatGPT, Midjourney, Canva AI, Jasper, scheduling automation tools, social media AI assistants, and custom-built AI workflows tailored to each client's needs.",
     category: "General",
+    relatedService: { label: "Learn about AI consulting", href: "/services/ai-consulting-virtual-assistant" },
   },
   {
     question: "How does pricing work?",
     answer:
       "We offer flexible plans based on your needs. You choose your focus areas (Admin, SEO, Social Media, Book Publishing, etc.) and pay for the hours you use. There's no lock-in contract, and your unused hours never expire. We provide detailed billing so you always know exactly what you're paying for.",
     category: "Pricing",
+    relatedService: { label: "View pricing plans", href: "/pricing" },
   },
   {
     question: "Is there a setup fee?",
     answer:
-      "Yes, there is a one-time setup fee of $299.99 to customize and integrate our services with your existing workflows. This covers onboarding, tool setup, workflow design, and initial training specific to your business.",
+      "No. VersAssist has zero setup fees. You simply choose a package, and we start working from hour one. No onboarding charges, no hidden fees — just straightforward hourly pricing.",
     category: "Pricing",
   },
   {

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight, Sparkles, Search, Layout, Palette, Film, Briefcase, Quote } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schemas";
+import { breadcrumbSchema, videoObjectSchemas } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Virtual Assistant Case Studies & Client Results",
   description:
-    "See real VersAssist client results: SEO wins, website revamps, social media designs, video editing, and more. Proof that AI-powered virtual assistants deliver measurable outcomes.",
+    "Real VersAssist client results: SEO wins, website revamps, social media designs, video editing and more. AI-powered VAs delivering measurable outcomes.",
   alternates: { canonical: "/portfolio" },
   openGraph: {
     title: "Virtual Assistant Case Studies & Client Results | VersAssist",
@@ -104,10 +104,15 @@ export default function PortfolioPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", href: "/" },
-          { name: "Portfolio", href: "/portfolio" },
-        ])}
+        data={[
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Portfolio", href: "/portfolio" },
+          ]),
+          ...videoObjectSchemas(
+            reels.map((src, i) => ({ src, index: i + 1 }))
+          ),
+        ]}
       />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
@@ -247,7 +252,7 @@ export default function PortfolioPage() {
               >
                 <Image
                   src={src}
-                  alt={`Social media design ${i + 1}`}
+                  alt={`Instagram and social media graphic design example ${i + 1} by VersAssist — branded post and carousel template for small business clients`}
                   fill
                   sizes="(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -283,7 +288,7 @@ export default function PortfolioPage() {
                   controls
                   preload="metadata"
                   className="w-full h-full object-cover"
-                  aria-label={`Reel ${i + 1}`}
+                  aria-label={`Short-form Instagram reel example ${i + 1} — edited by VersAssist`}
                 />
               </div>
             ))}
@@ -401,8 +406,9 @@ export default function PortfolioPage() {
       <section className="relative py-28 lg:py-36 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
-          alt="Modern workspace"
+          alt="Modern small business workspace where VersAssist virtual assistants help teams scale"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />

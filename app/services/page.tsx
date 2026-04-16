@@ -9,7 +9,7 @@ import { servicesSchema, breadcrumbSchema } from "@/lib/schemas";
 export const metadata: Metadata = {
   title: "Virtual Assistant Services: Email, Social, Design & AI",
   description:
-    "AI-powered virtual assistant services for small businesses: email management, social media, graphic design, web development, customer support, content & AI consulting. Hire a VA today.",
+    "AI-powered virtual assistant services: email, social media, graphic design, web development, customer support, content and AI consulting. Hire a VA today.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Virtual Assistant Services | VersAssist",
@@ -37,6 +37,7 @@ export default function ServicesPage() {
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2000&q=80"
           alt="VersAssist virtual assistant team collaborating on client services"
           fill
+          sizes="100vw"
           className="object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-[#1a1a2e]/70 to-[#16213e]/80" />
@@ -117,17 +118,17 @@ export default function ServicesPage() {
                   <th className="p-5 text-center">
                     <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-bold">VersAssist</span>
                     <br />
-                    <span className="text-gray-400 text-xs">AI-Powered VAs</span>
+                    <span className="text-gray-500 text-xs">AI-Powered VAs</span>
                   </th>
                   <th className="p-5 text-center">
                     <span className="font-bold text-gray-700">DIY</span>
                     <br />
-                    <span className="text-gray-400 text-xs">Do It Yourself</span>
+                    <span className="text-gray-500 text-xs">Do It Yourself</span>
                   </th>
                   <th className="p-5 text-center">
                     <span className="font-bold text-gray-700">Full-Time</span>
                     <br />
-                    <span className="text-gray-400 text-xs">In-House Hire</span>
+                    <span className="text-gray-500 text-xs">In-House Hire</span>
                   </th>
                 </tr>
               </thead>
@@ -169,6 +170,7 @@ export default function ServicesPage() {
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
           alt="Modern workspace"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "VersAssist privacy policy — how we collect, use, and protect your personal information.",
+  title: "Privacy Policy & Data Protection",
+  description: "VersAssist privacy policy — how we collect, use, and protect your personal information when you use our virtual assistant services.",
   alternates: { canonical: "/privacy-policy" },
   robots: { index: true, follow: true },
 };

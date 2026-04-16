@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { navLinks, companyInfo, services } from "@/lib/constants";
 import { Mail } from "lucide-react";
 import GhlForm from "@/components/ui/GhlForm";
@@ -24,11 +25,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
-            <Link href="/" className="flex items-center mb-4">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logos/versassist%20png%20logo.avif"
+            <Link href="/" className="flex items-center mb-4" aria-label="VersAssist home">
+              <Image
+                src="/logos/versassist png logo.avif"
                 alt="VersAssist"
+                width={156}
+                height={162}
                 className="h-20 w-auto object-contain"
               />
             </Link>

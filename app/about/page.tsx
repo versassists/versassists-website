@@ -14,12 +14,12 @@ import {
 } from "lucide-react";
 import { team, values } from "@/lib/constants";
 import JsonLd from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schemas";
+import { breadcrumbSchema, founderSchemas } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "About VersAssist: AI-Powered Virtual Assistant Company",
   description:
-    "Meet VersAssist — founded by Dr. Jeff Bullock and Michael Olaiya to deliver AI-powered virtual assistants to small businesses and startups. Expert-led. Results-driven. No lock-in.",
+    "Meet VersAssist — founded by Dr. Jeff Bullock and Michael Olaiya to deliver AI-powered virtual assistants to small businesses. Expert-led. No lock-in.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About VersAssist | AI-Powered Virtual Assistant Company",
@@ -35,10 +35,13 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", href: "/" },
-          { name: "About", href: "/about" },
-        ])}
+        data={[
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "About", href: "/about" },
+          ]),
+          ...founderSchemas,
+        ]}
       />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-[#16213e] pt-40 pb-32">
@@ -109,6 +112,7 @@ export default function AboutPage() {
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
                 alt="Team collaborating on strategy"
                 fill
+                sizes="(min-width:1024px) 50vw, 100vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
@@ -128,6 +132,7 @@ export default function AboutPage() {
               src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80"
               alt="Startup team meeting"
               fill
+              sizes="(min-width:768px) 720px, 100vw"
               className="object-cover"
             />
           </div>
@@ -136,8 +141,8 @@ export default function AboutPage() {
             <p>
               Dr. Jeff Bullock and Michael Olaiya saw a recurring problem across
               small businesses and startups: entrepreneurs were spending 60&ndash;70% of
-              their time on administrative tasks&mdash;email, scheduling, social
-              media, customer inquiries&mdash;instead of growing their business.
+              their time on administrative tasks&mdash;<Link href="/services/email-management-virtual-assistant" className="text-primary hover:underline">email</Link>, <Link href="/services/calendar-scheduling-virtual-assistant" className="text-primary hover:underline">scheduling</Link>, <Link href="/services/social-media-virtual-assistant" className="text-primary hover:underline">social
+              media</Link>, <Link href="/services/customer-support-virtual-assistant" className="text-primary hover:underline">customer inquiries</Link>&mdash;instead of growing their business.
             </p>
             <p>
               Traditional virtual assistant companies offered generic support with
@@ -228,6 +233,7 @@ export default function AboutPage() {
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
           alt="Modern workspace"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />

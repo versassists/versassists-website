@@ -4,6 +4,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, User, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/lib/blog-posts";
+import { services } from "@/lib/constants";
+import { blogServiceLinks } from "@/lib/blog-service-links";
 import JsonLd from "@/components/seo/JsonLd";
 import { blogPostingSchema, breadcrumbSchema } from "@/lib/schemas";
 
@@ -65,6 +67,11 @@ export default async function BlogPostPage({
   ]
     .filter((p) => p.category === post.category && p.slug !== slug)
     .slice(0, 2);
+
+  const relatedServiceSlugs = blogServiceLinks[slug] ?? [];
+  const relatedServices = relatedServiceSlugs
+    .map((s) => services.find((svc) => svc.slug === s))
+    .filter((svc): svc is (typeof services)[number] => Boolean(svc));
 
   // If not enough same-category related posts, fill with next posts
   while (related.length < 2) {
@@ -130,6 +137,7 @@ export default async function BlogPostPage({
               src={post.image}
               alt={post.title}
               fill
+              sizes="(min-width:1024px) 896px, 100vw"
               className="object-cover"
               priority
             />
@@ -144,6 +152,46 @@ export default async function BlogPostPage({
             className="prose prose-lg prose-gray max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-5 prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4 prose-p:text-gray-600 prose-p:leading-relaxed prose-li:text-gray-600 prose-strong:text-gray-900 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:shadow-lg"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+
+          {/* Related Services */}
+          {relatedServices.length > 0 && (
+            <aside
+              aria-label="Related VersAssist services"
+              className="mt-14 p-8 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/[0.04] to-accent/[0.04]"
+            >
+              <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 mb-2">
+                Put this into practice with VersAssist
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed">
+                Our AI-powered virtual assistants help you implement the strategies in this article. Explore the services most relevant to what you just read:
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {relatedServices.map((svc) => {
+                  const Icon = svc.icon;
+                  return (
+                    <li key={svc.slug}>
+                      <Link
+                        href={`/services/${svc.slug}`}
+                        className="group flex items-start gap-4 p-5 rounded-xl bg-white border border-gray-100 hover:border-primary/40 hover:shadow-md transition-all"
+                      >
+                        <span className="shrink-0 w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                          <Icon className="w-5 h-5" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block font-semibold text-gray-900 group-hover:text-primary transition-colors">
+                            {svc.shortTitle}
+                          </span>
+                          <span className="block text-sm text-gray-500 leading-snug mt-1 line-clamp-2">
+                            {svc.description}
+                          </span>
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </aside>
+          )}
 
           {/* Author */}
           <div className="mt-16 p-8 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-5">
@@ -180,6 +228,7 @@ export default async function BlogPostPage({
                         src={rel.image}
                         alt={rel.title}
                         fill
+                        sizes="(min-width:640px) 50vw, 100vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>

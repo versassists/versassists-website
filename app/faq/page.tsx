@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, ChevronDown, HelpCircle } from "lucide-react";
 import { faqItems } from "@/lib/constants";
 import JsonLd from "@/components/seo/JsonLd";
@@ -8,7 +9,7 @@ import { faqSchema, breadcrumbSchema } from "@/lib/schemas";
 export const metadata: Metadata = {
   title: "Virtual Assistant FAQ: Pricing, Services & Getting Started",
   description:
-    "Get answers about hiring a virtual assistant from VersAssist. Learn about pricing, services, AI tools, onboarding, contracts, and how our flexible VA plans work.",
+    "Answers about hiring a virtual assistant from VersAssist: pricing, services, AI tools, onboarding, contracts and how our flexible VA plans work.",
   alternates: { canonical: "/faq" },
   openGraph: {
     title: "Virtual Assistant FAQ | VersAssist",
@@ -73,7 +74,14 @@ export default function FAQPage() {
                           {item.question}
                           <ChevronDown className="w-5 h-5 text-gray-400 shrink-0 ml-4 transition-transform group-open:rotate-180" />
                         </summary>
-                        <div className="px-7 pb-7 text-gray-600 text-sm leading-relaxed -mt-1">{item.answer}</div>
+                        <div className="px-7 pb-7 text-gray-600 text-sm leading-relaxed -mt-1">
+                          {item.answer}
+                          {item.relatedService && (
+                            <Link href={item.relatedService.href} className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-primary hover:underline">
+                              {item.relatedService.label} <ArrowRight className="w-3.5 h-3.5" />
+                            </Link>
+                          )}
+                        </div>
                       </details>
                     ))}
                   </div>
@@ -86,7 +94,7 @@ export default function FAQPage() {
 
       {/* Still have questions */}
       <section className="relative py-28 lg:py-36 overflow-hidden">
-        <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" alt="Modern workspace" fill className="object-cover" />
+        <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" alt="Modern workspace" fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">

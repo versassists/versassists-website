@@ -61,6 +61,7 @@ export default function BlogPage() {
                     src={post.image}
                     alt={post.title}
                     fill
+                    sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -70,7 +71,7 @@ export default function BlogPage() {
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">{post.excerpt}</p>
-                  <div className="flex items-center justify-center gap-4 text-gray-400 text-xs">
+                  <div className="flex items-center justify-center gap-4 text-gray-500 text-xs">
                     <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{post.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{post.readTime}</span>
                   </div>
@@ -83,7 +84,7 @@ export default function BlogPage() {
 
       {/* CTA */}
       <section className="relative py-28 lg:py-36 overflow-hidden">
-        <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" alt="Modern workspace" fill className="object-cover" />
+        <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" alt="Modern workspace" fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/92 via-[#1a1a2e]/90 to-[#16213e]/92" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center">

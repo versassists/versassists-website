@@ -19,7 +19,7 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
       {/* Content */}
       <div className="p-8">
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
             Challenge
           </h4>
           <p className="text-gray-700 text-sm leading-relaxed">
@@ -28,7 +28,7 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
         </div>
 
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
             Solution
           </h4>
           <p className="text-gray-700 text-sm leading-relaxed">
@@ -37,7 +37,7 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
         </div>
 
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
             Results
           </h4>
           <ul className="space-y-2">
