@@ -24,7 +24,8 @@ import {
   PenTool,
   Film,
 } from "lucide-react";
-import { pricingPlans, boostPacks, customProjects, faqItems } from "@/lib/constants";
+import { getPricingPlans, getBoostPacks, getCustomProjects } from "@/sanity/lib/fetchPricing";
+import { getFaqList } from "@/sanity/lib/fetchMarketing";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, pricingSchemas } from "@/lib/schemas";
 
@@ -41,7 +42,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const [pricingPlans, boostPacks, customProjects, faqItems] = await Promise.all([
+    getPricingPlans(),
+    getBoostPacks(),
+    getCustomProjects(),
+    getFaqList(),
+  ]);
   const pricingFAQ = faqItems.filter((item) => item.category === "Pricing");
 
   const includedServices = [
@@ -190,7 +197,7 @@ export default function PricingPage() {
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-start">
             {pricingPlans.map((plan) => (
               <div
-                key={plan.name}
+                key={plan._id}
                 className={`group relative rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-1 ${
                   plan.highlighted
                     ? "bg-gradient-to-b from-gray-900 to-gray-950 text-white border-2 border-primary shadow-2xl shadow-primary/20 lg:scale-105"
@@ -258,7 +265,7 @@ export default function PricingPage() {
               const icons = [Rocket, Zap, Layers];
               const PackIcon = icons[i];
               return (
-                <div key={pack.name} className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 text-center hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                <div key={pack._id} className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 text-center hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="w-12 h-12 rounded-xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/[0.12] transition-colors">
                     <PackIcon className="w-6 h-6 text-primary" />
@@ -335,7 +342,7 @@ export default function PricingPage() {
             {customProjects.map((project, i) => {
               const ProjectIcon = projectIcons[i];
               return (
-                <div key={project.name} className="group flex items-center gap-5 bg-white/[0.06] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.1] hover:bg-white/[0.1] hover:border-primary/40 transition-all duration-300">
+                <div key={project._id} className="group flex items-center gap-5 bg-white/[0.06] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.1] hover:bg-white/[0.1] hover:border-primary/40 transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
                     <ProjectIcon className="w-6 h-6 text-primary-light" />
                   </div>
@@ -440,7 +447,7 @@ export default function PricingPage() {
             <div className="w-full space-y-4 text-left">
               {pricingFAQ.map((item, i) => (
                 <details
-                  key={i}
+                  key={item._id}
                   className="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden hover:border-primary/30 transition-colors"
                   {...(i === 0 ? { open: true } : {})}
                 >

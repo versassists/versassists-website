@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { Stat } from "@/lib/constants";
+import type { Stat } from "@/sanity/lib/fetchMarketing";
 
 interface StatCounterProps {
   stat: Stat;
@@ -48,7 +48,7 @@ export default function StatCounter({ stat }: StatCounterProps) {
     <div ref={ref} className="text-center">
       <div className="text-4xl md:text-5xl font-bold text-white mb-2">
         {formatNumber(count)}
-        {stat.suffix}
+        {stat.suffix || ""}
       </div>
       <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
     </div>

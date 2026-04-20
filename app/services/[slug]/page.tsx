@@ -9,14 +9,21 @@ import {
   Sparkles,
   Target,
 } from "lucide-react";
-import { services } from "@/lib/constants";
+import {
+  getService,
+  getServiceList,
+  getServiceSlugs,
+} from "@/sanity/lib/fetchServices";
+import { resolveIcon } from "@/lib/icon-map";
+import { services as fallbackServices } from "@/lib/constants";
 import JsonLd from "@/components/seo/JsonLd";
 import { serviceLandingSchema, breadcrumbSchema } from "@/lib/schemas";
 
 type Params = { slug: string };
 
-export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+export async function generateStaticParams() {
+  const slugs = await getServiceSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -25,7 +32,7 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = await getService(slug);
   if (!service) return { title: "Service Not Found" };
   return {
     title: service.seoTitle,
@@ -51,18 +58,41 @@ export default async function ServiceLandingPage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = await getService(slug);
 
   if (!service) notFound();
 
-  const Icon = service.icon;
-  const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const Icon = resolveIcon(service.iconName);
+  const allServices = await getServiceList();
+  const otherServices = allServices
+    .filter((s) => s.slug !== service.slug)
+    .slice(0, 3);
+
+  // The JSON-LD builder expects the legacy Service shape (with a Lucide icon
+  // component and required string fields). Use the hardcoded version when it
+  // exists so structured data stays identical; fall back to a compatible shape.
+  const legacyForSchema = fallbackServices.find((s) => s.slug === service.slug) ?? {
+    icon: Icon,
+    slug: service.slug,
+    title: service.title,
+    shortTitle: service.shortTitle,
+    description: service.description,
+    features: service.features,
+    seoTitle: service.seoTitle ?? service.title,
+    seoDescription: service.seoDescription ?? service.description,
+    heroHeadline: service.heroHeadline,
+    heroSubheadline: service.heroSubheadline,
+    longDescription: service.longDescription,
+    benefits: service.benefits,
+    idealFor: service.idealFor,
+    keywords: service.keywords ?? [],
+  };
 
   return (
     <>
       <JsonLd
         data={[
-          serviceLandingSchema(service),
+          serviceLandingSchema(legacyForSchema),
           breadcrumbSchema([
             { name: "Home", href: "/" },
             { name: "Services", href: "/services" },
@@ -217,7 +247,7 @@ export default async function ServiceLandingPage({
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {otherServices.map((s) => {
-              const OtherIcon = s.icon;
+              const OtherIcon = resolveIcon(s.iconName);
               return (
                 <Link
                   key={s.slug}

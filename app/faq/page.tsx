@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, HelpCircle } from "lucide-react";
-import { faqItems } from "@/lib/constants";
+import { getFaqList } from "@/sanity/lib/fetchMarketing";
 import JsonLd from "@/components/seo/JsonLd";
 import { faqSchema, breadcrumbSchema } from "@/lib/schemas";
 
@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function FAQPage() {
+export default async function FAQPage() {
+  const faqItems = await getFaqList();
   const categories = [...new Set(faqItems.map((item) => item.category))];
 
   return (
@@ -65,9 +66,9 @@ export default function FAQPage() {
                     <div className="w-12 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full" />
                   </h2>
                   <div className="space-y-5">
-                    {items.map((item, i) => (
+                    {items.map((item) => (
                       <details
-                        key={i}
+                        key={item._id}
                         className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-primary/30 transition-colors"
                       >
                         <summary className="flex items-center justify-between p-7 cursor-pointer font-semibold text-gray-900 text-[0.95rem] select-none">
@@ -76,9 +77,9 @@ export default function FAQPage() {
                         </summary>
                         <div className="px-7 pb-7 text-gray-600 text-sm leading-relaxed -mt-1">
                           {item.answer}
-                          {item.relatedService && (
-                            <Link href={item.relatedService.href} className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-primary hover:underline">
-                              {item.relatedService.label} <ArrowRight className="w-3.5 h-3.5" />
+                          {item.relatedServiceLabel && item.relatedServiceHref && (
+                            <Link href={item.relatedServiceHref} className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-primary hover:underline">
+                              {item.relatedServiceLabel} <ArrowRight className="w-3.5 h-3.5" />
                             </Link>
                           )}
                         </div>

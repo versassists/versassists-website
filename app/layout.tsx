@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { draftMode } from "next/headers";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ConditionalFooter from "@/components/layout/ConditionalFooter";
+import DraftBanner from "@/components/layout/DraftBanner";
 import JsonLd from "@/components/seo/JsonLd";
 import {
   organizationSchema,
@@ -81,14 +84,17 @@ export const metadata: Metadata = {
   category: "Business Services",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { isEnabled: isDraftMode } = await draftMode();
+
   return (
     <html lang="en-US" className={`${inter.className} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
+        {isDraftMode && <DraftBanner />}
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-white focus:font-semibold focus:shadow-lg"
@@ -100,7 +106,9 @@ export default function RootLayout({
         />
         <Header />
         <main id="main" className="flex-1">{children}</main>
-        <Footer />
+        <ConditionalFooter>
+          <Footer />
+        </ConditionalFooter>
       </body>
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>

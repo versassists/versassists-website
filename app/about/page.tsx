@@ -12,7 +12,7 @@ import {
   Users,
   Sparkles,
 } from "lucide-react";
-import { team, values } from "@/lib/constants";
+import { getTeam, getValues } from "@/sanity/lib/fetchMarketing";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, founderSchemas } from "@/lib/schemas";
 
@@ -31,7 +31,9 @@ export const metadata: Metadata = {
 
 const valueIcons = [Lightbulb, Award, Handshake, Eye];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const team = await getTeam();
+  const values = await getValues();
   return (
     <>
       <JsonLd
@@ -179,19 +181,21 @@ export default function AboutPage() {
           <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
             {team.map((member) => (
               <div
-                key={member.name}
+                key={member._id}
                 className="group overflow-hidden relative bg-gray-50 rounded-2xl p-10 text-center border border-gray-100 hover:shadow-xl hover:shadow-primary/[0.05] hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-8 shadow-lg shadow-primary/20 ring-2 ring-primary/20">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={112}
-                    height={112}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                {member.imageUrl && (
+                  <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-8 shadow-lg shadow-primary/20 ring-2 ring-primary/20">
+                    <Image
+                      src={member.imageUrl}
+                      alt={member.name}
+                      width={112}
+                      height={112}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
                 <p className="text-primary font-medium mb-5">{member.role}</p>
                 <p className="text-gray-500 leading-relaxed">{member.bio}</p>
@@ -214,7 +218,7 @@ export default function AboutPage() {
             {values.map((value, i) => {
               const Icon = valueIcons[i];
               return (
-                <div key={value.title} className="bg-white rounded-2xl p-9 text-center border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
+                <div key={value._id} className="bg-white rounded-2xl p-9 text-center border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
                   <div className="mx-auto w-14 h-14 rounded-xl bg-gradient-to-br from-primary/[0.08] to-accent/[0.06] group-hover:from-primary/[0.15] group-hover:to-accent/[0.1] transition-colors flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-primary" />
                   </div>

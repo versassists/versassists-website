@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
-import { blogPosts } from "@/lib/blog-posts";
+import { getBlogList, formatBlogDate } from "@/sanity/lib/fetchBlog";
 import JsonLd from "@/components/seo/JsonLd";
 import { blogListSchema, breadcrumbSchema } from "@/lib/schemas";
 
@@ -19,7 +19,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getBlogList();
+
   return (
     <>
       <JsonLd
@@ -53,18 +55,20 @@ export default function BlogPage() {
       <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
+            {posts.map((post) => (
               <article key={post.slug} className="relative overflow-hidden group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.05] hover:-translate-y-1 transition-all duration-300">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                <div className="relative aspect-video">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+                {post.imageUrl && (
+                  <div className="relative aspect-video">
+                    <Image
+                      src={post.imageUrl}
+                      alt={post.title}
+                      fill
+                      sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                )}
                 <div className="p-10 text-center">
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/[0.08] text-primary text-xs font-semibold mb-3">{post.category}</span>
                   <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors leading-snug">
@@ -72,7 +76,7 @@ export default function BlogPage() {
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">{post.excerpt}</p>
                   <div className="flex items-center justify-center gap-4 text-gray-500 text-xs">
-                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{post.date}</span>
+                    <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{formatBlogDate(post.publishedAt)}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{post.readTime}</span>
                   </div>
                 </div>

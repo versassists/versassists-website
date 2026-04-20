@@ -14,7 +14,9 @@ import {
   Star,
   ChevronDown,
 } from "lucide-react";
-import { services, testimonials, stats, faqItems } from "@/lib/constants";
+import { getServiceList } from "@/sanity/lib/fetchServices";
+import { getTestimonials, getStats, getFaqList } from "@/sanity/lib/fetchMarketing";
+import { resolveIcon } from "@/lib/icon-map";
 import StatCounter from "@/components/ui/StatCounter";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schemas";
@@ -64,7 +66,14 @@ const clientLogos: {
   { name: "MilMoves", src: "/logos/logs%20milmoves.png", bg: "white" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const [services, testimonials, stats, faqItems] = await Promise.all([
+    getServiceList(),
+    getTestimonials(),
+    getStats(),
+    getFaqList(),
+  ]);
+
   return (
     <>
       <JsonLd
@@ -192,10 +201,10 @@ export default function Home() {
 
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => {
-              const Icon = service.icon;
+              const Icon = resolveIcon(service.iconName);
               return (
                 <Link
-                  key={service.title}
+                  key={service.slug}
                   href={`/services/${service.slug}`}
                   className="group flex flex-col items-center bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.06] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
                 >
@@ -329,8 +338,8 @@ export default function Home() {
           </p>
 
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((t, i) => (
-              <div key={i} className="relative overflow-hidden bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100 hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
+            {testimonials.map((t) => (
+              <div key={t._id} className="relative overflow-hidden bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-100 hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (
@@ -339,9 +348,15 @@ export default function Home() {
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-8">&ldquo;{t.quote}&rdquo;</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold shrink-0">
-                    {t.name.charAt(0)}
-                  </div>
+                  {t.imageUrl ? (
+                    <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
+                      <Image src={t.imageUrl} alt={t.name} width={48} height={48} className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold shrink-0">
+                      {t.name.charAt(0)}
+                    </div>
+                  )}
                   <div>
                     <p className="font-semibold text-gray-900">{t.name}</p>
                     <p className="text-gray-500 text-sm">{t.company ? `${t.title}, ${t.company}` : t.title}</p>
@@ -364,7 +379,7 @@ export default function Home() {
           <div className="w-full space-y-4">
             {faqItems.slice(0, 4).map((item, i) => (
               <details
-                key={i}
+                key={item._id}
                 className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-primary/30 transition-colors"
                 {...(i === 0 ? { open: true } : {})}
               >

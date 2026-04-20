@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Check, X, CheckCircle, Sparkles } from "lucide-react";
-import { services } from "@/lib/constants";
+import { getServiceList } from "@/sanity/lib/fetchServices";
+import { resolveIcon } from "@/lib/icon-map";
 import JsonLd from "@/components/seo/JsonLd";
 import { servicesSchema, breadcrumbSchema } from "@/lib/schemas";
 
@@ -19,7 +20,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getServiceList();
+
   return (
     <>
       <JsonLd
@@ -68,10 +71,10 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => {
-              const Icon = service.icon;
+              const Icon = resolveIcon(service.iconName);
               return (
                 <Link
-                  key={service.title}
+                  key={service.slug}
                   href={`/services/${service.slug}`}
                   className="group relative overflow-hidden bg-white rounded-2xl p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/[0.06] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
                 >
