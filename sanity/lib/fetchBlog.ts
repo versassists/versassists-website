@@ -1,3 +1,4 @@
+import { client } from "./client";
 import { getClient } from "./getClient";
 import {
   blogPostBySlugQuery,
@@ -87,7 +88,6 @@ export async function getBlogList(): Promise<BlogListItem[]> {
 
 export async function getBlogSlugs(): Promise<string[]> {
   try {
-    const client = await getClient();
     const result = await client.fetch<string[]>(
       blogPostSlugsQuery,
       {},

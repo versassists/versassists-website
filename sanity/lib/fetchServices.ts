@@ -1,3 +1,4 @@
+import { client } from "./client";
 import { getClient } from "./getClient";
 import {
   serviceBySlugQuery,
@@ -74,7 +75,6 @@ export async function getServiceList(): Promise<ServiceListItem[]> {
 
 export async function getServiceSlugs(): Promise<string[]> {
   try {
-    const client = await getClient();
     const result = await client.fetch<string[]>(
       serviceSlugsQuery,
       {},
