@@ -5,13 +5,13 @@ import { Quote } from "lucide-react";
 const videoTestimonials = [
   {
     src: "/videos/ellena-testimonial.mp4",
-    name: "Ellena",
-    company: "Client Partner",
+    name: "Ellena Weaver",
+    company: "Weaver Enterprises & Investments, Lola Capital Group",
   },
   {
     src: "/videos/nef-testimonial.mp4",
     name: "Neferteri Bey",
-    company: "Client Partner",
+    company: "Nursing Spot, Mind Over Plates",
   },
   {
     src: "/video-testimonials/dr-belton.mp4",
