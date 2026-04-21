@@ -2,13 +2,7 @@
 
 import { Quote } from "lucide-react";
 
-const videoTestimonials = [
-  {
-    src: "/videos/ellena-testimonial.mp4",
-    poster: "/videos/thumbnails/ellena-testimonial.jpg",
-    name: "Ellena Weaver",
-    company: "Weaver Enterprises & Investments, Lola Capital Group",
-  },
+const portraitVideos = [
   {
     src: "/videos/nef-testimonial.mp4",
     poster: "/videos/thumbnails/nef-testimonial.jpg",
@@ -29,6 +23,13 @@ const videoTestimonials = [
   },
 ];
 
+const landscapeVideo = {
+  src: "/videos/ellena-testimonial.mp4",
+  poster: "/videos/thumbnails/ellena-testimonial.jpg",
+  name: "Ellena Weaver",
+  company: "Weaver Enterprises & Investments, Lola Capital Group",
+};
+
 export default function VideoTestimonials() {
   return (
     <section className="py-20 lg:py-28 bg-gray-50">
@@ -43,8 +44,10 @@ export default function VideoTestimonials() {
         <p className="text-gray-500 max-w-2xl mb-16 text-lg text-center leading-relaxed">
           Real clients sharing real stories about working with VersAssist.
         </p>
-        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {videoTestimonials.map((video) => (
+
+        {/* Portrait videos — 3 across */}
+        <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {portraitVideos.map((video) => (
             <div
               key={video.src}
               className="group relative overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
@@ -65,6 +68,24 @@ export default function VideoTestimonials() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Landscape video — full width below */}
+        <div className="w-full max-w-3xl group relative overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div className="relative aspect-video bg-gray-900">
+            <video
+              src={landscapeVideo.src}
+              poster={landscapeVideo.poster}
+              controls
+              playsInline
+              preload="none"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="p-5 text-center">
+            <p className="font-bold text-gray-900">{landscapeVideo.name}</p>
+            <p className="text-sm text-gray-500 mt-1">{landscapeVideo.company}</p>
+          </div>
         </div>
       </div>
     </section>
