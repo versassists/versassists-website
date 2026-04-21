@@ -18,6 +18,7 @@ import { getServiceList } from "@/sanity/lib/fetchServices";
 import { getTestimonials, getStats, getFaqList } from "@/sanity/lib/fetchMarketing";
 import { resolveIcon } from "@/lib/icon-map";
 import StatCounter from "@/components/ui/StatCounter";
+import VideoTestimonials from "@/components/ui/VideoTestimonials";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schemas";
 
@@ -367,6 +368,9 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      {/* ════════════ VIDEO TESTIMONIALS ════════════ */}
+      <VideoTestimonials />
 
       {/* ════════════ FAQ ════════════ */}
       <section className="py-20 lg:py-28 bg-gray-50">
