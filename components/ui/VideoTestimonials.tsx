@@ -5,21 +5,25 @@ import { Quote } from "lucide-react";
 const videoTestimonials = [
   {
     src: "/videos/ellena-testimonial.mp4",
+    poster: "/videos/thumbnails/ellena-testimonial.jpg",
     name: "Ellena Weaver",
     company: "Weaver Enterprises & Investments, Lola Capital Group",
   },
   {
     src: "/videos/nef-testimonial.mp4",
+    poster: "/videos/thumbnails/nef-testimonial.jpg",
     name: "Neferteri Bey",
     company: "Nursing Spot, Mind Over Plates",
   },
   {
     src: "/video-testimonials/dr-belton.mp4",
+    poster: "/videos/thumbnails/dr-belton.jpg",
     name: "Dr. Belton",
     company: "Your Therapy Doctor",
   },
   {
     src: "/video-testimonials/versassist-review.mp4",
+    poster: "/videos/thumbnails/versassist-review.jpg",
     name: "Yolanda & Tim Pender",
     company: "About Life and Marriage",
   },
@@ -48,9 +52,10 @@ export default function VideoTestimonials() {
               <div className="relative aspect-[9/16] bg-gray-900">
                 <video
                   src={video.src}
+                  poster={video.poster}
                   controls
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   className="w-full h-full object-cover"
                 />
               </div>
