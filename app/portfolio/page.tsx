@@ -86,6 +86,12 @@ const partnerTestimonials = [
     quote:
       "Extremely pleased with the work VersAssist did in conducting web research and revamping my website. The attention to detail was outstanding.",
   },
+  {
+    name: "Byron Young",
+    company: "Client Partner",
+    quote:
+      "VersAssist delivered exceptional results. Their professionalism and dedication to quality made the entire experience seamless.",
+  },
 ];
 
 

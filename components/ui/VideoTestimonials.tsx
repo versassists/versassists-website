@@ -21,6 +21,12 @@ const portraitVideos = [
     name: "Yolanda & Tim Pender",
     company: "About Life and Marriage",
   },
+  {
+    src: "/videos/byron-testimonial.mp4",
+    poster: "/videos/thumbnails/byron-testimonial.jpg",
+    name: "Byron Young",
+    company: "",
+  },
 ];
 
 const landscapeVideo = {
@@ -45,8 +51,8 @@ export default function VideoTestimonials() {
           Real clients sharing real stories about working with VersAssist.
         </p>
 
-        {/* Portrait videos — 3 across */}
-        <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {/* Portrait videos — 4 across */}
+        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {portraitVideos.map((video) => (
             <div
               key={video.src}
@@ -64,7 +70,7 @@ export default function VideoTestimonials() {
               </div>
               <div className="p-5 text-center">
                 <p className="font-bold text-gray-900">{video.name}</p>
-                <p className="text-sm text-gray-500 mt-1">{video.company}</p>
+                {video.company && <p className="text-sm text-gray-500 mt-1">{video.company}</p>}
               </div>
             </div>
           ))}
