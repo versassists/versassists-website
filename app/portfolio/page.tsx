@@ -87,10 +87,16 @@ const partnerTestimonials = [
       "Extremely pleased with the work VersAssist did in conducting web research and revamping my website. The attention to detail was outstanding.",
   },
   {
-    name: "Byron Young",
-    company: "Client Partner",
+    name: "Dr. Byron Young",
+    company: "Doing It Well",
     quote:
       "VersAssist delivered exceptional results. Their professionalism and dedication to quality made the entire experience seamless.",
+  },
+  {
+    name: "Mahsa",
+    company: "Abogada Vida PLLC",
+    quote:
+      "Working with VersAssist has been a game-changer for our firm. They handle the digital side so we can focus on serving our clients.",
   },
 ];
 

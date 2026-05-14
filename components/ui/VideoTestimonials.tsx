@@ -24,8 +24,14 @@ const portraitVideos = [
   {
     src: "/videos/byron-testimonial.mp4",
     poster: "/videos/thumbnails/byron-testimonial.jpg",
-    name: "Byron Young",
-    company: "",
+    name: "Dr. Byron Young",
+    company: "Doing It Well",
+  },
+  {
+    src: "/videos/mahsa-testimonial.mp4",
+    poster: "/videos/thumbnails/mahsa-testimonial.jpg",
+    name: "Mahsa",
+    company: "Abogada Vida PLLC",
   },
 ];
 
@@ -51,8 +57,8 @@ export default function VideoTestimonials() {
           Real clients sharing real stories about working with VersAssist.
         </p>
 
-        {/* Portrait videos — 4 across */}
-        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {/* Portrait videos — 5 across */}
+        <div className="w-full grid grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
           {portraitVideos.map((video) => (
             <div
               key={video.src}
