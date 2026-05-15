@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "auto-blog": "npx tsx scripts/auto-blog/index.ts"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@next/third-parties": "^16.2.3",
     "@portabletext/react": "^6.0.3",
     "@sanity/client": "^7.21.0",

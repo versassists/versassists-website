@@ -1,0 +1,33 @@
+name: Weekly Blog Post
+
+on:
+  schedule:
+    # Every Monday at 9:00 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch: # Manual trigger for testing
+
+jobs:
+  generate-blog-post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate and publish blog post
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+          NEXT_PUBLIC_SANITY_DATASET: production
+          SANITY_API_WRITE_TOKEN: ${{ secrets.SANITY_API_WRITE_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npx tsx scripts/auto-blog/index.ts
