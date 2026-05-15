@@ -76,9 +76,9 @@ export async function publishPost(
   const today = new Date().toISOString().slice(0, 10);
   const docId = `blogPost-auto-${today}`;
 
-  const doc: Record<string, unknown> = {
+  const doc = {
     _id: docId,
-    _type: "blogPost",
+    _type: "blogPost" as const,
     title: post.title,
     slug: { _type: "slug", current: post.slug },
     author: { _type: "reference", _ref: AUTHOR_ID },
@@ -87,15 +87,14 @@ export async function publishPost(
     readTime: post.readTime,
     publishedAt: new Date().toISOString(),
     body,
+    ...(imageAssetId && {
+      featuredImage: {
+        _type: "image",
+        asset: { _type: "reference", _ref: imageAssetId },
+        alt: post.title,
+      },
+    }),
   };
-
-  if (imageAssetId) {
-    doc.featuredImage = {
-      _type: "image",
-      asset: { _type: "reference", _ref: imageAssetId },
-      alt: post.title,
-    };
-  }
 
   await client.createOrReplace(doc);
   console.log(`  [publish] Saved as ${docId}`);
