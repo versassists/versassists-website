@@ -47,6 +47,19 @@ const fallbackSettings: SiteSettings = {
 };
 
 /**
+ * Ensures navLinks from constants that aren't in the CMS list are appended.
+ * This keeps code-defined links (e.g. Social Media QA) present even when
+ * the CMS manages the primary navigation list.
+ */
+function mergeNavLinks(cmsLinks: NavLink[]): NavLink[] {
+  const cmsHrefs = new Set(cmsLinks.map((l) => l.href.replace(/\/$/, "")));
+  const missing = fallbackNavLinks.filter(
+    (l) => !cmsHrefs.has(l.href.replace(/\/$/, ""))
+  );
+  return [...cmsLinks, ...missing];
+}
+
+/**
  * Fetches Site Settings from Sanity with a fully hardcoded fallback.
  * Cached via Next.js fetch cache; revalidated every 60s and on-demand via webhook.
  */
@@ -61,14 +74,16 @@ export async function getSiteSettings(): Promise<SiteSettings> {
 
     if (!result) return fallbackSettings;
 
+    const cmsNavLinks =
+      result.navLinks && result.navLinks.length > 0
+        ? result.navLinks
+        : fallbackSettings.navLinks;
+
     // Merge with fallback so missing fields never crash the UI.
     return {
       ...fallbackSettings,
       ...result,
-      navLinks:
-        result.navLinks && result.navLinks.length > 0
-          ? result.navLinks
-          : fallbackSettings.navLinks,
+      navLinks: mergeNavLinks(cmsNavLinks),
       socialLinks:
         result.socialLinks && result.socialLinks.length > 0
           ? result.socialLinks
