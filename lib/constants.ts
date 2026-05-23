@@ -881,6 +881,7 @@ export const navLinks = [
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
   { label: "VersAssist Calculator", href: "https://calculator.versassists.com/" },
+  { label: "Social Media QA", href: "https://socialmediaqa.versassists.com/" },
 ];
 
 // ─── Social Links ────────────────────────────────────────────────────
