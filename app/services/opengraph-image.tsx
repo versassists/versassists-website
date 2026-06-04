@@ -10,6 +10,6 @@ export default async function Image() {
     headline: "Our",
     headlineAccent: "Services",
     subtitle:
-      "Email management, social media, graphic design, web development, AI consulting, and more.",
+      "Email management, social media, graphic design, web development, AI automation workflows, and more.",
   });
 }

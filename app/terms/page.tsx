@@ -25,7 +25,7 @@ export default function TermsPage() {
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-900 mb-3">2. Services</h2>
-            <p>VersAssist provides AI-powered virtual assistance services including but not limited to email management, calendar management, social media management, graphic design, website development, customer support, content creation, and AI consulting.</p>
+            <p>VersAssist provides AI-powered virtual assistance services including but not limited to email management, calendar management, social media management, graphic design, website development, customer support, content creation, and AI automation workflows.</p>
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-900 mb-3">3. Payment & Billing</h2>

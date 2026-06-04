@@ -427,58 +427,58 @@ export const services: Service[] = [
   },
   {
     icon: Bot,
-    slug: "ai-consulting-virtual-assistant",
-    title: "AI Consulting",
-    shortTitle: "AI Consulting VA",
+    slug: "ai-automation-workflows",
+    title: "AI Automation Workflows",
+    shortTitle: "AI Automation",
     description:
-      "Custom AI solutions and prototypes tailored to your business needs — from workflow automation to intelligent assistants.",
+      "End-to-end automation workflows built for your business — from email triage and CRM pipelines to custom chatbots and AI-powered reporting.",
     features: [
-      "AI workflow automation",
+      "Email & inbox automation",
       "Custom chatbot development",
-      "Process optimization",
-      "AI tool integration & training",
+      "n8n & workflow automation",
+      "AI reporting & analytics",
     ],
     seoTitle:
-      "AI Consulting for Small Business: Workflows, Chatbots, Automation | VersAssist",
+      "AI Automation Workflows for Small Business: Email, Chatbots, CRM | VersAssist",
     seoDescription:
-      "AI consulting for small businesses. Workflow automation, custom GPTs, chatbot development, AI tool training. Save 20+ hours/week. Free discovery call.",
-    heroHeadline: "AI Consulting & Automation Services",
+      "AI automation workflows for small businesses. Email automation, custom chatbots, n8n workflows, CRM pipelines, AI reporting. Save 20+ hours/week. Free discovery call.",
+    heroHeadline: "AI Automation Workflows for Your Business",
     heroSubheadline:
-      "Save 20+ hours per week by automating your repetitive work with custom AI workflows, chatbots, and integrations built for your business.",
+      "Save 20+ hours per week with done-for-you automation workflows — email triage, custom chatbots, CRM pipelines, AI reporting, and more — built and managed by our team.",
     longDescription: [
-      "AI is the single biggest productivity lever available to small businesses right now — but most founders don't have time to figure out which tools to use, how to connect them, or how to train their teams. That's where our AI consulting service comes in.",
-      "Our AI consultants work with you to identify the highest-impact workflows in your business, then build custom automations, GPTs, and chatbots to handle them. We use tools like ChatGPT, Claude, Zapier, Make, n8n, Airtable, and custom LLM integrations to deliver measurable results in weeks — not months.",
-      "Past projects include AI email assistants, custom customer support bots, automated content pipelines, AI-powered lead scoring, and workflow automations that save clients 20+ hours per week.",
+      "Most small businesses lose hours every week on tasks that should run on autopilot — sorting emails, updating spreadsheets, following up with leads, generating reports. Our AI automation workflows eliminate that manual work so you can focus on growth.",
+      "We build and manage end-to-end automations using n8n, Zapier, Make, Google Sheets, Gmail API, and custom integrations. Our team designs workflows for email auto-responders, inbox triage, client onboarding sequences, weekly summary reports, CRM pipeline updates, SEO analytics, sentiment analysis, and more.",
+      "We also build custom AI chatbots trained on your knowledge base — for customer support, lead qualification, or internal use. Past projects include paralegal bots, healthcare assistants, automated blog pipelines, Google Drive/Sheets sync, daily client dashboards, and re-engagement email sequences.",
     ],
     benefits: [
       {
-        title: "Workflow Automation",
-        desc: "Eliminate repetitive work with Zapier, Make, n8n, and custom scripts.",
+        title: "Email & Inbox Automation",
+        desc: "Auto-responders, triage, daily reports, and follow-up sequences via Gmail API and n8n.",
       },
       {
-        title: "Custom GPTs & Chatbots",
-        desc: "Branded AI assistants trained on your knowledge base, documents, and tone.",
+        title: "Custom Chatbots",
+        desc: "AI assistants trained on your docs — for support, lead gen, or internal workflows.",
       },
       {
-        title: "AI Strategy",
-        desc: "We map your business and identify the highest-ROI AI opportunities first.",
+        title: "CRM & Pipeline Automation",
+        desc: "Lead scoring, onboarding flows, Google Sheets sync, and weekly client summaries.",
       },
       {
-        title: "Team Training",
-        desc: "We train your team on the tools so they can run them independently.",
+        title: "AI Reporting & Analytics",
+        desc: "Automated SEO reports, sentiment analysis, dashboard analytics, and scheduled summaries.",
       },
     ],
     idealFor: [
-      "Founders overwhelmed by repetitive tasks",
-      "Small businesses exploring AI for the first time",
-      "Agencies wanting to offer AI services to clients",
-      "Operators who want to 10x output without hiring",
+      "Founders losing hours to repetitive manual tasks",
+      "Small businesses ready to automate email, CRM, and reporting",
+      "Agencies that want AI-powered workflows for their clients",
+      "Operators who want to scale output without hiring",
     ],
     keywords: [
-      "AI consulting for small business",
-      "AI automation services",
-      "custom GPT development",
-      "AI virtual assistant consultant",
+      "AI automation workflows for small business",
+      "email automation services",
+      "custom chatbot development",
+      "n8n workflow automation",
     ],
   },
 ];
@@ -797,7 +797,7 @@ export const faqItems: FAQItem[] = [
     answer:
       "Our VAs are trained on a wide range of AI tools including ChatGPT, Midjourney, Canva AI, Jasper, scheduling automation tools, social media AI assistants, and custom-built AI workflows tailored to each client's needs.",
     category: "General",
-    relatedService: { label: "Learn about AI consulting", href: "/services/ai-consulting-virtual-assistant" },
+    relatedService: { label: "Learn about AI automation", href: "/services/ai-automation-workflows" },
   },
   {
     question: "How does pricing work?",

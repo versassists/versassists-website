@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title:
     "AI-Powered Virtual Assistants for Small Business | VersAssist",
   description:
-    "Hire AI-powered virtual assistants for small business. Email, social, design, web dev, support and AI consulting. Hours never expire. No lock-in.",
+    "Hire AI-powered virtual assistants for small business. Email, social, design, web dev, support and AI automation. Hours never expire. No lock-in.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "AI-Powered Virtual Assistants for Small Business | VersAssist",
@@ -197,7 +197,7 @@ export default async function Home() {
             Virtual Assistant Services That Scale With You
           </h2>
           <p className="text-center text-gray-500 max-w-xl text-lg leading-relaxed mb-14">
-            From inbox management to AI consulting — our AI-powered virtual assistants handle the work that slows small businesses down.
+            From inbox management to AI automation workflows — our AI-powered virtual assistants handle the work that slows small businesses down.
           </p>
 
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

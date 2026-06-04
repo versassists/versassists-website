@@ -302,10 +302,10 @@ That's 7 high-quality backlinks in 90 minutes — more than most sites earn in a
 ## VersAssist Company Description (copy-paste into all listings)
 
 ### Short (50 words)
-VersAssist is an AI-powered virtual assistant company serving small businesses and startups across the US. Our trained VAs handle email management, social media, graphic design, web development, customer support, and AI consulting — delivering 3x productivity at a fraction of the cost of full-time hires. Hours never expire. No lock-in contracts.
+VersAssist is an AI-powered virtual assistant company serving small businesses and startups across the US. Our trained VAs handle email management, social media, graphic design, web development, customer support, and AI automation workflows — delivering 3x productivity at a fraction of the cost of full-time hires. Hours never expire. No lock-in contracts.
 
 ### Medium (150 words)
-VersAssist provides AI-powered virtual assistant services for small businesses and startups. Founded by Dr. Jeff Bullock (20+ years of business strategy) and Michael Olaiya, VersAssist pairs expert VAs with the latest AI tools — including ChatGPT, Canva AI, Midjourney, and custom GPTs — to deliver 3x the productivity of traditional virtual assistants. Services include email management, calendar scheduling, social media management, graphic design, website development, customer support, content writing, and AI consulting. VersAssist clients love the flexible pricing: hours never expire, no long-term contracts, and no cancellation fees. Whether you need 5 hours per week or a full-time team, VersAssist scales with your business. Based in the United States, serving clients nationwide.
+VersAssist provides AI-powered virtual assistant services for small businesses and startups. Founded by Dr. Jeff Bullock (20+ years of business strategy) and Michael Olaiya, VersAssist pairs expert VAs with the latest AI tools — including ChatGPT, Canva AI, Midjourney, and custom GPTs — to deliver 3x the productivity of traditional virtual assistants. Services include email management, calendar scheduling, social media management, graphic design, website development, customer support, content writing, and AI automation workflows. VersAssist clients love the flexible pricing: hours never expire, no long-term contracts, and no cancellation fees. Whether you need 5 hours per week or a full-time team, VersAssist scales with your business. Based in the United States, serving clients nationwide.
 
 ### Tagline options
 - "AI-powered virtual assistants for small business"

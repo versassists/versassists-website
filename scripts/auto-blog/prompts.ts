@@ -4,7 +4,7 @@ export function buildTitlePrompt(category: string, existingTitles: string[]): st
     .map((t) => `  - "${t}"`)
     .join("\n");
 
-  return `Generate 3 SEO-optimized blog post title options for the category "${category}" for VersAssist, a virtual assistant and AI consulting company for small businesses.
+  return `Generate 3 SEO-optimized blog post title options for the category "${category}" for VersAssist, a virtual assistant and AI automation company for small businesses.
 
 The titles should:
 - Be 50-70 characters long
@@ -18,7 +18,7 @@ Return ONLY a JSON array of 3 strings, no other text.`;
 }
 
 export function buildContentPrompt(category: string, title: string): string {
-  return `You are the lead content writer for VersAssist (versassists.com), a virtual assistant and AI consulting company for small businesses. Write a comprehensive, SEO-optimized blog post.
+  return `You are the lead content writer for VersAssist (versassists.com), a virtual assistant and AI automation company for small businesses. Write a comprehensive, SEO-optimized blog post.
 
 TOPIC: "${title}"
 CATEGORY: ${category}

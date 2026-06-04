@@ -10,12 +10,12 @@ import { servicesSchema, breadcrumbSchema } from "@/lib/schemas";
 export const metadata: Metadata = {
   title: "Virtual Assistant Services: Email, Social, Design & AI",
   description:
-    "AI-powered virtual assistant services: email, social media, graphic design, web development, customer support, content and AI consulting. Hire a VA today.",
+    "AI-powered virtual assistant services: email, social media, graphic design, web development, customer support, content and AI automation workflows. Hire a VA today.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Virtual Assistant Services | VersAssist",
     description:
-      "AI-powered virtual assistant services: email, social media, design, web dev, support, content & AI consulting.",
+      "AI-powered virtual assistant services: email, social media, design, web dev, support, content & AI automation.",
     url: "https://www.versassists.com/services",
   },
 };
@@ -60,7 +60,7 @@ export default async function ServicesPage() {
           </h1>
           <p className="text-gray-300 text-lg sm:text-xl max-w-2xl leading-relaxed text-center">
             Eight AI-enhanced virtual assistant services for small businesses and startups. From email management
-            and social media to graphic design, web development, customer support, and AI consulting — our trained
+            and social media to graphic design, web development, customer support, and AI automation — our trained
             virtual team handles it all.
           </p>
         </div>
