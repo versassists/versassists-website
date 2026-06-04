@@ -35,12 +35,20 @@ const portraitVideos = [
   },
 ];
 
-const landscapeVideo = {
-  src: "/videos/ellena-testimonial.mp4",
-  poster: "/videos/thumbnails/ellena-testimonial.jpg",
-  name: "Ellena Weaver",
-  company: "Weaver Enterprises & Investments, Lola Capital Group",
-};
+const landscapeVideos = [
+  {
+    src: "/videos/ellena-testimonial.mp4",
+    poster: "/videos/thumbnails/ellena-testimonial.jpg",
+    name: "Ellena Weaver",
+    company: "Weaver Enterprises & Investments, Lola Capital Group",
+  },
+  {
+    src: "/videos/jacinth-testimonial.mp4",
+    poster: "/videos/thumbnails/jacinth-testimonial.jpg",
+    name: "Jacinth Headlam",
+    company: "InnaStar Incorporated, Jacinth Media Productions",
+  },
+];
 
 export default function VideoTestimonials() {
   return (
@@ -82,22 +90,29 @@ export default function VideoTestimonials() {
           ))}
         </div>
 
-        {/* Landscape video — full width below */}
-        <div className="w-full max-w-3xl group relative overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div className="relative aspect-video bg-gray-900">
-            <video
-              src={landscapeVideo.src}
-              poster={landscapeVideo.poster}
-              controls
-              playsInline
-              preload="none"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="p-5 text-center">
-            <p className="font-bold text-gray-900">{landscapeVideo.name}</p>
-            <p className="text-sm text-gray-500 mt-1">{landscapeVideo.company}</p>
-          </div>
+        {/* Landscape videos — full width below */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {landscapeVideos.map((video) => (
+            <div
+              key={video.src}
+              className="group relative overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="relative aspect-video bg-gray-900">
+                <video
+                  src={video.src}
+                  poster={video.poster}
+                  controls
+                  playsInline
+                  preload="none"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-5 text-center">
+                <p className="font-bold text-gray-900">{video.name}</p>
+                <p className="text-sm text-gray-500 mt-1">{video.company}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
