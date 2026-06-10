@@ -48,6 +48,12 @@ const landscapeVideos = [
     name: "Jacinth Headlam",
     company: "InnaStar Incorporated, Jacinth Media Productions",
   },
+  {
+    src: "/videos/helen-fosam-testimonial.mp4",
+    poster: "/videos/thumbnails/helen-fosam-testimonial.jpg",
+    name: "Dr. Helen Fosam",
+    company: "Edge Medical Writing",
+  },
 ];
 
 export default function VideoTestimonials() {
