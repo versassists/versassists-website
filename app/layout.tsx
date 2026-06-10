@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Syne, Outfit } from "next/font/google";
 import { draftMode } from "next/headers";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/layout/Header";
@@ -16,9 +16,16 @@ import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-9EJFXCF9B1";
 
-const inter = Inter({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-syne",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -92,7 +99,7 @@ export default async function RootLayout({
   const { isEnabled: isDraftMode } = await draftMode();
 
   return (
-    <html lang="en-US" className={`${inter.className} h-full`}>
+    <html lang="en-US" className={`${outfit.className} ${syne.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
         {isDraftMode && <DraftBanner />}
         <a
