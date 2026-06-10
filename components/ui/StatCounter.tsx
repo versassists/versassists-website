@@ -46,11 +46,11 @@ export default function StatCounter({ stat }: StatCounterProps) {
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+      <div className="text-4xl md:text-5xl font-extrabold mb-2 bg-gradient-to-r from-white via-primary-light to-white bg-clip-text text-transparent">
         {formatNumber(count)}
         {stat.suffix || ""}
       </div>
-      <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
+      <div className="text-gray-400 text-sm font-medium tracking-wide uppercase">{stat.label}</div>
     </div>
   );
 }
