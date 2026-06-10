@@ -158,7 +158,7 @@
 /* ── Typography ── */
 
 .font-heading {
-  font-family: var(--font-syne), system-ui, sans-serif;
+  font-family: var(--font-heading), system-ui, sans-serif;
 }
 
 /* ── Hover Lift ── */

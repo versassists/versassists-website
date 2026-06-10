@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Outfit } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import { draftMode } from "next/headers";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/layout/Header";
@@ -16,9 +16,9 @@ import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-9EJFXCF9B1";
 
-const syne = Syne({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-heading",
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
 });
@@ -99,7 +99,7 @@ export default async function RootLayout({
   const { isEnabled: isDraftMode } = await draftMode();
 
   return (
-    <html lang="en-US" className={`${outfit.className} ${syne.variable} h-full`}>
+    <html lang="en-US" className={`${outfit.className} ${jakarta.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
         {isDraftMode && <DraftBanner />}
         <a
