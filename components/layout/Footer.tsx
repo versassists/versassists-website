@@ -28,7 +28,8 @@ export default async function Footer() {
     getSiteSettings(),
     getServiceList(),
   ]);
-  const logoSrc = settings.logoUrl || "/logos/versassist png logo.avif";
+  // White-writing horizontal logo on the dark footer background.
+  const logoSrc = "/logos/versassist-logo-on-dark.png";
   const year = new Date().getFullYear();
 
   return (
@@ -57,10 +58,9 @@ export default async function Footer() {
               <Image
                 src={logoSrc}
                 alt={settings.companyName}
-                width={156}
-                height={162}
-                unoptimized={logoSrc.startsWith("http")}
-                className="h-20 w-auto object-contain"
+                width={1080}
+                height={279}
+                className="h-16 w-auto object-contain"
               />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed mb-5">{settings.tagline}</p>
