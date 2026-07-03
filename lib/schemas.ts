@@ -41,7 +41,7 @@ export const organizationSchema = {
     },
     {
       "@type": "Person",
-      name: "Michael Olaiya",
+      name: "Dr. Michael Olaiya",
       jobTitle: "Co-Founder",
     },
   ],
@@ -308,7 +308,7 @@ export const founderSchemas = [
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${BASE_URL}/#founder-michael-olaiya`,
-    name: "Michael Olaiya",
+    name: "Dr. Michael Olaiya",
     jobTitle: "Co-Founder",
     url: `${BASE_URL}/about`,
     worksFor: { "@id": `${BASE_URL}/#organization` },

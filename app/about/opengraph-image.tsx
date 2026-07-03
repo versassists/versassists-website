@@ -10,6 +10,6 @@ export default async function Image() {
     headline: "About",
     headlineAccent: "VersAssist",
     subtitle:
-      "Founded by Dr. Jeff Bullock & Michael Olaiya — AI-powered virtual assistance for small businesses.",
+      "Founded by Dr. Jeff Bullock & Dr. Michael Olaiya — AI-powered virtual assistance for small businesses.",
   });
 }

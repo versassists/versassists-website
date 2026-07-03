@@ -499,7 +499,7 @@ export const team: TeamMember[] = [
     image: "/profile-pictures/dr-jeff-bullock.jpg",
   },
   {
-    name: "Michael Olaiya",
+    name: "Dr. Michael Olaiya",
     role: "Co-Founder & CFO",
     bio: "Dedicated to revolutionizing business growth through AI-powered training and strategic support, Michael ensures VersAssist delivers measurable financial impact for every client.",
     image: "/profile-pictures/dr-mike-olaiya.jpg",
@@ -880,6 +880,7 @@ export const navLinks = [
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
+  { label: "Book Production", href: "https://books.versassists.com/" },
   { label: "VersAssist Calculator", href: "https://calculator.versassists.com/" },
   { label: "Social Media QA", href: "https://socialmediaqa.versassists.com/" },
 ];

@@ -54,6 +54,12 @@ const landscapeVideos = [
     name: "Dr. Helen Fosam",
     company: "Edge Medical Writing",
   },
+  {
+    src: "/videos/tina-testimonial.mp4",
+    poster: "/videos/thumbnails/tina-testimonial.jpg",
+    name: "Tina MacDonald",
+    company: "BrickInn",
+  },
 ];
 
 export default function VideoTestimonials() {
