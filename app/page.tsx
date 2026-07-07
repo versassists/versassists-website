@@ -24,6 +24,23 @@ import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schemas";
 import ScrollAnimationWrapper from "@/components/ui/ScrollAnimationWrapper";
 
+// Public Google reviews page for our Business Profile (place id resolved from
+// the g.page share link). Used by the "See all reviews on Google" CTA.
+const GOOGLE_REVIEWS_URL =
+  "https://search.google.com/local/reviews?placeid=ChIJQcbh9hAF9YgRchMc2yjpf5s";
+
+// Google "G" mark (official four-color), inlined so it stays within our CSP.
+function GoogleGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#4285F4" d="M23.52 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.57-5.17 3.57-8.87z" />
+      <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.76-2.11-6.7-4.94H1.29v3.1A11.998 11.998 0 0 0 12 24z" />
+      <path fill="#FBBC05" d="M5.3 14.31A7.19 7.19 0 0 1 4.92 12c0-.8.14-1.58.38-2.31v-3.1H1.29A11.998 11.998 0 0 0 0 12c0 1.94.46 3.77 1.29 5.41l4.01-3.1z" />
+      <path fill="#EA4335" d="M12 4.75c1.76 0 3.35.61 4.6 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.69 1.29 6.59l4.01 3.1C6.24 6.86 8.88 4.75 12 4.75z" />
+    </svg>
+  );
+}
+
 export const metadata: Metadata = {
   title:
     "AI-Powered Virtual Assistants for Small Business | VersAssist",
@@ -464,9 +481,21 @@ export default async function Home() {
           <h2 className="font-heading text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-5 max-w-3xl leading-tight">
             What Our Virtual Assistant Clients Say
           </h2>
-          <p className="text-center text-gray-500 max-w-xl text-lg leading-relaxed mb-16">
+          <p className="text-center text-gray-500 max-w-xl text-lg leading-relaxed mb-8">
             Real results from real small businesses our virtual assistants have helped grow.
           </p>
+
+          {/* Google rating badge — signals these are real, verified reviews */}
+          <div className="flex items-center gap-3 mb-16 rounded-full border border-gray-200/80 bg-white px-5 py-2.5 shadow-soft">
+            <GoogleGlyph className="w-5 h-5 shrink-0" />
+            <span className="font-heading font-bold text-gray-900 leading-none">5.0</span>
+            <span className="flex gap-0.5" aria-hidden="true">
+              {[...Array(5)].map((_, j) => (
+                <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              ))}
+            </span>
+            <span className="text-sm text-gray-500">Rated 5.0 on Google</span>
+          </div>
 
           <ScrollAnimationWrapper stagger className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((t, i) => (
@@ -483,10 +512,13 @@ export default async function Home() {
                 </div>
 
                 <div className="relative">
-                  <div className="flex gap-1 mb-5">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <GoogleGlyph className="w-5 h-5 shrink-0 opacity-90" />
                   </div>
 
                   <p className="text-gray-600 leading-relaxed mb-8 text-[15px]">&ldquo;{t.quote}&rdquo;</p>
@@ -510,6 +542,17 @@ export default async function Home() {
               </div>
             ))}
           </ScrollAnimationWrapper>
+
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-14 inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-soft hover:shadow-elevated hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200"
+          >
+            <GoogleGlyph className="w-5 h-5 shrink-0" />
+            See all reviews on Google
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+          </a>
         </div>
       </section>
 

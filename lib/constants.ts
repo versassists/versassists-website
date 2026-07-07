@@ -521,68 +521,55 @@ export interface Testimonial {
   image: string;
 }
 
+// Curated 5-star reviews from our Google Business Profile. These mirror the
+// documents in Sanity (source of truth) and act as a fallback if the CMS fetch
+// fails. See scripts/seed-google-reviews.ts for the loader.
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "VersAssist transformed our online presence completely. Their AI-enhanced approach to social media management and content creation delivered results we didn't think were possible for a small business.",
-    name: "Yolanda Pender",
-    title: "Co-Founder",
-    company: "About Life and Marriage",
-    image: "/images/testimonial-1.jpg",
+      "After being burned by a web developer who promised the moon and didn't deliver, finding VersAssist felt like a rescue. Saleem, Jhomark, and James stepped in, got up to speed quickly, and now they're actively improving my website every single week. They've also helped me set up automations and streamline things behind the scenes that I didn't even know were possible. Beyond the technical skills, the whole team is easy to work with — responsive, patient, and genuinely invested in my small business.",
+    name: "Virginia Ellen",
+    title: "Artists At Heart",
+    company: "",
+    image: "",
   },
   {
     quote:
-      "The website revamp VersAssist delivered exceeded every expectation. They didn't just build a site — they built a growth engine. Our leads increased significantly within weeks of launch.",
-    name: "Tim Pender",
-    title: "Co-Founder",
-    company: "About Life and Marriage",
-    image: "/images/testimonial-2.jpg",
+      "I used VersAssist to help me navigate the cover placement for publishing my manual on the Amazon Publishing platform and they were a life saver, as the platform is complex. They are so patient and diligent and beyond honorable in their support, iterating with me as many times as needed, no questions asked. I recommend them 10/10 and look forward to continuing to work with them on my projects.",
+    name: "Byron Young",
+    title: "Verified Google Review",
+    company: "",
+    image: "",
   },
   {
     quote:
-      "Working with VersAssist on our digital strategy was a game-changer. Their team leveraged AI tools to produce marketing materials that genuinely moved the needle on our sales pipeline.",
-    name: "PRISM AI Consultants",
-    title: "Client",
-    company: "PRISM AI Consultants",
-    image: "/images/testimonial-3.jpg",
-  },
-  {
-    quote:
-      "VersAssist expanded our digital presence from nothing to a comprehensive online ecosystem — website, social media, and content — all handled seamlessly by their AI-powered team.",
-    name: "Carter & Olay Foundation",
-    title: "Client",
-    company: "Carter & Olay Foundation",
-    image: "/images/testimonial-4.jpg",
-  },
-  {
-    quote:
-      "We've had a great experience working with VersAssists. Operationally, they've helped our company perform at a much higher level. They're responsive, complete tasks in a timely manner, and consistently deliver work that aligns with what we're looking for. If you're on the fence about using virtual assistants, I highly recommend VersAssists. The value is definitely there. They've been a reliable and worthwhile investment for our team.",
+      "We've had a great experience working with VersAssist. Operationally, they've helped our company perform at a much higher level. They're responsive, complete tasks in a timely manner, and consistently deliver work that aligns with what we're looking for. If you're on the fence about using virtual assistants, I highly recommend VersAssist. The value is definitely there. They've been a reliable and worthwhile investment for our team.",
     name: "Ellena Weaver",
-    title: "Client",
-    company: "Weaver Enterprises & Investments",
-    image: "",
-  },
-  {
-    quote:
-      "VersAssists is the real deal. I highly recommend using them. They have twice helped me on two major projects, a layout of a white paper and now, a book layout. In addition, they were instrumental in getting some VIBE computing projects finalized. Highly recommend VersAssists.",
-    name: "William Harris",
-    title: "Client",
+    title: "Weaver Enterprises & Investments",
     company: "",
     image: "",
   },
   {
     quote:
-      "Our firm has had a great experience with VersAssists. They've supported us with creating applications, presentation decks, book layout, and general admin—always delivering high-quality work. They're responsive, reliable, and feel like an extension of our team. Their support has saved us time and helped us stay focused on what matters most. Highly recommend.",
+      "They are incredibly responsible, tech-savvy, and always on time. All you need to do is give them clear instructions, and they follow through without needing constant follow-up. They are reliable, proactive, and make the entire process smooth and efficient. I highly recommend working with VersAssist.",
+    name: "Mahsa Mohkamkar",
+    title: "Verified Google Review",
+    company: "",
+    image: "",
+  },
+  {
+    quote:
+      "Our firm has had a great experience with VersAssist. They've supported us with creating applications, presentation decks, book layout, and general admin — always delivering high-quality work. They're responsive, reliable, and feel like an extension of our team. Their support has saved us time and helped us stay focused on what matters most. Highly recommend.",
     name: "Paula Harris",
-    title: "Client",
+    title: "Verified Google Review",
     company: "",
     image: "",
   },
   {
     quote:
-      "Versassist delivered exceptional support for my Etsy page and website. Their team provided clear, insightful guidance and worked with impressive efficiency. They were consistently accommodating—readily making adjustments even when I was still refining my ideas. The overall experience was excellent. I genuinely appreciate their professionalism, patience, and dedication to quality. I would confidently recommend Versassist to anyone seeking reliable and thoughtful assistance with their online presence.",
-    name: "Monica McGowan",
-    title: "Client",
+      "VersAssist helped us streamline content production, tidy up our course materials, and keep projects moving. Turnaround times are solid, the handoffs are smooth, and their team is flexible as priorities shift. It's the kind of support that actually creates momentum. They don't just complete tasks; they strengthen our systems!",
+    name: "Yolanda Pender",
+    title: "Verified Google Review",
     company: "",
     image: "",
   },
