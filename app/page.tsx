@@ -64,7 +64,6 @@ const clientLogos: {
 }[] = [
   { name: "The Nursing Spot", src: "/logos/nursing%20spot.png", bg: "white" },
   { name: "Carter & Olay Foundation", src: "/logos/The%20Carter%20and%20Olay_Logo%20Horizontal%20TM.avif" },
-  { name: "PRISM", src: "/logos/prism-logo.webp", bg: "dark", size: "lg" },
   { name: "PharmDToBe Guides", src: "/logos/444-300x265.png", size: "xl" },
   { name: "About Life & Marriage", src: "/logos/Logo-2-1-1.webp" },
   { name: "Edge Medical Writing", src: "/logos/edge-logo.png", bg: "white" },

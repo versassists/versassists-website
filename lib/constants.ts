@@ -605,23 +605,6 @@ export const caseStudies: CaseStudy[] = [
     image: "/images/case-study-1.jpg",
   },
   {
-    client: "PRISM AI Consultants",
-    industry: "Technology & Consulting",
-    challenge:
-      "Required enhanced digital footprint across Instagram, YouTube, and LinkedIn to reach their target audience of tech-forward businesses.",
-    solution:
-      "Leveraged AI-generated content to produce captivating videos and marketing materials, implemented multi-platform content strategy with consistent branding.",
-    results: [
-      "Expanded presence across 3 major platforms",
-      "AI-generated video content production",
-      "Elevated brand presence and recognition",
-      "Significant increase in inbound inquiries",
-    ],
-    testimonial:
-      "Their AI-enhanced approach to content creation is unlike anything we've seen in the market.",
-    image: "/images/case-study-2.jpg",
-  },
-  {
     client: "Carter & Olay Foundation",
     industry: "Non-Profit",
     challenge:

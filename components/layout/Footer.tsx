@@ -96,6 +96,16 @@ export default async function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <a
+                  href="https://drjeffbullock.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 text-sm hover:text-primary-light transition-colors"
+                >
+                  Dr. Jeff Bullock
+                </a>
+              </li>
             </ul>
           </div>
 

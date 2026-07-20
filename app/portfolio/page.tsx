@@ -36,12 +36,6 @@ const reels = Array.from({ length: 19 }, (_, i) => `/reels/reel-${String(i + 1).
 
 const clientProjects = [
   {
-    name: "PRISM AI Consultants",
-    description:
-      "Enhanced their digital footprint across Instagram, YouTube, and LinkedIn with AI-generated content that drove sales for their AI Coaching programs and AI ebook.",
-    services: ["Social Media", "Content Creation", "AI Integration"],
-  },
-  {
     name: "Luxury Properties of DFW",
     description:
       "Built the \"Unlocking Luxury\" online course for realtors and managed their online marketing and ad campaigns for maximum reach.",
