@@ -19,12 +19,12 @@ import { breadcrumbSchema, founderSchemas } from "@/lib/schemas";
 export const metadata: Metadata = {
   title: "About VersAssist: AI-Powered Virtual Assistant Company",
   description:
-    "Meet VersAssist — founded by Dr. Jeff Bullock and Dr. Michael Olaiya to deliver AI-powered virtual assistants to small businesses. Expert-led. No lock-in.",
+    "Meet VersAssist — founded by Dr. Jeff Bullock and Michael Olaiya to deliver AI-powered virtual assistants to small businesses. Expert-led. No lock-in.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About VersAssist | AI-Powered Virtual Assistant Company",
     description:
-      "Founded by Dr. Jeff Bullock and Dr. Michael Olaiya. AI-enhanced virtual assistants for small businesses.",
+      "Founded by Dr. Jeff Bullock and Michael Olaiya. AI-enhanced virtual assistants for small businesses.",
     url: "https://www.versassists.com/about",
   },
 };
@@ -141,7 +141,7 @@ export default async function AboutPage() {
 
           <div className="w-full text-gray-500 leading-relaxed text-lg space-y-8 text-left sm:text-center">
             <p>
-              Dr. Jeff Bullock and Dr. Michael Olaiya saw a recurring problem across
+              Dr. Jeff Bullock and Michael Olaiya saw a recurring problem across
               small businesses and startups: entrepreneurs were spending 60&ndash;70% of
               their time on administrative tasks&mdash;<Link href="/services/email-management-virtual-assistant" className="text-primary hover:underline">email</Link>, <Link href="/services/calendar-scheduling-virtual-assistant" className="text-primary hover:underline">scheduling</Link>, <Link href="/services/social-media-virtual-assistant" className="text-primary hover:underline">social
               media</Link>, <Link href="/services/customer-support-virtual-assistant" className="text-primary hover:underline">customer inquiries</Link>&mdash;instead of growing their business.

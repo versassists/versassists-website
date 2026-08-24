@@ -41,7 +41,7 @@ export const organizationSchema = {
     },
     {
       "@type": "Person",
-      name: "Dr. Michael Olaiya",
+      name: "Michael Olaiya",
       jobTitle: "Co-Founder",
     },
   ],
@@ -308,12 +308,12 @@ export const founderSchemas = [
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${BASE_URL}/#founder-michael-olaiya`,
-    name: "Dr. Michael Olaiya",
+    name: "Michael Olaiya",
     jobTitle: "Co-Founder",
     url: `${BASE_URL}/about`,
     worksFor: { "@id": `${BASE_URL}/#organization` },
     description:
-      "Co-Founder of VersAssist. Oversees operations and client success, ensuring every virtual assistant engagement delivers measurable results.",
+      "Michael Olaiya is an Atlanta entrepreneur building education technology that teaches and measures how children make financial decisions. He is CFO of VersAssist, where he leads financial strategy for its AI-enabled business services.",
   },
 ];
 

@@ -499,9 +499,9 @@ export const team: TeamMember[] = [
     image: "/profile-pictures/dr-jeff-bullock.jpg",
   },
   {
-    name: "Dr. Michael Olaiya",
+    name: "Michael Olaiya",
     role: "Co-Founder & CFO",
-    bio: "Dedicated to revolutionizing business growth through AI-powered training and strategic support, Michael ensures VersAssist delivers measurable financial impact for every client.",
+    bio: "Michael Olaiya is an Atlanta entrepreneur building education technology that teaches and measures how children make financial decisions. He is CFO of VersAssist, where he leads financial strategy for its AI-enabled business services.",
     image: "/profile-pictures/dr-mike-olaiya.jpg",
   },
   {
