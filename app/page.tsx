@@ -455,20 +455,29 @@ export default async function Home() {
         {/* Noise */}
         <div className="noise absolute inset-0" />
 
-        <ScrollAnimationWrapper stagger className="relative z-10 max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
+        <div className="relative z-10 max-w-5xl mx-auto px-6">
+          {/* The stat cards must be direct children of the stagger wrapper,
+              or the observer never marks them visible and they stay at opacity 0. */}
+          <ScrollAnimationWrapper
+            stagger
+            className={`grid grid-cols-2 gap-8 md:gap-0 ${
+              stats.length === 3 ? "md:grid-cols-3" : "md:grid-cols-4"
+            }`}
+          >
             {stats.map((stat, i) => (
               <div
                 key={i}
                 className={`animate-on-scroll-scale stagger-${i + 1} py-4 ${
                   i > 0 ? "md:border-l md:border-white/[0.06]" : ""
+                } ${
+                  stats.length % 2 === 1 && i === stats.length - 1 ? "col-span-2 md:col-span-1" : ""
                 }`}
               >
                 <StatCounter stat={stat} />
               </div>
             ))}
-          </div>
-        </ScrollAnimationWrapper>
+          </ScrollAnimationWrapper>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════

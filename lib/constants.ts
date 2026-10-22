@@ -833,10 +833,13 @@ export interface Stat {
   label: string;
 }
 
+// Fallback only. Clients Served and Hours Delivered are read live from
+// https://builds.drjeffbullock.com/facts.json (vs_clients, vs_hours) in
+// getStats(); these values are used only if that feed cannot be read.
+// Client Satisfaction was removed 2026-10-22: it had no data source.
 export const stats: Stat[] = [
-  { value: 50, suffix: "+", label: "Clients Served" },
-  { value: 10000, suffix: "+", label: "Hours Delivered" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
+  { value: 60, suffix: "+", label: "Clients Served" },
+  { value: 15000, suffix: "+", label: "Hours Delivered" },
   { value: 8, suffix: "+", label: "Services Offered" },
 ];
 
