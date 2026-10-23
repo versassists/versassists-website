@@ -4,6 +4,7 @@
  * breaks if the Sanity fetch fails.
  */
 import { getClient } from "./getClient";
+import { getFacts, parseDisplay, STAT_FACT_KEYS, DROPPED_STAT_LABELS } from "@/lib/facts";
 import {
   faqListQuery,
   testimonialListQuery,
@@ -57,6 +58,8 @@ export interface Stat {
   value: number;
   suffix?: string;
   label: string;
+  /** Exact text to show, e.g. "15,000+". Rendered in the HTML, so it works with no JavaScript. */
+  display?: string;
 }
 
 // ─── FAQ ─────────────────────────────────────────────────────────────
@@ -149,6 +152,7 @@ export async function getValues(): Promise<Value[]> {
 
 // ─── Stats ───────────────────────────────────────────────────────────
 export async function getStats(): Promise<Stat[]> {
+  let stats: Stat[] | null = null;
   try {
     const client = await getClient();
     const result = await client.fetch<Stat[]>(
@@ -156,14 +160,35 @@ export async function getStats(): Promise<Stat[]> {
       {},
       { next: { revalidate: 60, tags: ["stat"] } }
     );
-    if (result && result.length > 0) return result;
+    if (result && result.length > 0) stats = result;
   } catch (err) {
     console.error("[getStats] Falling back:", err);
   }
-  return fallbackStats.map((s, i) => ({
-    _id: `fallback-stat-${i}`,
-    value: s.value,
-    suffix: s.suffix,
-    label: s.label,
-  }));
+  if (!stats) {
+    stats = fallbackStats.map((s, i) => ({
+      _id: `fallback-stat-${i}`,
+      value: s.value,
+      suffix: s.suffix,
+      label: s.label,
+    }));
+  }
+
+  // Public numbers come from facts.json, never from typed-in CMS values.
+  const facts = await getFacts();
+  return stats
+    .filter((s) => !DROPPED_STAT_LABELS.includes(s.label))
+    .map((s) => {
+      const key = STAT_FACT_KEYS[s.label];
+      const fact = key ? facts?.[key] : undefined;
+      const parsed = fact ? parseDisplay(fact.display) : null;
+      if (fact && parsed) {
+        return { ...s, value: parsed.value, suffix: parsed.suffix, display: fact.display };
+      }
+      if (key) {
+        // Feed unreachable: use the lib/constants fallback for this label.
+        const fb = fallbackStats.find((f) => f.label === s.label);
+        if (fb) return { ...s, value: fb.value, suffix: fb.suffix };
+      }
+      return s;
+    });
 }
