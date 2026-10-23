@@ -837,10 +837,20 @@ export interface Stat {
 // https://builds.drjeffbullock.com/facts.json (vs_clients, vs_hours) in
 // getStats(); these values are used only if that feed cannot be read.
 // Client Satisfaction was removed 2026-10-22: it had no data source.
+//
+// Services Offered counted 2026-10-23 from distinct work_type categories
+// actually logged in the ops dashboard's timesheets (internal-only categories
+// excluded: Admin/reporting, Philippines BizDev, Client meetings, VersAssist
+// Training, and the uncategorized "Other"). Real categories at that count:
+// Social media, Website build, Video editing, Book development, Book cover/
+// interior, SEO/analytics, Graphic design, Music video, Content writing,
+// Trailer/promo video, CRM/automation. Re-count periodically rather than
+// treating 11 as permanent — this replaced an unsourced "8" that no longer
+// matched what the team delivers.
 export const stats: Stat[] = [
   { value: 60, suffix: "+", label: "Clients Served" },
   { value: 15000, suffix: "+", label: "Hours Delivered" },
-  { value: 8, suffix: "+", label: "Services Offered" },
+  { value: 11, suffix: "+", label: "Services Offered" },
 ];
 
 // ─── Navigation ──────────────────────────────────────────────────────
