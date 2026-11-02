@@ -112,7 +112,17 @@ export default async function PricingPage() {
     },
   ];
 
-  const projectIcons = [Monitor, Layers, Film, PenTool];
+  // Matched by name, not position, so adding projects in Sanity can't leave a card without an icon.
+  const projectIconRules: [RegExp, typeof Monitor][] = [
+    [/front office|receptionist/i, MessageSquare],
+    [/launch/i, Rocket],
+    [/platform/i, Sparkles],
+    [/site|website/i, Monitor],
+    [/movie|video|film/i, Film],
+    [/ghostwrit|book/i, PenTool],
+  ];
+  const projectIconFor = (name: string) =>
+    projectIconRules.find(([pattern]) => pattern.test(name))?.[1] ?? Layers;
 
   const steps = [
     { num: "1", text: "Choose your prepaid plan" },
@@ -339,8 +349,8 @@ export default async function PricingPage() {
           </p>
 
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {customProjects.map((project, i) => {
-              const ProjectIcon = projectIcons[i];
+            {customProjects.map((project) => {
+              const ProjectIcon = projectIconFor(project.name);
               return (
                 <div key={project._id} className="group flex items-center gap-5 bg-white/[0.06] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.1] hover:bg-white/[0.1] hover:border-primary/40 transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">

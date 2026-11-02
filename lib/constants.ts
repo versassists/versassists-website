@@ -734,10 +734,13 @@ export interface CustomProject {
 }
 
 export const customProjects: CustomProject[] = [
-  { name: "Website — 5 pages", description: "Flat or hour-bank", price: "$300" },
+  { name: "Starter site — 5 pages", description: "Flat or hour-bank", price: "$350" },
+  { name: "AI Front Office", description: "AI receptionist for your business phone line", price: "$297/mo" },
   { name: "AI Prototype Demo", description: "Dashboard or chatbot", price: "$500–$1,500" },
+  { name: "Launch Pack", description: "5-page website on your domain, 60 to 90 second promo video, 10 short vertical clips, and 6 months of AI Front Office. About $3,100 bought separately.", price: "$2,500" },
   { name: "Your Life as a Movie", description: "Book, video, website", price: "$2,997" },
   { name: "Book Ghostwriting 7–15K words", description: "Delivery + management with hours", price: "$999" },
+  { name: "Platform Year", description: "Universe book package with author website, a launch event show, 12 months of Monthly Content (4 long edits and 20 clips a month), and 12 months of AI Front Office, with one named project lead. About $34,000 bought separately. We take 2 new clients a quarter.", price: "$25,000" },
 ];
 
 // ─── FAQ ─────────────────────────────────────────────────────────────
