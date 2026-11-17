@@ -2,10 +2,14 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { buildContentPrompt, buildTitlePrompt } from "./prompts";
 import type { GeneratedPost, Category } from "./types";
 
-// Models to try in order of preference
-// gemini-2.5-flash is scheduled to shut off in December 2026 and gemini-1.5-flash is gone,
-// so lead with current models. A 404 skips to the next model automatically.
-const MODELS = ["gemini-3.5-flash", "gemini-flash-latest", "gemini-2.5-flash"];
+// Models to try in order of preference.
+// gemini-2.5-flash is scheduled to shut off in December 2026; once it does it returns 404 and the
+// loop below moves on to the next model automatically. gemini-3.5-flash was returning 503
+// ("high demand") on 2026-11-17, so the proven model goes first and the newer ones follow.
+const MODELS = ["gemini-2.5-flash", "gemini-3.5-flash", "gemini-3.6-flash"];
+
+// Abort a hung request instead of waiting forever (one run sat for 5 minutes then crashed).
+const REQUEST_TIMEOUT_MS = 120_000;
 
 let _genAI: GoogleGenerativeAI;
 function getGenAI(): GoogleGenerativeAI {
@@ -27,13 +31,18 @@ async function callWithRetry(prompt: string): Promise<string> {
     for (let attempt = 1; attempt <= 2; attempt++) {
       try {
         console.log(`  [gemini] Trying ${modelName} (attempt ${attempt})...`);
-        const model = getGenAI().getGenerativeModel({ model: modelName });
+        const model = getGenAI().getGenerativeModel(
+          { model: modelName },
+          { timeout: REQUEST_TIMEOUT_MS }
+        );
         const result = await model.generateContent(prompt);
         return result.response.text();
       } catch (err: unknown) {
         const status = (err as { status?: number }).status;
-        if (status === 503 || status === 429) {
-          console.log(`  [gemini] ${modelName} unavailable (${status}), waiting 10s...`);
+        // 503/429 = busy or rate limited; no status = network error or timeout. Retry, then next model.
+        if (status === 503 || status === 429 || status === undefined) {
+          const why = status ?? (err as Error).message;
+          console.log(`  [gemini] ${modelName} unavailable (${why}), waiting 10s...`);
           await new Promise((r) => setTimeout(r, 10000));
           continue;
         }
