@@ -3,7 +3,9 @@ import { buildContentPrompt, buildTitlePrompt } from "./prompts";
 import type { GeneratedPost, Category } from "./types";
 
 // Models to try in order of preference
-const MODELS = ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-1.5-flash"];
+// gemini-2.5-flash is scheduled to shut off in December 2026 and gemini-1.5-flash is gone,
+// so lead with current models. A 404 skips to the next model automatically.
+const MODELS = ["gemini-3.5-flash", "gemini-flash-latest", "gemini-2.5-flash"];
 
 let _genAI: GoogleGenerativeAI;
 function getGenAI(): GoogleGenerativeAI {

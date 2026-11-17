@@ -1,9 +1,10 @@
 import { createClient } from "@sanity/client";
 
-// Imagen models to try in order of preference
-const IMAGEN_MODELS = [
-  "imagen-4.0-fast-generate-001",
-  "imagen-4.0-generate-001",
+// Gemini image models to try in order of preference.
+// The old Imagen 4 models (imagen-4.0-*-generate-001) were retired and return 404.
+const IMAGE_MODELS = [
+  "gemini-3.1-flash-image",
+  "gemini-2.5-flash-image",
 ];
 
 const BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models";
@@ -14,20 +15,24 @@ export async function generateAndUploadImage(
   client: ReturnType<typeof createClient>
 ): Promise<string | null> {
   try {
-    console.log("  [image] Generating with Imagen 4...");
+    console.log("  [image] Generating with Gemini image models...");
 
     let base64: string | undefined;
+    let mimeType = "image/png";
 
-    for (const model of IMAGEN_MODELS) {
+    for (const model of IMAGE_MODELS) {
       console.log(`  [image] Trying ${model}...`);
-      const url = `${BASE_URL}/${model}:predict?key=${process.env.GEMINI_API_KEY}`;
+      const url = `${BASE_URL}/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`;
 
       const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          instances: [{ prompt: imagePrompt }],
-          parameters: { sampleCount: 1, aspectRatio: "16:9" },
+          contents: [{ parts: [{ text: imagePrompt }] }],
+          generationConfig: {
+            responseModalities: ["IMAGE"],
+            imageConfig: { aspectRatio: "16:9" },
+          },
         }),
       });
 
@@ -38,24 +43,29 @@ export async function generateAndUploadImage(
       }
 
       const data = await res.json();
-      base64 = data.predictions?.[0]?.bytesBase64Encoded;
+      const parts: Array<{ inlineData?: { data?: string; mimeType?: string } }> =
+        data.candidates?.[0]?.content?.parts ?? [];
+      const imagePart = parts.find((p) => p.inlineData?.data);
+      base64 = imagePart?.inlineData?.data;
+      if (imagePart?.inlineData?.mimeType) mimeType = imagePart.inlineData.mimeType;
 
       if (base64) break;
       console.error(`  [image] ${model} returned no image data`);
     }
 
     if (!base64) {
-      console.error("  [image] All Imagen models failed");
+      console.error("  [image] All image models failed (post will publish without an image)");
       return null;
     }
 
     const buffer = Buffer.from(base64, "base64");
+    const ext = mimeType.includes("jpeg") ? "jpg" : "png";
 
     console.log("  [image] Uploading to Sanity...");
 
     const asset = await client.assets.upload("image", buffer, {
-      filename: `${slug}.png`,
-      contentType: "image/png",
+      filename: `${slug}.${ext}`,
+      contentType: mimeType,
     });
 
     console.log(`  [image] Uploaded: ${asset._id}`);
